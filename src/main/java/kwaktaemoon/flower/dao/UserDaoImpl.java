@@ -18,13 +18,13 @@ public class UserDaoImpl implements UserDao {
 	}
 	
 	@Override
-	public String selectId(String name, String contactNum) {
-		return userMap.selectId(name, contactNum);
+	public String selectId(String userId) {
+		return userMap.selectId(userId);
 	}
 	
 	@Override
-	public String selectPw(String name, String userId,	String email) {
-		return userMap.selectPw(name, userId, email);
+	public String selectPw(String userName, String userId,	String email) {
+		return userMap.selectPw(userName, userId, email);
 	}
 	
 	@Override

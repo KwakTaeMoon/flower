@@ -16,14 +16,14 @@ import lombok.NoArgsConstructor;
 public class User {
 	private String userId;
 	private String userPw;
-	private String name;
+	private String userName;
 	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
 	private LocalDate birthday;
 	private String email;
 	private String contactNum;
-	private int postcode;
+	private String postcode;
 	private String addr;
 	private String detailAddr;
 	

@@ -18,13 +18,13 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public String getId(String name, String contactNum) {
-		return userDao.selectId(name, contactNum);
+	public String getId(String userId) {
+		return userDao.selectId(userId);
 	}
 	
 	@Override
-	public String getPw(String name, String userId,	String email) {
-		return userDao.selectPw(name, userId, email);
+	public String getPw(String userName, String userId,	String email) {
+		return userDao.selectPw(userName, userId, email);
 	}
 	
 	@Override

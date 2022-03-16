@@ -18,9 +18,9 @@
 	</select>
 	
 	<insert id='insertUser'>
-		insert into users(user_id, user_pw, name, birthday, email
+		insert into users(user_id, user_pw, user_name, birthday, email,
 		contact_num, postcode, addr, detail_addr)
-		values (#{userId}, #{userPw}, #{name}, #{birthday}, #{email},
+		values (#{userId}, #{userPw}, #{userName}, #{birthday}, #{email},
 		 #{contactNum}, #{postcode}, #{addr}, #{detailAddr})
 	</insert>
 	
@@ -56,28 +56,28 @@
 	</delete>
 	
 	<select id='selectUser'>
-		select user_id, name, birthday, email, contact_num, 
+		select user_id, userName, birthday, email, contact_num, 
 		postcode, addr, detail_addr
 		from users
 		where user_id = #{userId}
 	</select>
 	
 	<select id='selectUsers'>
-		select user_id, user_pw, name, birthday, email, contact_num,
+		select user_id, user_pw, userName, birthday, email, contact_num,
 		postcode, addr, detail_addr
 		from users
 	</select>
 		
 	<insert id='insertUserAdmin'>
-		insert into users(user_id, user_pw, name, birthday, email
+		insert into users(user_id, user_pw, userName, birthday, email
 		contact_num, postcode, addr, detail_addr)
-		values (#{userId}, #{userPw}, #{name}, #{birthday}, #{email},
+		values (#{userId}, #{userPw}, #{userName}, #{birthday}, #{email},
 		 #{contactNum}, #{postcode}, #{addr}, #{detailAddr})
 	</insert>
 	
 	<update id='updateUserAdmin'>
 		update users
-		set user_pw = #{userPw}, name = #{name}, birthday = #{birthday},
+		set user_pw = #{userPw}, userName = #{userName}, birthday = #{birthday},
 				email = #{email}, contact_num = #{contactNum}, postcode = #{postcode},
 				addr = #{addr}, detail_addr = #{detailAddr}
 		where user_id = #{userId}

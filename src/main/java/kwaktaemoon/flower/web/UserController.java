@@ -2,6 +2,7 @@ package kwaktaemoon.flower.web;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kwaktaemoon.flower.domain.User;
 import kwaktaemoon.flower.domain.UserDto;
@@ -40,6 +42,15 @@ public class UserController {
 			model.addAttribute("user",user);
 		}
 	}
+	
+	@ResponseBody
+	@RequestMapping("/idChk")
+	public String idChk(@RequestParam("userId") String userId, HttpServletRequest request, HttpServletResponse response) {
+		String result = userService.getId(userId);
+		if(result == null) result = "";
+		
+		return result;
+	}
    
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
@@ -56,4 +67,15 @@ public class UserController {
 	public void joinUser(@RequestBody User user) {
 		userService.addUser(user);
 	}
+	
+	@RequestMapping("/terms")
+	public String terms() {
+		return "user/terms";
+	}
+	
+	@RequestMapping("/joinSuccess")
+	public String joinSuccess() {
+		return "user/joinSuccess";
+	}
+	
 }

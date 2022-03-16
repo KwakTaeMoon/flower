@@ -6,8 +6,8 @@ import kwaktaemoon.flower.domain.User;
 
 public interface UserDao {
 	User login(String userId, String userPw);
-	String selectId(String name, String contactNum);
-	String selectPw(String name, String userId,	String email);
+	String selectId(String userId);
+	String selectPw(String userName, String userId,	String email);
 	int insertUser(User user);
 	int updatePw(String userId, String userPw);
 	int updateEmail(String userId, String email);

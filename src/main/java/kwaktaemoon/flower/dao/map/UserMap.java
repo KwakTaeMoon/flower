@@ -8,8 +8,8 @@ import kwaktaemoon.flower.domain.User;
 
 public interface UserMap {
 	User login(@Param("userId") String userId, @Param("userPw") String userPw);
-	String selectId(@Param("name") String name, @Param("contactNum") String contactNum);
-	String selectPw(@Param("name") String name, @Param("userId") String userId,
+	String selectId(@Param("userId") String userId);
+	String selectPw(@Param("userName") String userName, @Param("userId") String userId,
 													@Param("email") String email);
 	int insertUser(User user);
 	int updatePw(@Param("userId") String userId, @Param("userPw") String userPw);
