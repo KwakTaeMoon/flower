@@ -41,17 +41,8 @@ function constrainPw(userPw) {
 	}
 }
 
-function constrainEmail(email){
-	filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-	if(filter.test(email)){
-		return true;
-	} else {
-		return false;
-	}
-}
-
 function constrainContactNum(text){
-	if(number.length == 11){
+	if(text.length == 11){
 		return true;
 	} else {
 		return false;
@@ -107,20 +98,21 @@ function init() {
 	
 	$('#joinConfirmBtn').click(() => {
 		if($('#userId').val()) {
-			if($('#userPw').val() && constrainPw($('#userPw').val)) {
-				if($('#userName').val()) {
-					if($('#birthday').val()) {
-						if($('#email').val() && constrainEmail($('#email').val)) {
-							if($('#contactNum').val() && constrainContactNum($('#contactNum').val)) {
-								if($('#postcode').val()) {
-									if($('#addr').val()) {
-										if($('#detailAddr').val()) {
-											if(checkedId == 1) {
+			if(checkedId == 1) {
+				if($('#userPw').val() && constrainPw($('#userPw').val)) {
+					if($('#userName').val()) {
+						if($('#birthday').val()) {
+							if($('#email').val()) {
+								if($('#contactNum').val() && constrainContactNum($('#contactNum').val())) {
+									if($('#postcode').val()) {
+										if($('#addr').val()) {
+											if($('#detailAddr').val()) {
 												if($('#terms:checked').val()) {
 													$('#joinConfirmModalMsg').text('회원가입이 완료되었습니다.')
 													$('#joinConfirmOkBtn').show()
 													$('#joinConfirmNoBtn').hide()
 													$('#joinConfirmModal').modal()
+													
 												} else {
 													$('#joinConfirmModalMsg').text('약관에 동의해 주세요.')
 													$('#joinConfirmOkBtn').hide()
@@ -128,14 +120,7 @@ function init() {
 													$('#joinConfirmModal').modal()
 													
 												}
-											} else {
-												$('#joinConfirmModalMsg').text('아이디 중복체크 해주세요.')
-												$('#joinConfirmOkBtn').hide()
-												$('#joinConfirmNoBtn').show()
-												$('#joinConfirmModal').modal()
-												
-											}
-										} else {
+											}  else {
 											$('#joinConfirmModalMsg').text('상세주소를 확인해주세요.')
 											$('#joinConfirmOkBtn').hide()
 											$('#joinConfirmNoBtn').show()
@@ -157,7 +142,7 @@ function init() {
 									
 								}
 							} else {
-								$('#joinConfirmModalMsg').text('연락처를 확인해주세요.(11자리)')
+								$('#joinConfirmModalMsg').text('연락처를 확인해주세요.(-를 제외 11자리)')
 								$('#joinConfirmOkBtn').hide()
 								$('#joinConfirmNoBtn').show()
 								$('#joinConfirmModal').modal()
@@ -178,7 +163,7 @@ function init() {
 						
 					}
 				} else {
-					$('#joinConfirmModalMsg').text('이름을 확인해주세요.()')
+					$('#joinConfirmModalMsg').text('이름을 확인해주세요.')
 					$('#joinConfirmOkBtn').hide()
 					$('#joinConfirmNoBtn').show()
 					$('#joinConfirmModal').modal()
@@ -192,6 +177,13 @@ function init() {
 				
 			}
 		} else {
+			$('#joinConfirmModalMsg').text('아이디 중복체크 해주세요.')
+			$('#joinConfirmOkBtn').hide()
+			$('#joinConfirmNoBtn').show()
+			$('#joinConfirmModal').modal()
+			
+		}
+	} else {
 			$('#joinConfirmModalMsg').text('아이디를 확인해주세요.')
 			$('#joinConfirmOkBtn').hide()
 			$('#joinConfirmNoBtn').show()
