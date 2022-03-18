@@ -92,9 +92,9 @@ $(init);
 	</div><br>
 	<div class='row'>
 	   	<div class='col' style='text-align:center;'>
-	   		<a style='color:black' href = '<%=request.getContextPath() %>'>아이디 찾기</a>
+	   		<a style='color:black' href = '<%=request.getContextPath() %>/user/findId'>아이디 찾기</a>
 	   		<span>|</span>
-			<a style='color:black' href = '<%=request.getContextPath() %>'><span>비밀번호 찾기</span></a>
+			<a style='color:black' href = '<%=request.getContextPath() %>/user/findPw'><span>비밀번호 찾기</span></a>
 			<span>|</span>
 			<a style='color:black' href = '<%=request.getContextPath() %>/user/join'><span>회원 가입</span></a>
 			<span>|</span>

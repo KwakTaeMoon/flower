@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kwaktaemoon.flower.dao.UserDao;
 import kwaktaemoon.flower.domain.User;
+import kwaktaemoon.flower.domain.UserDto;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -18,12 +19,17 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public String getId(String userId) {
+	public String chkId(String userId) {
 		return userDao.selectId(userId);
 	}
 	
 	@Override
-	public String getPw(String userName, String userId,	String email) {
+	public String findId(String userName, String contactNum) {
+		return userDao.selectId2(userName, contactNum);
+	}
+	
+	@Override
+	public String findPw(String userName, String userId, String email) {
 		return userDao.selectPw(userName, userId, email);
 	}
 	

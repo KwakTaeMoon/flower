@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import kwaktaemoon.flower.dao.map.UserMap;
 import kwaktaemoon.flower.domain.User;
+import kwaktaemoon.flower.domain.UserDto;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -23,7 +24,12 @@ public class UserDaoImpl implements UserDao {
 	}
 	
 	@Override
-	public String selectPw(String userName, String userId,	String email) {
+	public String selectId2(String userName, String contactNum) {
+		return userMap.selectId2(userName, contactNum);
+	}
+	
+	@Override
+	public String selectPw(String userName, String userId, String email) {
 		return userMap.selectPw(userName, userId, email);
 	}
 	

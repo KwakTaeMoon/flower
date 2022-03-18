@@ -355,7 +355,7 @@ $(init)
          </div>
          <div class='modal-footer' id='modalBtn'>
          	<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='joinConfirmNoBtn'>확인</button>
-            <button type='button' class='btn btn-outline-secondary' id='joinConfirmOkBtn' onclick='location.href="/user/joinSuccess"'>확인</button>
+            <button type='button' class='btn btn-outline-secondary' id='joinConfirmOkBtn' onclick='location.href="<%=request.getContextPath() %>/user/joinSuccess"'>확인</button>
          </div>
       </div>
    </div>
@@ -371,7 +371,7 @@ $(init)
 			<div class='modal-body' align='center'>
 				<p>회원 가입을 취소하시겠습니까?</p>
 				<button data-dismiss='modal' class='btn btn-outline-secondary'
-					onclick='location.href="../localhost"'>예</button>&emsp;&emsp;         	
+					onclick='location.href="../user/login"'>예</button>&emsp;&emsp;         	
 				 <button type='button' data-dismiss='modal' class='btn btn-secondary'>아니오</button>         
 			</div>
 	      </div>

@@ -5,12 +5,14 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import kwaktaemoon.flower.domain.User;
+import kwaktaemoon.flower.domain.UserDto;
 
 public interface UserMap {
 	User login(@Param("userId") String userId, @Param("userPw") String userPw);
 	String selectId(@Param("userId") String userId);
-	String selectPw(@Param("userName") String userName, @Param("userId") String userId,
-													@Param("email") String email);
+	String selectId2(@Param("userName") String userName,@Param("contactNum") String contactNum);
+	String selectPw(@Param("userName") String userName,
+									@Param("userId") String userId, @Param("email") String email);
 	int insertUser(User user);
 	int updatePw(@Param("userId") String userId, @Param("userPw") String userPw);
 	int updateEmail(@Param("userId") String userId, @Param("email") String email);

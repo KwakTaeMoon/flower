@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kwaktaemoon.flower.domain.User;
 import kwaktaemoon.flower.domain.UserDto;
@@ -43,13 +45,39 @@ public class UserController {
 		}
 	}
 	
-	@ResponseBody
-	@RequestMapping("/idChk")
-	public String idChk(@RequestParam("userId") String userId, HttpServletRequest request, HttpServletResponse response) {
-		String result = userService.getId(userId);
-		if(result == null) result = "";
+	@GetMapping("/findId")
+	public void findId() throws Exception {
 		
-		return result;
+	}
+	
+	@RequestMapping("/findId-send")
+	public String findId(RedirectAttributes redirectAttrs, @RequestParam String userName, @RequestParam String contactNum) {
+		String userId = userService.findId(userName, contactNum);
+		redirectAttrs.addFlashAttribute("userId", userId);
+		return "redirect:../user/findIdResult";
+	}
+	
+	@GetMapping("findIdResult")
+	public void findIdResult(String userId) throws Exception {
+		
+	}
+	
+	@GetMapping("/findPw")
+	public void findPw() throws Exception {
+		
+	}
+	
+	@PostMapping("/findPw-send")
+	public String findPw(RedirectAttributes redirectAttrs, @RequestParam String userName,
+									@RequestParam String userId, @RequestParam String email) {
+		String userPw = userService.findPw(userName, userId, email);
+		redirectAttrs.addFlashAttribute("userPw", userPw);
+		return "redirect:../user/findPwResult";
+	}
+	
+	@GetMapping("findPwResult")
+	public void findPwResult() throws Exception {
+		
 	}
    
 	@GetMapping("/logout")
@@ -66,6 +94,15 @@ public class UserController {
 	@PostMapping("/join")
 	public void joinUser(@RequestBody User user) {
 		userService.addUser(user);
+	}
+
+	@ResponseBody
+	@RequestMapping("/idChk")
+	public String idChk(@RequestParam("userId") String userId, HttpServletRequest request, HttpServletResponse response) {
+		String result = userService.chkId(userId);
+		if(result == null) result = "";
+		
+		return result;
 	}
 	
 	@RequestMapping("/terms")

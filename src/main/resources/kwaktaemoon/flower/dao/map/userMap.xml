@@ -12,9 +12,14 @@
 		where user_id = #{userId}
 	</select>
 	
+	<select id='selectId2' resultType='string'>
+		select user_id from users
+		where user_name = #{userName} and contact_num = #{contactNum}
+	</select>
+	
 	<select id='selectPw' resultType='string'>
 		select user_pw from users
-		where user_pw = #{userPw}
+		where user_name = #{userName} and user_id = #{userId} and email = #{email}
 	</select>
 	
 	<insert id='insertUser'>
@@ -92,4 +97,5 @@
       <id property='userId' column='user_id'/>
       <result property='userPw' column='user_pw'/>
    </resultMap>
+   
 </mapper>
