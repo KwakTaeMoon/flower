@@ -34,7 +34,8 @@ public class UserController {
 	}
    
 	@PostMapping("/login")
-	public void loginchk(@RequestParam("userId") String userId, @RequestParam("userPw") String userPw, Model model, HttpServletRequest request){
+	public void loginchk(@RequestParam("userId") String userId,
+			@RequestParam("userPw") String userPw, Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		User user = userService.chkUser(userId, userPw);
 		session.setAttribute("userId", user.getUserId());
@@ -115,4 +116,33 @@ public class UserController {
 		return "user/joinSuccess";
 	}
 	
+	@RequestMapping("/myPage")
+	public String myPage() {
+		return "user/myPage";
+	}
+	
+	@RequestMapping("/fixPw")
+	public String fixPwAddr() {
+		return "user/fixPw";
+	}
+	
+	@PostMapping("/fixPw")
+	public void saveId(@RequestBody User user, HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		session.getAttribute("userId");
+		
+		if(user.getUserId() != null) {
+			session.setAttribute("userId", user.getUserId());
+		}
+	}
+	
+	@PostMapping("/fixPw2")
+	public void fixPw(@RequestParam("userPw") String userPw, HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("userId");
+		
+		if(userId != null) {
+			userService.fixPw(userId, userPw);
+		}
+	}
 }

@@ -11,7 +11,7 @@
 <%@ include file ="../../../res/lib.css"%>
 </style>
 <div class='container'>
-	<%@ include file='../include/header.jsp' %>
+<%@ include file='../include/header.jsp' %>
 	
 <!-- 여기에 작성하면 됩니다. -->
 	
