@@ -9,13 +9,6 @@
 </script>
 <style>
 <%@ include file ="../../../res/lib.css"%>
-#helpbottom{
-   width: 200;
-   height: 200px;
-   border: 1px solid lightgrey;
-   text-align: center;
-}
- 
 div {
 	text-align: center
 }
@@ -30,7 +23,7 @@ div {
 				<p>구매 완료 되었습니다<br>이용 해 주셔서 감사합니다 :)</p> </div>
 			<div class='row d-flex justify-content-center'>
 				<button type="button" class="btn btn-outline-secondary m-5 d-flex justify-content-center"
-					onclick='location.href="./listOrder"'>쇼핑 더하기</button>
+					onclick="location.href='${pageContext.request.contextPath}/'">쇼핑 더하기</button>
 			</div>
 		</div>
 	</div>

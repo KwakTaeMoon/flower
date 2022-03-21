@@ -62,7 +62,7 @@ table {
 							   	<tr>
 							      <th>
 							      	<div class='carousel-item active'>
-							      		<div id='flowerImg1'><a href='#'>꽃 이미지</a></div>
+							      		<div id='flowerImg1'><a href='<%=request.getContextPath() %>/order/addOrder'>꽃 이미지</a></div>
 							      		<div id='bestProductInfo1'><p>빨간 장미다발<br><small>10000원&nbsp;<span class='badge badge-primary'>BEST</span></small></p></div>
 							      	</div>
 							      	<div class='carousel-item'>
