@@ -21,17 +21,17 @@ import kwaktaemoon.flower.service.FlowerService;
 @RequestMapping("flower")
 public class FlowerController {
 	@Autowired private FlowerService flowerService;
-	
+	/*
 	@GetMapping("/flowerList")
 	public ModelAndView flowerListAddr
 	}
-
+	*/
 	@ResponseBody
 	@GetMapping("/list")
 	public List<Flower> getFlowers(){
 	return flowerService.getFlowers();
 	}
-	
+	/*
 	@ResponseBody
 	@GetMapping("/")
 	public List<Flower> searchFlowerWithKeyword(String keyword){

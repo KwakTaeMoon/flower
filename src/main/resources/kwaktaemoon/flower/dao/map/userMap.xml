@@ -22,6 +22,13 @@
 		where user_name = #{userName} and user_id = #{userId} and email = #{email}
 	</select>
 	
+	<select id='selectUser' resultType='user'>
+		select user_id, user_name, birthday, email, contact_num, 
+		postcode, addr, detail_addr
+		from users
+		where user_id = #{userId}
+	</select>
+	
 	<insert id='insertUser'>
 		insert into users(user_id, user_pw, user_name, birthday, email,
 		contact_num, postcode, addr, detail_addr)
@@ -60,7 +67,7 @@
 		where user_id = #{userId}
 	</delete>
 	
-	<select id='selectUser'>
+	<select id='selectUser2'>
 		select user_id, userName, birthday, email, contact_num, 
 		postcode, addr, detail_addr
 		from users

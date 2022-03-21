@@ -60,16 +60,16 @@ li {
 						</td>
 					<tr>
 						<th>이름</th>
-						<td><p>${userName}</p></td>
+						<td><p>${user.userName}</p></td>
 					</tr>
 					<tr>
 						<th>생년월일</th>
-						<td>${birthday}</td>
+						<td>${user.birthday}</td>
 					</tr>	
 					<tr>
 						<th><span>이메일</span></th>
 						<td>
-							<input type='email' style='text-align:center;' value='${email}'/>
+							<input type='email' style='text-align:center;' value='${user.email}'/>
 							<button type='button' class='btn btn-sm btn-secondary' 
 							style='height:2rem; text-align:center; font-size:1rem; color:white;'>이메일 수정</button>
 						</td>
@@ -77,7 +77,7 @@ li {
 					<tr>
 						<th><span>연락처</span></th>
 						<td>
-							<input type='text' style='text-align:center;' value='${contactNum}'/>
+							<input type='text' style='text-align:center;' value='${user.contactNum}'/>
 							<button type='button' class='btn btn-sm btn-secondary' 
 							style='height:2rem; text-align:center; font-size:1rem; color:white;'>연락처 수정</button>
 						</td>
@@ -87,19 +87,19 @@ li {
 						<td>
 						<div class='row'>
 							<div class='col'>
-								<input type='number' id='zip' name='deliveryInformation' value='${postcode}}'> &nbsp;
+								<input type='number' id='zip' name='deliveryInformation' value='${user.postcode}}'> &nbsp;
 								<button type='button' name='deliveryInformation' class='btn btn-sm btn-outline-secondary'
 									data-toggle='modal' data-target='#addressModal'>주소 찾기</button>
 							</div>
 						</div>
 						<div class='row'>
 							<div class='col'>
-								<input type="text" name="deliveryInformation" style='width:100%' value='${addr}'/>
+								<input type="text" name="deliveryInformation" style='width:100%' value='${user.addr}'/>
 							</div>
 						</div>
 						<div class='row'>
 							<div class='col'>
-								<input type="text" name="deliveryInformation" style='width:100%' value='${detailAddr}'/>
+								<input type="text" name="deliveryInformation" style='width:100%' value='${user.detailAddr}'/>
 							</div>
 						</div>
 						<div class='row justify-content-center mt-2 float-right'>
