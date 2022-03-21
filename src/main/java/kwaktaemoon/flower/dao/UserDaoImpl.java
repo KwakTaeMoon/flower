@@ -2,13 +2,11 @@ package kwaktaemoon.flower.dao;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kwaktaemoon.flower.dao.map.UserMap;
 import kwaktaemoon.flower.domain.User;
-import kwaktaemoon.flower.domain.UserDto;
 
 @Repository
 public class UserDaoImpl implements UserDao {

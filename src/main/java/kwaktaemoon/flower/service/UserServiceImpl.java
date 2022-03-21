@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import kwaktaemoon.flower.dao.UserDao;
 import kwaktaemoon.flower.domain.User;
-import kwaktaemoon.flower.domain.UserDto;
 
 @Service
 public class UserServiceImpl implements UserService {
