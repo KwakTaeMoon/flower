@@ -3,9 +3,7 @@
 	'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
 <mapper namespace='kwaktaemoon.flower.dao.map.FlowerMap'>
 	<select id='selectFlowers' resultType='flower'>
-		select flower_num, flower_name, price, amount, kind, flower_category,
-		flower_size, flower_imgfile_name, detail_imgfile_name, red_date
-		from flowers
+		select * from flowers
 		order by flower_num desc
 	</select>	
 	
@@ -20,16 +18,11 @@
 		where flower_num = #{flowerNum}
 	</select>	
 	
-	<insert id='insertFlowerAdmin'>
+	<insert id='insertFlower'>
 		insert into flowers(flower_num, flower_name, price, amount, kind, flower_category,
 				flower_size, flower_imgfile_name, detail_imgfile_name, reg_date)
 		values(#{flowerNum}, #{flowerName}, #{price}, #{amount}, #{flowerCategory}, 
 				#{flowerSize}, #{flowerImgfileName}, #{detailImgfileName}, #{regDate})	
 	</insert>	
-	
-	<update id='updateFlowerAdmin'>
-		update flowers
-		set 
-	</update>
 	
 </mapper>

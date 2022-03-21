@@ -2,6 +2,9 @@ package kwaktaemoon.flower.domain;
 
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 
@@ -16,6 +19,7 @@ public class Flower {
 	private String flowerSize;
 	private String flowerImgfileName;
 	private String detailImgFileName;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
 	private LocalDate regDate;
-	private String keyword;
 }

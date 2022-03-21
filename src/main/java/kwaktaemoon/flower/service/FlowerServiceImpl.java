@@ -28,7 +28,7 @@ public class FlowerServiceImpl implements FlowerService{
 	}
 	@Override
 	public int addFlowerAdmin(Flower flower) {
-		return flowerDao.insertFlowerAdmin(flower);
+		return flowerDao.insertFlower(flower);
 	}
 	@Override
 	public int fixFlowerAdmin(Flower flower) {

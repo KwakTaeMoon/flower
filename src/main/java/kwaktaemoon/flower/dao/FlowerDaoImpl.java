@@ -27,8 +27,8 @@ public class FlowerDaoImpl implements FlowerDao{
 		return flowerMap.searchFlower(flowerName);
 	}
 	@Override
-	public int insertFlowerAdmin(Flower flower) {
-		return flowerMap.insertFlowerAdmin(flower);
+	public int insertFlower(Flower flower) {
+		return flowerMap.insertFlower(flower);
 	}
 	@Override
 	public int updateFlowerAdmin(Flower flower) {

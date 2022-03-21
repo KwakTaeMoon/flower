@@ -36,11 +36,6 @@ public class OrderController{
 	    model.addAttribute("orderList", orderList);
 		return "order/detailOrder";
 	}
-
-	@RequestMapping("/adminListOrder")
-	public String adminListOrder() {
-		return "admin/order/adminListOrder";
-	}
 	
 	@RequestMapping("/addOrder")
 	public String addOrder() {
@@ -63,21 +58,9 @@ public class OrderController{
 	}
 	
 	@ResponseBody
-	@PostMapping("/adminListOrder")
-	public List<Order> getAdminOrders() {
-		return orderService.getAdminOrders();
-	}
-	
-	@ResponseBody
 	@PutMapping("fix/{orderNum}")
 	public void fixDeliState(@PathVariable int orderNum) {
 		orderService.fixDeliState(orderNum);
-	}
-	
-	@ResponseBody
-	@PutMapping("adminFix/{orderNum}")
-	public void fixAdmDeliState(@PathVariable int orderNum) {
-		orderService.fixAdmDeliState(orderNum);
 	}
 	
 	@ResponseBody
@@ -87,11 +70,5 @@ public class OrderController{
 		String userId = (String) session.getAttribute("userId");
 		order.setUserId(userId);
 		orderService.addOrder(order);
-	}
-	
-	@ResponseBody	
-	@DeleteMapping("adminDel/{orderNum}")
-	public void delOrder(@PathVariable int orderNum) {
-		orderService.delOrder(orderNum);
 	}
 }
