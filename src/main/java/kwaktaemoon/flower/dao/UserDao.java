@@ -9,13 +9,14 @@ public interface UserDao {
 	String selectId(String userId);
 	String selectId2(String userName, String contactNum);
 	String selectPw(String userName, String userId, String email);
+	User selectUser(String userId);
 	int insertUser(User user);
 	int updatePw(String userId, String userPw);
 	int updateEmail(String userId, String email);
 	int updateContactNum(String userId, String contactNum);
 	int updateAddress(String userId, String postcode, String addr, String detailaddr);
 	int deleteUser(String userId);
-	User selectUser(String userId);
+	User selectUser2(String userId);
 	List<User> selectUsers();
 	int insertUserAdmin(User user);
 	int updateUserAdmin(User user);

@@ -117,7 +117,9 @@ public class UserController {
 	}
 	
 	@RequestMapping("/myPage")
-	public String myPage() {
+	public String myPage(HttpSession session, Model model) throws Exception {
+	model.addAttribute("user", userService.getMyPage((String)session.getAttribute("userId")));
+		
 		return "user/myPage";
 	}
 	
