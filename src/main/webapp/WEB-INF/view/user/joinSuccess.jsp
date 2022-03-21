@@ -17,7 +17,7 @@
 		<div class='col'>
 			<h5><b>가입완료</b></h5><hr><br><br>
 			<div class='row d-flex justify-content-center' style="height:30px">
-				<p>가입 완료 되었습니다<br>이용 해 주셔서 감사합니다 :)</p> </div>
+				<p>가입 완료 되었습니다.<br>이용 해 주셔서 감사합니다 :)</p> </div>
 			<div class='row d-flex justify-content-center'>
 				<button type="button" class="btn btn-outline-secondary m-5 d-flex justify-content-center"
 					onclick="location.href='<%=request.getContextPath() %>/'">메인으로</button>

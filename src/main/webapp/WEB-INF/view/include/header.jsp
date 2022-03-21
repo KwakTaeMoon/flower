@@ -34,7 +34,7 @@
 								<a class='nav-link' href='#'>후기</a>
 							</li>
 							<li class='nav-item active'>
-								<a class='nav-link' href='#'>MYPAGE</a>
+								<a class='nav-link' href='<%=request.getContextPath() %>/user/myPage'>MYPAGE</a>
 							</li>
 							<li>
 							<div class='d-flex align-items-center'>
