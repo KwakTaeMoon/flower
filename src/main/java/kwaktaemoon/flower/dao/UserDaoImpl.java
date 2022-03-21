@@ -2,6 +2,7 @@ package kwaktaemoon.flower.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -34,6 +35,11 @@ public class UserDaoImpl implements UserDao {
 	}
 	
 	@Override
+	public User selectUser(String userId) {
+		return userMap.selectUser(userId);
+	}
+	
+	@Override
 	public int insertUser(User user) {
 		return userMap.insertUser(user);
 	}
@@ -62,8 +68,8 @@ public class UserDaoImpl implements UserDao {
 		return userMap.deleteUser(userId);
 	}
 	@Override
-	public User selectUser(String userId) {
-		return userMap.selectUser(userId);
+	public User selectUser2(String userId) {
+		return userMap.selectUser2(userId);
 	}
 	
 	@Override

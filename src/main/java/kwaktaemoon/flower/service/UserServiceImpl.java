@@ -34,6 +34,11 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
+	public User getMyPage(String userId) {
+		return userDao.selectUser(userId);
+	}
+	
+	@Override
 	public int addUser(User user) {
 		return userDao.insertUser(user);
 	}
@@ -62,8 +67,8 @@ public class UserServiceImpl implements UserService {
 		return userDao.deleteUser(userId);
 	}
 	@Override
-	public User getUser(String userId) {
-		return userDao.selectUser(userId);
+	public User getUser2(String userId) {
+		return userDao.selectUser2(userId);
 	}
 	
 	@Override
