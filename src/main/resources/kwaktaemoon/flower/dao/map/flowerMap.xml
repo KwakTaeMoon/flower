@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
 	'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
 <mapper namespace='kwaktaemoon.flower.dao.map.FlowerMap'>
-	<select id='selectFlowers' resultMap='flowerMap'>
+	<select id='selectFlowers' resultType='flower'>
 		select flower_num, flower_name, price, amount, kind, flower_category,
 		flower_size, flower_imgfile_name, detail_imgfile_name, red_date
 		from flowers
@@ -10,12 +10,12 @@
 	</select>	
 	
 	
-	<select id='searchFlowerWithKeyword' resultMap='flowerMap'>
+	<select id='searchFlowerWithKeyword' resultType='flower'>
 		select * from flowers
 		WHERE flower_name LIKE '%'||#{keyword}||'%'
 	</select>
 	
-	<select id='searchFlower' resultMap='flowerMap'>
+	<select id='searchFlower' resultType='flower'>
 		select * from flowers
 		where flower_num = #{flowerNum}
 	</select>	
