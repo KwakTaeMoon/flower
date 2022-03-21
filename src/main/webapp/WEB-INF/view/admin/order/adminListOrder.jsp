@@ -9,7 +9,7 @@ function listOrders() {
 	
 	$.ajax({
 		method: 'post',
-		url: "<%=request.getContextPath() %>/order/adminListOrder"
+		url: "<%=request.getContextPath() %>/admin/order/adminListOrder"
 	}).done(orders => {
 		if(orders.length) {
 			const orderArr = []
