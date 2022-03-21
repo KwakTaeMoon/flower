@@ -17,5 +17,4 @@ public class Flower {
 	private String flowerImgfileName;
 	private String detailImgFileName;
 	private LocalDate regDate;
-	private String keyword;
 }
