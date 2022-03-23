@@ -61,11 +61,11 @@ function listUsers() {
 						<td><input type='radio' id='userId' name='userId' value='\${user.userId}'/></td>
 						<td>\${user.userId}</td>
 						<td>\${user.userPw}</td>
-						<td>\${user.userName}</td>
-						<td>\${user.birthday}</td>
+						<td nowrap>\${user.userName}</td>
+						<td nowrap>\${user.birthday}</td>
 						<td>\${user.email}</td>
 						<td>\${user.contactNum}</td>
-						<td>\${user.postcode} \${user.addr} \${user.detailAddr}</td>
+						<td><font size='2rem'>\${user.postcode} \${user.addr} \${user.detailAddr}</font></td>
 					</tr>`		
 				)
 			})
@@ -256,7 +256,7 @@ $(init);
 				</table>
 			</div>
 			
-			<div class='col-8 mt-5 ml-5'>
+			<div class='col-8 mt-5 ml-2'>
 			<form>
 				<h5 style='color:#0f56ba'><b>| 회원 관리</b></h5>
 				<table class='table table-bordered'>
@@ -267,26 +267,26 @@ $(init);
 				</thead>
 				<tbody class='text-center'>
 				<tr>
-					<td><br><input type='text' id='userId' name='userId' title='아이디' readonly /></td>
-					<td><br><input type='password' id='userPw' name='userPw' title='비밀번호' style='width:100px;'/></td>
-					<td><br><input type='text' id='userName' name='userName' title='이름' style='width:100px;' minlength='2'/></td>
-					<td><br><input type='date' id='birthday' name='birthday' title='생년월일'></td>
-					<td><br><input type='email' id='email' name='email' title='이메일' style='width:100px;'/></td>
-					<td><br><input type='text' id='contactNum' name='contactNum' title='전화번호' style='width:100px;'/></td>
+					<td><br><input style='width:6rem;' type='text' id='userId' name='userId' title='아이디' readonly /></td>
+					<td><br><input style='width:6rem;' type='password' id='userPw' name='userPw' title='비밀번호' style='width:100px;'/></td>
+					<td><br><input style='width:5rem;' type='text' id='userName' name='userName' title='이름' style='width:100px;' minlength='2'/></td>
+					<td><br><input style='width:10rem;' type='date' id='birthday' name='birthday' title='생년월일'></td>
+					<td><br><input style='width:12rem;' type='email' id='email' name='email' title='이메일' style='width:100px;'/></td>
+					<td><br><input style='width:7rem;' type='text' id='contactNum' name='contactNum' title='전화번호' style='width:100px;'/></td>
 					<td>							
-						<div class='row'>
+						<div class='row mb-2'>
 							<div class='col'>
-								<input type='text' id='postcode' name='postcode' title='우편번호' style='width:100' placeholder='(우편번호)' readonly >
+								<input style='width:5rem;' type='text' id='postcode' name='postcode' title='우편번호' style='width:100' placeholder='(우편번호)' readonly >
+							</div>
+						</div>
+						<div class='row mb-2'>
+							<div class='col'>
+								<input style='width:7rem;' type='text' id='addr' name='addr' title='기본주소' style='width:120' placeholder='(기본주소)' readonly />
 							</div>
 						</div>
 						<div class='row'>
 							<div class='col'>
-								<input type='text' id='addr' name='addr' title='기본주소' style='width:120' placeholder='(기본주소)' readonly />
-							</div>
-						</div>
-						<div class='row'>
-							<div class='col'>
-								<input type='text' id='detailAddr' name='detailAddr' title='상세주소' style='width:120' placeholder='(상세주소)' />
+								<input style='width:7rem;' type='text' id='detailAddr' name='detailAddr' title='상세주소' style='width:120' placeholder='(상세주소)' />
 							</div>
 						</div>
 					</td>
@@ -311,12 +311,19 @@ $(init);
 		</div>
 		<div class='row mt-5'>
 		<div class='col-2'></div>
-		 	<div class='col ml-5'>
+		 	<div class='col ml-2'>
 			<h5 style='color:#0f56ba'><b>| 회원 목록</b></h5>
 			<table class='table table-bordered' id='userTable'>
 				<thead class='text-center' style='background-color:#b1c3e0;'>
-					<tr><th></th><th>아이디</th><th>비밀번호</th><th>이름</th>
-						<th>생년월일</th><th>이메일</th><th>연락처</th><th>주소</th>
+					<tr>
+						<th style='width:4rem;'></th>
+						<th style='width:18rem;'>아이디</th>
+						<th style='width:26rem;'>비밀번호</th>
+						<th style='width:18rem;'>이름</th>
+						<th style='width:40rem;'>생년월일</th>
+						<th style='width:60rem;'>이메일</th>
+						<th style='width:60rem;'>연락처</th>
+						<th style='width:80rem;'>주소</th>
 					</tr>
 				</thead>
 				<tbody class='text-center' id='users'>
@@ -378,8 +385,8 @@ $(init);
 			</div>
 			<div class='modal-footer' id='modalBtn'>
 				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='noBtn'>아니오</button>
-				<button type='button' class='btn btn-primary' id='okBtn'>예</button>
-				<button type='button' class='btn btn-primary' id='confirmBtn'>확인</button>
+				<button type='button' class='btn btn-outline-secondary' id='okBtn'>예</button>
+				<button type='button' class='btn btn-outline-secondary' id='confirmBtn'>확인</button>
 			</div>
 		</div>
 	</div>

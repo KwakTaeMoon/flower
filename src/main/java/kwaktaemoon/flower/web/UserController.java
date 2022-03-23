@@ -36,8 +36,8 @@ public class UserController {
 	}
    
 	@PostMapping("/login")
-	public void loginchk(@RequestParam("userId") String userId,
-			@RequestParam("userPw") String userPw, Model model, HttpServletRequest request) throws Exception {
+	public void loginchk(@RequestParam("userId") String userId, @RequestParam("userPw") String userPw,
+			 Model model, HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
 		User user = userService.chkUser(userId, userPw);
 		session.setAttribute("userId", user.getUserId());

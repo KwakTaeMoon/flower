@@ -298,7 +298,7 @@ li {
          </div>
          <div class='modal-footer' id='modalBtn'>
             <button type='button' class='btn btn-outline-secondary' id='withdrawOkBtn' onclick='location.href="<%=request.getContextPath() %>/user/withdrawSuccess"'>예</button>
-			<button type='button' class='btn btn-outline-secondary' id='withdrawNoBtn' data-dismiss='modal'>아니오</button>
+			<button type='button' class='btn btn-secondary' id='withdrawNoBtn' data-dismiss='modal'>아니오</button>
          </div>
       </div>
    </div>

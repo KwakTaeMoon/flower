@@ -81,7 +81,7 @@
 								<a class='nav-link' href='<%=request.getContextPath() %>/review/#'>후기</a>
 							</li>
 							<li class='nav-item active'>
-								<a class='nav-link' href='<%=request.getContextPath() %>/user/myPage'>myPage</a>
+								<a class='nav-link' href='<%=request.getContextPath() %>/user/myPage'>MyPage</a>
 							</li>
 							<li>
 							<div class='d-flex align-items-center'>
