@@ -40,16 +40,22 @@ function init() {
 	$(listFlowers)
 	$('#delBtn').click(() => {
 		if($('#flowerNum:checked').val()) {
+			$('#modalMsg').empty();
 			$('#modalMsg').text('꽃을 삭제하시겠습니까?');
 			$('#confirmModal').modal();
+			$('#okBtn').hide();
+			$('#noBtn').show();
+			$('#yesBtn').show();
 		} else {
 			$('#modalMsg').empty();
 			$('#modalMsg').text('꽃을 선택해주세요.');
 			$('#confirmModal').modal();
 			$('#noBtn').hide();
+			$('#yesBtn').hide();
+			$('#okBtn').show();
 		}
 	})
-	$('#okBtn').click(() => {
+	$('#yesBtn').click(() => {
 		$('#confirmModal').modal('hide')
 			$.ajax({
 				url: 'adminDel/' + $('#flowerNum:checked').val(),
@@ -197,6 +203,7 @@ $(init)
 				<p id='modalMsg'></p>
 			</div>
 			<div class='modal-footer'>
+				<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='yesBtn'>예</button>
 				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='noBtn'>아니오</button>
 				<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='okBtn'>확인</button>
 			</div>

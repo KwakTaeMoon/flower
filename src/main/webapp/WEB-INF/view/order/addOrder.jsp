@@ -66,42 +66,49 @@ $('#purchaseBtn').click(() => {
 									$('#modalMsg').empty();
 									$('#modalMsg').text('약관에 동의해주세요.');
 									$('#cofirmModal').modal();
+									$('#okBtn').show();
 									$('#noBtn').hide();
 								}
 							}else {
 								$('#modalMsg').empty();
 								$('#modalMsg').text('희망 배송지를 입력하세요.');
 								$('#cofirmModal').modal();
+								$('#okBtn').show();
 								$('#noBtn').hide();
 							}
 						}else {
 							$('#modalMsg').empty();
 							$('#modalMsg').text('상세주소를 입력하세요.');
 							$('#cofirmModal').modal();
+							$('#okBtn').show();
 							$('#noBtn').hide();
 						}
 					}else {
 						$('#modalMsg').empty();
 						$('#modalMsg').text('기본주소를 입력하세요.');
 						$('#cofirmModal').modal();
+						$('#okBtn').show();
 						$('#noBtn').hide();
 					}
 				}else {
 					$('#modalMsg').empty();
 					$('#modalMsg').text('우편번호를 입력하세요.');
 					$('#cofirmModal').modal();
+					$('#okBtn').show();
 					$('#noBtn').hide();
 				}
 			}else {
 				$('#modalMsg').empty();
 				$('#modalMsg').text('수령인 연락처를 입력하세요. (-를 제외 11자리)');
 				$('#cofirmModal').modal();
+				$('#okBtn').show();
 				$('#noBtn').hide();
 			}
 		}else {
 			$('#modalMsg').empty();
 			$('#modalMsg').text('수령인명을 입력하세요.');
 			$('#cofirmModal').modal();
+			$('#okBtn').show();
 			$('#noBtn').hide();
 		}
 	})

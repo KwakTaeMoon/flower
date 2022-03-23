@@ -11,23 +11,53 @@ $('#registerBtn').click(() => {
 	let price = $('#price').val();
 	let flowerCategory = $('#flowerCategory:checked').val();
 	let kind = $('#kind').val();
-	if(flowerName && price && flowerCategory && kind) {
-		$.ajax({
-			type: 'post',
-			url: '${pageContext.request.contextPath}/admin/flower/addFlower',
-			data: {
-				flowerName: flowerName,
-				price: price,
-				flowerCategory: flowerCategory,
-				kind: kind
+	if(kind) {
+		if(kind=='꽃다발'|| kind=='꽃바구니'|| kind=='화분'|| kind=='조화/꽃비누') {
+			if(flowerCategory) {	
+				if(flowerName) {	
+					if(price) {	
+							$.ajax({
+								type: 'post',
+								url: '${pageContext.request.contextPath}/admin/flower/addFlower',
+								data: {
+									flowerName: flowerName,
+									price: price,
+									flowerCategory: flowerCategory,
+									kind: kind
+								}
+							}).done
+							} else {
+								event.preventDefault();
+								$('#modalMsg').empty();
+								$('#modalMsg').text('가격을 입력해주세요.');
+								$('#cofirmModal').modal();
+								$('#okBtn').show();
+								$('#noBtn').hide();
+							}
+					} else {
+						event.preventDefault();
+						$('#modalMsg').empty();
+						$('#modalMsg').text('꽃 이름을 입력해주세요.');
+						$('#cofirmModal').modal();
+						$('#okBtn').show();
+						$('#noBtn').hide();
+					}
+				} else {
+					event.preventDefault();
+					$('#modalMsg').empty();
+					$('#modalMsg').text('분류를 선택해주세요.');
+					$('#cofirmModal').modal();
+					$('#okBtn').show();
+					$('#noBtn').hide();
+				}
+			} else{
+				event.preventDefault();
+				$('#modalMsg').empty();
+				$('#modalMsg').text('종류를 선택해주세요.');
+				$('#cofirmModal').modal();
+				$('#okBtn').show();
+				$('#noBtn').hide();
 			}
-		}).done
-		} else {
-			event.preventDefault();
-			$('#modalMsg').empty();
-			$('#modalMsg').text('정보를 입력해주세요.');
-			$('#cofirmModal').modal();
-			$('#noBtn').hide();
 		}
 	})
 }  
@@ -35,9 +65,6 @@ $(init)
 </script>
 <style>
 <%@ include file ="../../../../res/lib2.css"%>
-h5 {
-   color: #0f56ba;
-}
 table.type10 {
     width: 100%;
     text-align: center;
@@ -97,19 +124,20 @@ table.type1 td{
 		<hr><br>
 		<form id='form' method='post' encType='multipart/form-data'>
 	<div class='col-8 d-flex'>
-		<h5><b>종류 선택&nbsp;</b></h5><p>*필수</p>
+		<h5 style='color:#0f56ba'><b>종류 선택&nbsp;</b></h5><p>*필수</p>
 	</div>
 	<div class='col-8'>
 		<select id='kind' name='kind' class='text-center col-4'>
-			<option value='꽃다발'>꽃다발</option>
-			<option value='꽃바구니'>꽃바구니</option>
-			<option value='화분'>화분</option>
-			<option value='조화/꽃비누'>조화/꽃비누</option>
+			<option>--</option>
+			<option>꽃다발</option>
+			<option>꽃바구니</option>
+			<option>화분</option>
+			<option>조화/꽃비누</option>
 		</select>
 		<hr><br>
 	</div>	
 	<div class='col-8'>
-		<h5><b>분류&nbsp;</b></h5><br>
+		<h5 style='color:#0f56ba'><b>분류&nbsp;</b></h5><br>
 	</div>
 	<div class='col'>
 		&nbsp;<label for='userName' class='col-form-label'><strong>분류&emsp;&emsp;&emsp;</strong></label>
@@ -119,7 +147,7 @@ table.type1 td{
 	</div><hr><br>
 	
 	<div class='col-8 d-flex'>
-		<h5><b>꽃 기본 사항&nbsp;</b></h5>
+		<h5 style='color:#0f56ba'><b>꽃 기본 사항&nbsp;</b></h5>
 	</div><br>	
 		<table class='table table-borderless' id='classTop'>				
 			<tbody>					
