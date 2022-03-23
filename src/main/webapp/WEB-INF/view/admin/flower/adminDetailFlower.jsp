@@ -104,10 +104,10 @@
 				</div>
 			</div><br><br><hr>
 			<div class='col'>
-			
-				<a href='/admin/flower/fixFlower?flowerName=<c:forEach var="flower" items="${flowerList}">\${flower.flowerName}</c:forEach>'><button class='btn btn-outline-secondary  float-right  mr-2' >수정</button></a>
-			
-			</div>\${flower.flowerName}
+				<c:forEach var="flower" items="${flowerList}">
+					<a href='/admin/flower/fixFlower?flowerName=${flower.flowerName}'><button class='btn btn-outline-secondary  float-right  mr-2' >수정</button></a>	
+				</c:forEach>
+			</div>
 	</div>
 </div>
 

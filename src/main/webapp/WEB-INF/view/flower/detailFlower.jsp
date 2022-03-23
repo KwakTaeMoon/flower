@@ -54,7 +54,7 @@
 		<div class='col text-center'>
 		<c:forEach var="flower" items="${flowerList}">
 			<div id='detailImg'><a href='#'><span style='color:black'>${flower.detailImgfileName}</span></a></div>
-			</c:forEach>	
+		</c:forEach>	
 		</div>
 	</div><br>
 	<div class='row'>
