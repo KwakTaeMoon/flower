@@ -167,6 +167,10 @@ textarea {
 <div class='container'>
 	<%@ include file='../include/header.jsp' %>
 	<br><br><br>
+	<c:if test="${empty sessionScope.userId}">
+		location.href='<%=request.getContextPath() %>/user/login'"
+	</c:if>
+<c:if test="${not empty sessionScope.userId}">
 <div class='row d-flex justify-content-center mt-5'>
 		<div class='col'>
 			<h5 style='color: #0f56ba;'><b>| 주문 상품</b></h5>
@@ -282,7 +286,9 @@ textarea {
 		<button type="button" class="btn btn-outline-secondary m-5 d-flex justify-content-center" id='purchaseBtn'
 			data-toggle='modal' data-target='#noCheckModal'>결제하기</button>
 	</div>
+	</c:if>
 </div>
+
 
 <div id='cofirmModal' class='modal fade' tabindex='-1'>
 	<div class='modal-dialog'>
