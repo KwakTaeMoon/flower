@@ -12,12 +12,12 @@
 </style>
 <div class='container'>
 	<%@ include file='../include/header.jsp' %>
-	
+	<br><br><br><br>
 	<h5 style='color:#0f56ba'><b>| 비밀번호 찾기</b></h5><hr><br>
 		 <c:choose>
 			<c:when test='${userPw == null}'>
 				<div class='row justify-content-center'>
-					<span>이름, 아이디  또는 연락처를 확인해 주세요.</span>
+					<span>이름, 아이디  또는 이메일을 확인해 주세요.</span>
 				</div><br>
 				
 				<div class='row justify-content-around'>

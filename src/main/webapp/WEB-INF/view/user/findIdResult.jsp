@@ -12,8 +12,8 @@
 </style>
 <div class='container'>
 	<%@ include file='../include/header.jsp' %>
-	
-<h5 style='color:#0f56ba'><b>| 아이디 찾기</b></h5><hr><br>
+	<br><br><br><br>
+	<h5 style='color:#0f56ba'><b>| 아이디 찾기</b></h5><hr><br>
 	<c:choose>
 		<c:when test='${userId == null}'>
 			<div class='row justify-content-center'>
