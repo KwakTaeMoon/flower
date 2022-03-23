@@ -1,4 +1,4 @@
-package kwaktaemoon.flower.web.admin;
+package kwaktaemoon.flower.web;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ import kwaktaemoon.flower.service.OrderService;
 
 @Controller
 @RequestMapping("/admin/order")
-public class AdminOrderController{
+public class OrderAdminController{
 	@Autowired private OrderService orderService;	
 
 	@RequestMapping("/adminListOrder")

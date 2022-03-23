@@ -1,4 +1,4 @@
-package kwaktaemoon.flower.web.admin;
+package kwaktaemoon.flower.web;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,7 +24,7 @@ import kwaktaemoon.flower.service.FlowerService;
 
 @Controller
 @RequestMapping("/admin/flower")
-public class AdminFlowerController {
+public class FlowerAdminController {
 	@Autowired private FlowerService flowerService;
 	
 	@Value("${attachPath}") private String attachPath;

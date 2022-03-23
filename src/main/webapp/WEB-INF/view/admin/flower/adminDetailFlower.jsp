@@ -50,7 +50,7 @@
 }
 </style>
 <div class='container-fluid'>
-	<%@ include file='../include/header2.jsp' %>
+	<%@ include file='../include/headerAdmin.jsp' %>
 		</div>
 	<div class='col'>	
 	<div class='row'>

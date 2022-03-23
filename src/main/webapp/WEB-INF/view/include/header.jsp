@@ -22,12 +22,6 @@
 								<a class='nav-link' href='#'>꽃바구니</a>
 							</li>
 							<li class='nav-item active'>
-								<a class='nav-link' href='#'>화분</a>
-							</li>
-							<li class='nav-item active'>
-								<a class='nav-link' href='#'>조화 / 비누꽃</a>
-							</li>
-							<li class='nav-item active'>
 								<a class='nav-link' href='.<%=request.getContextPath() %>/notice/01.html'>공지</a>
 							</li>
 							<li class='nav-item active'>
@@ -67,12 +61,6 @@
 							</li>
 							<li class='nav-item active'>
 								<a class='nav-link' href='#'>꽃바구니</a>
-							</li>
-							<li class='nav-item active'>
-								<a class='nav-link' href='#'>화분</a>
-							</li>
-							<li class='nav-item active'>
-								<a class='nav-link' href='#'>조화 / 비누꽃</a>
 							</li>
 							<li class='nav-item active'>
 								<a class='nav-link' href='.<%=request.getContextPath() %>/notice/01.html'>공지</a>

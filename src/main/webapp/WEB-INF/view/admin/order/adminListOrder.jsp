@@ -122,7 +122,7 @@ table.type1 td{
 }
 </style>
 <div class='container-fluid'>
-	<%@ include file='../include/header2.jsp' %>
+	<%@ include file='../include/headerAdmin.jsp' %>
 	<br><br>
 	<div class='row'>
 		<div class='col-2' id="adminBorder">

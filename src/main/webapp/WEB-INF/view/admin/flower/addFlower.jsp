@@ -93,7 +93,7 @@ table.type1 td{
 }
 </style>
 <div class='container-fluid'>
-	<%@ include file='../include/header2.jsp' %>
+	<%@ include file='../include/headerAdmin.jsp' %>
 </div>
 	<div class='row'>
 		<div class='col-2' id="adminBorder">
@@ -131,8 +131,6 @@ table.type1 td{
 			<option>--</option>
 			<option>꽃다발</option>
 			<option>꽃바구니</option>
-			<option>화분</option>
-			<option>조화/꽃비누</option>
 		</select>
 		<hr><br>
 	</div>	

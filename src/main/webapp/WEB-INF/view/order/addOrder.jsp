@@ -167,9 +167,6 @@ textarea {
 <div class='container'>
 	<%@ include file='../include/header.jsp' %>
 	<br><br><br>
-	<c:if test="${empty sessionScope.userId}">
-		location.href='<%=request.getContextPath() %>/user/login'"
-	</c:if>
 <c:if test="${not empty sessionScope.userId}">
 <div class='row d-flex justify-content-center mt-5'>
 		<div class='col'>
