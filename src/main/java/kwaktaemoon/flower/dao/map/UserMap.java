@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import kwaktaemoon.flower.domain.User;
-import kwaktaemoon.flower.domain.UserDto;
 
 public interface UserMap {
 	User login(@Param("userId") String userId, @Param("userPw") String userPw);

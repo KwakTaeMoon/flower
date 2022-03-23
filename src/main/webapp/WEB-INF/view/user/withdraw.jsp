@@ -107,7 +107,7 @@ h5 {
          <div class='modal-footer' id='modalBtn'>
          	<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='withdrawBackBtn'>확인</button>
             <button type='button' class='btn btn-outline-secondary' id='withdrawOkBtn'>예</button>
-			<button type='button' class='btn btn-outline-secondary' id='withdrawNoBtn' data-dismiss='modal'>아니오</button>
+			<button type='button' class='btn btn-secondary' id='withdrawNoBtn' data-dismiss='modal'>아니오</button>
          </div>
       </div>
    </div>
