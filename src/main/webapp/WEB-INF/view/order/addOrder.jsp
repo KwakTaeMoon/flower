@@ -264,7 +264,7 @@ textarea {
 	</div>
 	<div class='form-row align-items-center mt-5'>
 		<div class='col-3'>
-			<a href='../user/09.html'><button type='button' class='btn btn-secondary btn-block btn-sm'>약관보기</button></a>
+			<a href='${pageContext.request.contextPath}/user/terms'><button type='button' class='btn btn-secondary btn-block btn-sm'>약관보기</button></a>
 		</div>
 		<div class='form-check form-check-inline'>
 			<input type='checkbox' class='form-check-input' id='terms'/>

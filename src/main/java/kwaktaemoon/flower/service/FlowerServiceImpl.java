@@ -15,27 +15,42 @@ public class FlowerServiceImpl implements FlowerService{
 	@Autowired private FlowerDao flowerDao;
 	
 	@Override
-	public List<Flower> getFlowers(){
+	public List<Flower> getFlowers() {
 		return flowerDao.selectFlowers();
 	}
+	
 	@Override
-	public List<Flower> searchFlowerWithKeyword(String keyword){
+	public List<Flower> getDetailFlowers(String flowerName) {
+		return flowerDao.detailFlowers(flowerName);
+	}
+	
+	@Override
+	public List<Flower> searchFlowerWithKeyword(String keyword) {
 		return flowerDao.searchFlowerWithKeyword(keyword);
 	}
+	
 	@Override
 	public Flower findFlower(String flowerName) {
 		return flowerDao.searchFlower(flowerName);
 	}
+	
 	@Override
-	public int addFlowerAdmin(Flower flower) {
-		return flowerDao.insertFlower(flower);
+	public List<Flower> getAdminFlowers() {
+		return flowerDao.selectAdminFlowers();
 	}
+	
 	@Override
-	public int fixFlowerAdmin(Flower flower) {
-		return flowerDao.updateFlowerAdmin(flower);
+	public void addFlower(Flower flower) {
+		flowerDao.insertFlower(flower);
 	}
+	
 	@Override
-	public int delFlowerAdmin(Flower flower) {
-		return flowerDao.deleteFlowerAdmin(flower);
+	public void fixFlower(Flower flower) {
+		flowerDao.updateFlower(flower);
+	}
+	
+	@Override
+	public void delFlower(int flowerNum) {
+		flowerDao.deleteFlower(flowerNum);
 	}
 }

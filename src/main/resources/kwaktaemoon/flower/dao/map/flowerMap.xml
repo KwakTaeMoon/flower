@@ -4,10 +4,19 @@
 <mapper namespace='kwaktaemoon.flower.dao.map.FlowerMap'>
 	<select id='selectFlowers' resultType='flower'>
 		select * from flowers
-		order by flower_num desc
+		order by flower_num
 	</select>	
-	
-	
+
+	<select id='selectAdminFlowers' resultType='flower'>
+		select * from flowers
+		order by regDate desc
+	</select>
+
+	<select id='detailFlowers' resultType='flower'>
+		select * from flowers
+		where flower_name = #{flowerName}
+	</select>
+
 	<select id='searchFlowerWithKeyword' resultType='flower'>
 		select * from flowers
 		WHERE flower_name LIKE '%'||#{keyword}||'%'
@@ -19,10 +28,14 @@
 	</select>	
 	
 	<insert id='insertFlower'>
-		insert into flowers(flower_num, flower_name, price, amount, kind, flower_category,
-				flower_size, flower_imgfile_name, detail_imgfile_name, reg_date)
-		values(#{flowerNum}, #{flowerName}, #{price}, #{amount}, #{flowerCategory}, 
-				#{flowerSize}, #{flowerImgfileName}, #{detailImgfileName}, #{regDate})	
-	</insert>	
+		insert into flowers(flower_num, flower_name, price, kind, flower_category, flower_imgfile_name,
+				  detail_imgfile_name, regdate)
+		values(FLOWERS_FLOWERNUM_SEQ.nextval, #{flowerName}, #{price}, #{kind}, #{flowerCategory},  
+			#{flowerImgfileName}, #{detailImgfileName}, sysdate)	
+	</insert>
 	
+	<delete id='deleteFlower'>
+	   delete flowers
+	   where flower_num = #{flowerNum}
+	</delete>
 </mapper>

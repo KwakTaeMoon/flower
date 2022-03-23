@@ -7,9 +7,11 @@ import kwaktaemoon.flower.domain.Flower;
 
 public interface FlowerService {
 	List<Flower> getFlowers();
+	List<Flower> getDetailFlowers(String flowerName);
 	List<Flower> searchFlowerWithKeyword(String keyword);
 	Flower findFlower(String flowerName);
-	int addFlowerAdmin(Flower flower);
-	int fixFlowerAdmin(Flower flower);
-	int delFlowerAdmin(Flower flower);
+	List<Flower> getAdminFlowers();
+	void addFlower(Flower flower);
+	void fixFlower(Flower flower);
+	void delFlower(int flowerNum);
 }

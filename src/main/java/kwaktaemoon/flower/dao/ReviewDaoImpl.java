@@ -1,6 +1,5 @@
 package kwaktaemoon.flower.dao;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +18,8 @@ public class ReviewDaoImpl implements ReviewDao{
 	}
 	
 	@Override
-	public List<Review> detailReviews(int reviewNum) {
-		return reviewMap.detailReviews(reviewNum);
+	public List<Review> detailReviews(String title) {
+		return reviewMap.detailReviews(title);
 	}
 	
 	@Override
