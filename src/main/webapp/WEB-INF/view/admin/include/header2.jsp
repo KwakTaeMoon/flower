@@ -23,7 +23,7 @@
 						<li class='nav-item active'>
 							<a class='nav-link' href='../flower/01.html'>꽃</a>
 						</li>
-						<li class='nav-item active' style='background-color:#b1c3e0'>
+						<li class='nav-item active'>
 							<a class='nav-link' href='../order/01.html'>주문</a>
 						</li>
 						<li class='nav-item active'>
