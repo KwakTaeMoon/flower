@@ -4,6 +4,7 @@
 <title>TAEMOON Flower</title>
 <%@ include file ='../include/lib.jsp'%>
 <script>
+
 function init() {
 	$('#loginBtn').click(() => {
 		let userId = $('#userId').val();

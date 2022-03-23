@@ -57,36 +57,27 @@ public class UserServiceImpl implements UserService {
 		return userDao.updateContactNum(userId, contactNum);
 	}
 	@Override
-	public int fixAddress(String userId, String postcode, String addr, String detailaddr) {
-		return userDao.updateAddress(userId, postcode, addr, detailaddr);
+	public int fixAddr(String userId, String postcode, String addr, String detailAddr) {
+		return userDao.updateAddr(userId, postcode, addr, detailAddr);
 	}
 	
 	@Override
-	public int delUser(String userId) {
-		return userDao.deleteUser(userId);
-	}
-	@Override
-	public User getUser2(String userId) {
-		return userDao.selectUser2(userId);
+	public void delUser(User user) {
+		userDao.deleteUser(user);
 	}
 	
 	@Override
-	public List<User> getUsers() {
-		return userDao.selectUsers();
+	public List<User> getUsersAdmin() {
+		return userDao.selectUsersAdmin();
 	}
 	
 	@Override
-	public int addUserAdmin(User user) {
-		return userDao.insertUserAdmin(user);
+	public void fixUserAdmin(User user) {
+		userDao.updateUserAdmin(user);
 	}
 	
 	@Override
-	public int fixUserAdmin(User user) {
-		return userDao.updateUserAdmin(user);
-	}
-	
-	@Override
-	public int delUserAdmin(String userId) {
-		return userDao.deleteUserAdmin(userId);
+	public void delUserAdmin(String userId) {
+		userDao.deleteUserAdmin(userId);
 	}
 }
