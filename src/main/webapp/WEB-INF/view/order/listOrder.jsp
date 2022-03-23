@@ -98,7 +98,7 @@ tr {
                  <tbody id='orders'>
                  
 				</tbody>
-								<tr>
+				<tr>
 					<td colspan='5' style='text-align:left;'><small>※환불 상담은 문의로 진행됩니다. 아래 링크를 이용해 주세요.</small></td>
 				</tr>
 			</table>

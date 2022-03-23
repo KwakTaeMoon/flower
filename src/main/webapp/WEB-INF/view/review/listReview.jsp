@@ -17,9 +17,10 @@ function listReviews(){
 			$.each(reviews, (i, review) => {
 				reviewArr.unshift(
 					`<tr>
-						<td><a href='/review/detailReview?reviewNum=\${review.reviewNum}'>
+						<td>
 						\${review.reviewNum}</a></td>
-						<td>\${review.title}</td>
+						<td><a href='/review/detailReview?title=\${review.title}'>
+						\${review.title}</td>
 						<td>\${review.userId}</td>
 						<td>\${review.regDate}</td>
 					</tr>`

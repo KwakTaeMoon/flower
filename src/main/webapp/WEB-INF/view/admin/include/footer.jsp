@@ -1,10 +1,5 @@
 <%@ page language='java' contentType='text/html; charset=UTF-8' pageEncoding='UTF-8'%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
-<div id='kakaoChat'>
-	<button type='button' class='btn btn-lg fixed-bottom' style='background-color:#7997d1' onclick="window.open('https://open.kakao.com/o/sZsdMw1d')">
-		<i class='fa fa-comments' style='display: block; color:#000000'>문의</i>
-	</button>
-</div><br>
 <footer class='footer'>
 	<div class='footer-content justify-content-around' style='text-align:center'>
 		<small id='address'>		

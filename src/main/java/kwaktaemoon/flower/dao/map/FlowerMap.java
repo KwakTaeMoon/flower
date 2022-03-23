@@ -8,9 +8,11 @@ import kwaktaemoon.flower.domain.Flower;
 
 public interface FlowerMap {
 	List<Flower> selectFlowers();
+	List<Flower> detailFlowers(@Param("flowerName") String flowerName);
 	List<Flower> searchFlowerWithKeyword(@Param("keyword") String keyword);
+	List<Flower> selectAdminFlowers();
 	Flower searchFlower(String flowerName);
-	int insertFlowerAdmin(Flower flower);
-	int updateFlowerAdmin(Flower flower);
-	int deleteFlowerAdmin(Flower flower);
+	void insertFlower(Flower flower);
+	void updateFlower(Flower flower);
+	void deleteFlower(int flowerNum);
 }

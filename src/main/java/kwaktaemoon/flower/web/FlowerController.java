@@ -2,60 +2,27 @@ package kwaktaemoon.flower.web;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kwaktaemoon.flower.domain.Flower;
 import kwaktaemoon.flower.service.FlowerService;
 
 
 
-@Controller("kwaktaemoon.flower.web.flower")
-@RequestMapping("flower")
+@Controller
+@RequestMapping("/flower")
 public class FlowerController {
 	@Autowired private FlowerService flowerService;
-	/*
-	@GetMapping("/flowerList")
-	public ModelAndView flowerListAddr
-	}
-	*/
-	@ResponseBody
-	@GetMapping("/list")
-	public List<Flower> getFlowers(){
-	return flowerService.getFlowers();
-	}
-	/*
-	@ResponseBody
-	@GetMapping("/")
-	public List<Flower> searchFlowerWithKeyword(String keyword){
-		
-	}
 	
-	@ResponseBody
-	@GetMapping("/flowerDetail/find")
-	public Flower findFlower(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		int flowerNum = Integer.parseInt(String.valueOf(session.getAttribute("flowerNum")));
-		return flowerService.findFlower(flowerNum);
+	@RequestMapping(value = "/detailFlower", method=RequestMethod.GET)
+	public String detailFlowers(Model model, @RequestParam("flowerName") String flowerName) {
+	    List<Flower> flowerList = flowerService.getDetailFlowers(flowerName);
+	    model.addAttribute("flowerList", flowerList);
+		return "flower/detailFlower";
 	}
-	
-	int addFlowerAdmin(Flower flower) {
-		
-	}
-	
-	int fixFlowerAdmin(Flower flower) {
-	
-	}
-	
-	int delFlowerAdmin(Flower flower) {
-		
-	}
-	*/
 }

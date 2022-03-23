@@ -3,13 +3,20 @@
 	'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
 <mapper namespace='kwaktaemoon.flower.dao.map.FlowerMap'>
 	<select id='selectFlowers' resultType='flower'>
-		select flower_num, flower_name, price, amount, kind, flower_category,
-		flower_size, flower_imgfile_name, detail_imgfile_name, red_date
-		from flowers
-		order by flower_num desc
+		select * from flowers
+		order by flower_num
 	</select>	
-	
-	
+
+	<select id='selectAdminFlowers' resultType='flower'>
+		select * from flowers
+		order by regDate desc
+	</select>
+
+	<select id='detailFlowers' resultType='flower'>
+		select * from flowers
+		where flower_name = #{flowerName}
+	</select>
+
 	<select id='searchFlowerWithKeyword' resultType='flower'>
 		select * from flowers
 		WHERE flower_name LIKE '%'||#{keyword}||'%'
@@ -20,16 +27,15 @@
 		where flower_num = #{flowerNum}
 	</select>	
 	
-	<insert id='insertFlowerAdmin'>
-		insert into flowers(flower_num, flower_name, price, amount, kind, flower_category,
-				flower_size, flower_imgfile_name, detail_imgfile_name, reg_date)
-		values(#{flowerNum}, #{flowerName}, #{price}, #{amount}, #{flowerCategory}, 
-				#{flowerSize}, #{flowerImgfileName}, #{detailImgfileName}, #{regDate})	
-	</insert>	
+	<insert id='insertFlower'>
+		insert into flowers(flower_num, flower_name, price, kind, flower_category, flower_imgfile_name,
+				  detail_imgfile_name, regdate)
+		values(FLOWERS_FLOWERNUM_SEQ.nextval, #{flowerName}, #{price}, #{kind}, #{flowerCategory},  
+			#{flowerImgfileName}, #{detailImgfileName}, sysdate)	
+	</insert>
 	
-	<update id='updateFlowerAdmin'>
-		update flowers
-		set 
-	</update>
-	
+	<delete id='deleteFlower'>
+	   delete flowers
+	   where flower_num = #{flowerNum}
+	</delete>
 </mapper>
