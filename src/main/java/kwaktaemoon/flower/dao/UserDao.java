@@ -14,11 +14,9 @@ public interface UserDao {
 	int updatePw(String userId, String userPw);
 	int updateEmail(String userId, String email);
 	int updateContactNum(String userId, String contactNum);
-	int updateAddress(String userId, String postcode, String addr, String detailaddr);
-	int deleteUser(String userId);
-	User selectUser2(String userId);
-	List<User> selectUsers();
-	int insertUserAdmin(User user);
-	int updateUserAdmin(User user);
-	int deleteUserAdmin(String userId);
+	int updateAddr(String userId, String postcode, String addr, String detailAddr);
+	void deleteUser(User user);
+	List<User> selectUsersAdmin();
+	void updateUserAdmin(User user);
+	void deleteUserAdmin(String userId);
 }

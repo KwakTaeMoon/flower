@@ -2,10 +2,110 @@
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core'%>
 <title>TAEMOON Flower</title>
 
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
+
 <%@ include file ='../include/lib.jsp'%>
 
 <script>
 
+function constrainContactNum(text){
+	if(text.length == 11){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function searchAddr() {
+	daum.postcode.load(function(){
+		new daum.Postcode({
+			oncomplete:function(data){
+				$('[name=postcode]').val(data.zonecode); 
+				$('[name=addr]').val(data.address);
+				$('[name=detailAddr]').val(data.buildingName);
+			}
+		}).open();
+	})
+}
+
+function init() {
+	$('#fixEmailBtn').click(() => {
+		if($('#email').val()) {
+			$.ajax({
+				type:'post',
+				url:'${pageContext.request.contextPath}/user/fixEmail',
+				data: JSON.stringify({
+					email:$('#email').val()
+				}),
+				contentType: 'application/json'
+			}).done(() => {
+				$('#emailModalMsg').text('이메일이 변경되었습니다.');
+				$('#emailModal').modal();
+				$('#emailNoBtn').hide();
+				$('#emailOkBtn').show();
+			})
+		} else {
+			$('#emailModalMsg').text('이메일을 확인해주세요.');
+			$('#emailModal').modal();
+			$('#emailNoBtn').show();
+			$('#emailOkBtn').hide();
+		}
+	})
+	
+	$('#fixContactNumBtn').click(() => {
+		if($('#contactNum').val() && constrainContactNum($('#contactNum').val())) {
+			$.ajax({
+				type:'post',
+				url:'${pageContext.request.contextPath}/user/fixContactNum',
+				data: JSON.stringify({
+					contactNum:$('#contactNum').val()
+				}),
+				contentType: 'application/json'
+			}).done(() => {
+				$('#contactNumModalMsg').text('전화번호가 변경되었습니다.');
+				$('#contactNumModal').modal();
+				$('#contactNumNoBtn').hide();
+				$('#contactNumOkBtn').show();
+			})
+		} else {
+			$('#contactNumModalMsg').text('전화번호를 확인해주세요.(-를 제외 11자리)');
+			$('#contactNumModal').modal();
+			$('#contactNumNoBtn').show();
+			$('#contactNumOkBtn').hide();
+		}
+	})
+	
+	$('#fixAddrBtn').click(() => {
+		if($('#postcode').val() && $('#addr').val() && $('#detailAddr').val()) {
+			$.ajax({
+				type:'post',
+				url:'${pageContext.request.contextPath}/user/fixAddr',
+				data: JSON.stringify({
+					postcode: $('#postcode').val(),
+					addr: $('#addr').val(),
+					detailAddr: $('#detailAddr').val()
+				}),
+				contentType: 'application/json'
+			}).done(() => {
+				$('#addrModalMsg').text('주소가 변경되었습니다.');
+				$('#addrModal').modal();
+				$('#addrNoBtn').hide();
+				$('#addrOkBtn').show();
+			})
+		} else {
+			$('#addrModalMsg').text('주소를 확인해주세요.');
+			$('#addrModal').modal();
+			$('#addrNoBtn').show();
+			$('#addrOkBtn').hide();
+		}
+	})
+	
+	$('#searchAddr').click(() => {
+		searchAddr();
+	})
+}
+
+$(init);
 </script>
 <style>
 li {
@@ -69,17 +169,17 @@ li {
 					<tr>
 						<th><span>이메일</span></th>
 						<td>
-							<input type='email' style='text-align:center;' value='${user.email}'/>
-							<button type='button' class='btn btn-sm btn-secondary' 
+							<input type='email' id='email' name='email' style='text-align:center;' value='${user.email}'/>
+							<button type='button' id='fixEmailBtn' class='btn btn-sm btn-secondary' 
 							style='height:2rem; text-align:center; font-size:1rem; color:white;'>이메일 수정</button>
 						</td>
 					</tr>
 					<tr>
-						<th><span>연락처</span></th>
+						<th><span>전화번호</span></th>
 						<td>
-							<input type='text' style='text-align:center;' value='${user.contactNum}'/>
-							<button type='button' class='btn btn-sm btn-secondary' 
-							style='height:2rem; text-align:center; font-size:1rem; color:white;'>연락처 수정</button>
+							<input type='text' id='contactNum' style='text-align:center;' value='${user.contactNum}'/>
+							<button type='button' id='fixContactNumBtn' class='btn btn-sm btn-secondary' 
+							style='height:2rem; text-align:center; font-size:1rem; color:white;'>전화번호 수정</button>
 						</td>
 					</tr>
 					<tr>
@@ -87,24 +187,23 @@ li {
 						<td>
 						<div class='row'>
 							<div class='col'>
-								<input type='number' id='zip' name='deliveryInformation' value='${user.postcode}}'> &nbsp;
-								<button type='button' name='deliveryInformation' class='btn btn-sm btn-outline-secondary'
-									data-toggle='modal' data-target='#addressModal'>주소 찾기</button>
+								<input type='number' id='postcode' name='postcode' value='${user.postcode}' readonly > &nbsp;
+								<button type='button' id='searchAddr' name='searchAddr' class='btn btn-sm btn-outline-secondary'>주소 찾기</button>
 							</div>
 						</div>
 						<div class='row'>
 							<div class='col'>
-								<input type="text" name="deliveryInformation" style='width:100%' value='${user.addr}'/>
+								<input type="text" id='addr' name="addr" style='width:100%' value='${user.addr}' readonly/>
 							</div>
 						</div>
 						<div class='row'>
 							<div class='col'>
-								<input type="text" name="deliveryInformation" style='width:100%' value='${user.detailAddr}'/>
+								<input type="text" id='detailAddr' name="detailAddr" style='width:100%' value='${user.detailAddr}'/>
 							</div>
 						</div>
 						<div class='row justify-content-center mt-2 float-right'>
 							<div class='col'>
-								<button type='button' class='btn btn-sm btn-secondary' 
+								<button type='button' id='fixAddrBtn' class='btn btn-sm btn-secondary' 
 							style='height:2rem; text-align:center; font-size:1rem; color:white;'>주소 수정</button>
 							</div>
 						</div>
@@ -117,10 +216,92 @@ li {
 	<hr>
 	<div class='row d-flex justify-content-center mt-2 float-right'>
 		<div class='col'>				
-			<a href='../user/07.html'><button type='submit' class='btn btn-secondary sm-btn' >회원탈퇴</button></a>						
+			<a href='<%=request.getContextPath() %>/user/withdraw'><button type='button' class='btn btn-secondary sm-btn' >회원탈퇴</button></a>						
 		</div>
 	</div>
 	</c:if>
 	<br><br><br>
 </div>
+
+<div id='emailModal' class='modal fade' tabindex='-1'>
+	<div class='modal-dialog'>
+		<div class='modal-content'>
+			<div class='modal-header'>
+				<p class="modal-title float-left" id='emailTitle'>이메일 수정</p>
+				<button type='button' class='close' data-dismiss='modal'>
+					<span>&times;</span>
+				</button>
+			</div>
+			<div class='modal-body'>
+				<p id='emailModalMsg'></p>
+			</div>
+			<div class='modal-footer' id='emailModalBtn'>
+				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='emailNoBtn'>확인</button>
+				<button type='button' class='btn btn-primary' id='emailOkBtn' 
+					onclick='location.href="<%=request.getContextPath() %>/user/myPage"'>확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id='contactNumModal' class='modal fade' tabindex='-1'>
+	<div class='modal-dialog'>
+		<div class='modal-content'>
+			<div class='modal-header'>
+				<p class="modal-title float-left" id='contactNumTitle'>전화번호 수정</p>
+				<button type='button' class='close' data-dismiss='modal'>
+					<span>&times;</span>
+				</button>
+			</div>
+			<div class='modal-body'>
+				<p id='contactNumModalMsg'></p>
+			</div>
+			<div class='modal-footer' id='contactNumModalBtn'>
+				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='contactNumNoBtn'>확인</button>
+				<button type='button' class='btn btn-primary' id='contactNumOkBtn'
+					onclick='location.href="<%=request.getContextPath() %>/user/myPage"'>확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id='addrModal' class='modal fade' tabindex='-1'>
+	<div class='modal-dialog'>
+		<div class='modal-content'>
+			<div class='modal-header'>
+				<p class="modal-title float-left" id='addrTitle'>주소 수정</p>
+				<button type='button' class='close' data-dismiss='modal'>
+					<span>&times;</span>
+				</button>
+			</div>
+			<div class='modal-body'>
+				<p id='addrModalMsg'></p>
+			</div>
+			<div class='modal-footer' id='addrModalBtn'>
+				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='addrNoBtn'>아니오</button>
+				<button type='button' class='btn btn-primary' id='addrOkBtn'
+					onclick='location.href="<%=request.getContextPath() %>/user/myPage"'>확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id='withdrawModal' class='modal fade' tabindex='-1'>
+     <div class='modal-dialog'>
+        <div class='modal-content'>
+           <div class='modal-header'>
+              <p class='modal-title'>회원탈퇴</p>
+              <button type='button' class='close' data-dismiss='modal'><i class='fa fa-times'></i></button>
+           </div>
+         <div class='modal-body' align='center'>
+         	<p id='withdrawModalMsg'>회원 탈퇴하시겠습니까?</p>
+         </div>
+         <div class='modal-footer' id='modalBtn'>
+            <button type='button' class='btn btn-outline-secondary' id='withdrawOkBtn' onclick='location.href="<%=request.getContextPath() %>/user/withdrawSuccess"'>예</button>
+			<button type='button' class='btn btn-outline-secondary' id='withdrawNoBtn' data-dismiss='modal'>아니오</button>
+         </div>
+      </div>
+   </div>
+</div>
+
 <%@ include file='../include/footer.jsp' %>

@@ -142,14 +142,14 @@ function init() {
 									
 								}
 							} else {
-								$('#joinConfirmModalMsg').text('연락처를 확인해주세요.(-를 제외 11자리)')
+								$('#joinConfirmModalMsg').text('전화번호를 확인해주세요.(-를 제외 11자리)')
 								$('#joinConfirmOkBtn').hide()
 								$('#joinConfirmNoBtn').show()
 								$('#joinConfirmModal').modal()
 								
 							}
 						} else {
-							$('#joinConfirmModalMsg').text('이메일 형식을 확인해주세요.')
+							$('#joinConfirmModalMsg').text('이메일 형식을 확인해주세요.(@포함)')
 							$('#joinConfirmOkBtn').hide()
 							$('#joinConfirmNoBtn').show()
 							$('#joinConfirmModal').modal()
@@ -269,7 +269,7 @@ $(init)
 						<td>
 						<div class='row'>
 							<div class='col'>
-								<input type='number' id='postcode' name='postcode' placeholder='(우편번호)' > &nbsp;
+								<input type='number' id='postcode' name='postcode' placeholder='(우편번호)' readonly> &nbsp;
 								<button type='button' class='btn btn-sm btn-outline-secondary' id='searchAddr'>주소 찾기</button>
 							</div>
 						</div>
@@ -309,25 +309,6 @@ $(init)
 	</div>
 </div>		
 <!-- include modal -->
-<div class='modal fade' tabindex='-1' id='modal'>
-	<div class='modal-dialog'>
-		<div class='modal-content'>
-			<div class='modal-header'>
-				<button type='button' class='close' data-dismiss='modal'>
-					<span>&times;</span>
-				</button>
-			</div>
-			<div class='modal-body'>
-				<p id='modalMsg'></p>
-			</div>
-			<div class='modal-footer' id='modalBtn'>
-				<button class='btn btn-secondary' data-dismiss='modal'>아니오</button>
-				<button class='btn btn-primary' id='delLaborerOkBtn'>예</button>
-			</div>
-		</div>
-	</div>
-</div>
-
 <div id='confirmModal' class='modal fade' tabindex='-1'>
      <div class='modal-dialog'>
         <div class='modal-content'>

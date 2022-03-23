@@ -54,7 +54,7 @@
 		where user_id = #{userId}
 	</update>
 	
-	<update id='updateAddress'>
+	<update id='updateAddr'>
 		update users
 		set postcode = #{postcode},
 			addr = #{addr},
@@ -63,25 +63,19 @@
 	</update>
 	
 	<delete id='deleteUser'>
-		delete users
-		where user_id = #{userId}
+		delete from users
+		where user_id = #{userId} and user_pw = #{userPw}
 	</delete>
 	
-	<select id='selectUser2'>
-		select user_id, userName, birthday, email, contact_num, 
+	<select id='selectUsersAdmin' resultType='user'>
+		select user_id, user_pw, user_name, birthday, email, contact_num,
 		postcode, addr, detail_addr
 		from users
-		where user_id = #{userId}
-	</select>
-	
-	<select id='selectUsers'>
-		select user_id, user_pw, userName, birthday, email, contact_num,
-		postcode, addr, detail_addr
-		from users
+		order by user_id
 	</select>
 		
 	<insert id='insertUserAdmin'>
-		insert into users(user_id, user_pw, userName, birthday, email
+		insert into users(user_id, user_pw, user_name, birthday, email
 		contact_num, postcode, addr, detail_addr)
 		values (#{userId}, #{userPw}, #{userName}, #{birthday}, #{email},
 		 #{contactNum}, #{postcode}, #{addr}, #{detailAddr})
@@ -89,7 +83,7 @@
 	
 	<update id='updateUserAdmin'>
 		update users
-		set user_pw = #{userPw}, userName = #{userName}, birthday = #{birthday},
+		set user_pw = #{userPw}, user_name = #{userName}, birthday = #{birthday},
 				email = #{email}, contact_num = #{contactNum}, postcode = #{postcode},
 				addr = #{addr}, detail_addr = #{detailAddr}
 		where user_id = #{userId}
@@ -103,6 +97,6 @@
 	<resultMap id='loginMap' type='user'>
       <id property='userId' column='user_id'/>
       <result property='userPw' column='user_pw'/>
-   </resultMap>
+	</resultMap>
    
 </mapper>
