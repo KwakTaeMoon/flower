@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import kwaktaemoon.flower.domain.User;
-import kwaktaemoon.flower.domain.UserDto;
 
 public interface UserMap {
 	User login(@Param("userId") String userId, @Param("userPw") String userPw);
@@ -18,12 +17,10 @@ public interface UserMap {
 	int updatePw(@Param("userId") String userId, @Param("userPw") String userPw);
 	int updateEmail(@Param("userId") String userId, @Param("email") String email);
 	int updateContactNum(@Param("userId") String userId, @Param("contactNum") String contactNum);
-	int updateAddress(@Param("userId") String userId, @Param("postcode") String postcode,
-							@Param("addr") String addr,@Param("detailAddr") String detailaddr);
-	int deleteUser(@Param("userId") String userId);
-	User selectUser2(@Param("userId") String userId);
-	List<User> selectUsers();
-	int insertUserAdmin(User user);
-	int updateUserAdmin(User user);
-	int deleteUserAdmin(@Param("userId") String userId);
+	int updateAddr(@Param("userId") String userId, @Param("postcode") String postcode,
+							@Param("addr") String addr,@Param("detailAddr") String detailAddr);
+	void deleteUser(User user);
+	List<User> selectUsersAdmin();
+	void updateUserAdmin(User user);
+	void deleteUserAdmin(@Param("userId") String userId);
 }

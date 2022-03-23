@@ -57,36 +57,27 @@ public class UserDaoImpl implements UserDao {
 		return userMap.updateContactNum(userId, contactNum);
 	}
 	@Override
-	public int updateAddress(String userId, String postcode, String addr, String detailaddr) {
-		return userMap.updateAddress(userId, postcode, addr, detailaddr);
+	public int updateAddr(String userId, String postcode, String addr, String detailAddr) {
+		return userMap.updateAddr(userId, postcode, addr, detailAddr);
 	}
 	
 	@Override
-	public int deleteUser(String userId) {
-		return userMap.deleteUser(userId);
-	}
-	@Override
-	public User selectUser2(String userId) {
-		return userMap.selectUser2(userId);
+	public void deleteUser(User user) {
+		userMap.deleteUser(user);
 	}
 	
 	@Override
-	public List<User> selectUsers() {
-		return userMap.selectUsers();
+	public List<User> selectUsersAdmin() {
+		return userMap.selectUsersAdmin();
 	}
 	
 	@Override
-	public int insertUserAdmin(User user) {
-		return userMap.insertUserAdmin(user);
+	public void updateUserAdmin(User user) {
+		userMap.updateUserAdmin(user);
 	}
 	
 	@Override
-	public int updateUserAdmin(User user) {
-		return userMap.updateUserAdmin(user);
-	}
-	
-	@Override
-	public int deleteUserAdmin(String userId) {
-		return userMap.deleteUserAdmin(userId);
+	public void deleteUserAdmin(String userId) {
+		userMap.deleteUserAdmin(userId);
 	}
 }

@@ -4,6 +4,7 @@
 <title>TAEMOON Flower</title>
 <%@ include file ='../include/lib.jsp'%>
 <script>
+
 function init() {
 	$('#loginBtn').click(() => {
 		let userId = $('#userId').val();
@@ -69,7 +70,7 @@ $(init);
 		<div class='form-group row justify-content-center'>
 			<label for='userId' class='col-form-label'>아이디&emsp;</label>
 			<div class='col-7'>
-				<input type='text' class='form-control' id='userId' name='userId' value='${cookie.loginCookie.value}' required/>
+				<input type='text' class='form-control' id='userId' name='userId' value='${user.userId}' required/>
 			</div>
 		</div><br>
 		<div class='form-group row justify-content-center'>
@@ -80,8 +81,8 @@ $(init);
 		</div><br>
 		 <div class='form-group row' style='text-align:center;'>
 			<div class='col'>
-					<input type='checkbox' class='form-check-input' id='rememberId' name='rememberId' ${checked}/>
-					<label class='form-check-label' for='rememberId'>아이디 저장</label>			
+					<!-- <input type='checkbox' class='form-check-input' id='saveId' name='saveId' ${checked}/>
+					<label class='form-check-label' for='saveId'>아이디 저장</label> -->		
 			</div>
 			<div class='col' >
 				<button type='button' class='btn btn-secondary btn-block'

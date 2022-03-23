@@ -4,18 +4,20 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kwaktaemoon.flower.domain.User;
@@ -28,14 +30,14 @@ public class UserController {
 	@Autowired private UserService userService;
 	
 	@GetMapping("/login")
-	public String login(UserDto userDto, @CookieValue(required=false) Cookie loginCookie) {
+	public String login(UserDto userDto, @CookieValue(required=false) Cookie loginCookie) throws Exception {
 		if(loginCookie != null) userDto.setUserId(loginCookie.getValue());
 		return "user/login";
 	}
    
 	@PostMapping("/login")
-	public void loginchk(@RequestParam("userId") String userId,
-			@RequestParam("userPw") String userPw, Model model, HttpServletRequest request) {
+	public void loginchk(@RequestParam("userId") String userId, @RequestParam("userPw") String userPw,
+			 Model model, HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
 		User user = userService.chkUser(userId, userPw);
 		session.setAttribute("userId", user.getUserId());
@@ -146,5 +148,70 @@ public class UserController {
 		if(userId != null) {
 			userService.fixPw(userId, userPw);
 		}
+	}
+	
+	@ResponseBody
+	@PostMapping("/fixEmail")
+	public void fixEmail(@RequestBody User user, HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("userId");
+		String email = user.getEmail();
+		
+		userService.fixEmail(userId, email);
+		
+	}
+	
+	@ResponseBody
+	@PostMapping("/fixContactNum")
+	public void fixContactNum(@RequestBody User user, HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("userId");
+		String contactNum = user.getContactNum();
+		
+		userService.fixContactNum(userId, contactNum);
+	}
+	
+	@ResponseBody
+	@PostMapping("/fixAddr")
+	public void fixAddr(@RequestBody User user, HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("userId");
+		String postcode = user.getPostcode();
+		String addr = user.getAddr();
+		String detailAddr = user.getDetailAddr();
+		
+		userService.fixAddr(userId, postcode, addr, detailAddr);
+	}
+	
+	@RequestMapping(value="/withdraw", method = RequestMethod.GET)
+	public String withdraw(User user, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.getAttribute("userId");
+		
+		if(user.getUserId() != null) {
+			session.setAttribute("userId", user.getUserId());
+		}
+		return "/user/withdraw";
+	}
+	
+	@RequestMapping(value="/withdraw", method = RequestMethod.POST)
+	public String withdraw(User user, HttpSession session, RedirectAttributes ra) throws Exception {
+		User user1 = (User) session.getAttribute("user");
+		
+		String oldPass = user1.getUserPw();
+		String newPass = user.getUserPw();
+		if(oldPass.equals(newPass)) {
+			userService.delUser(user);
+			ra.addFlashAttribute("result", "removeOk");
+			return "redirect:../user/withdrawSuccess";
+		} else {
+			ra.addFlashAttribute("result", "removeFalse");
+			return "redirect:../user/withdraw";
+		}
+	}
+	
+	@RequestMapping("/withdrawSuccess")
+	public String withdrawSuccess() {
+		return "user/withdrawSuccess";
 	}
 }
