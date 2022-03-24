@@ -10,7 +10,6 @@ public interface OrderDao {
 	List<Order> detailOrders(int orderNum);
 	List<Order> selectAdminOrders();
 	void insertOrder(Order order);
-	void updateOrder(Order order);
 	void updateDeliState(int orderNum);
 	void updateAdmDeliState(int orderNum);
 	void deleteOrder(int orderNum);

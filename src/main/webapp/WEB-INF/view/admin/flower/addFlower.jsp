@@ -16,16 +16,16 @@ $('#registerBtn').click(() => {
 			if(flowerCategory) {	
 				if(flowerName) {	
 					if(price) {	
-							$.ajax({
-								type: 'post',
-								url: '${pageContext.request.contextPath}/admin/flower/addFlower',
-								data: {
-									flowerName: flowerName,
-									price: price,
-									flowerCategory: flowerCategory,
-									kind: kind
-								}
-							}).done
+								$.ajax({
+									type: 'post',
+									url: '${pageContext.request.contextPath}/admin/flower/addFlower',
+									data: {
+										flowerName: flowerName,
+										price: price,
+										flowerCategory: flowerCategory,
+										kind: kind
+									}
+								}).done
 							} else {
 								event.preventDefault();
 								$('#modalMsg').empty();
@@ -118,65 +118,63 @@ table.type1 td{
 				</tbody>
 			</table>
 		</div>
-<!-- include: header -->
 	<div class='col-8 mt-3'>
 		<h5 style='color:#0f56ba'><b>| 꽃 등록</b></h5>
 		<hr><br>
 		<form id='form' method='post' encType='multipart/form-data'>
-	<div class='col-8 d-flex'>
-		<h5 style='color:#0f56ba'><b>종류 선택&nbsp;</b></h5><p>*필수</p>
-	</div>
-	<div class='col-8'>
-		<select id='kind' name='kind' class='text-center col-4'>
-			<option>--</option>
-			<option>꽃다발</option>
-			<option>꽃바구니</option>
-		</select>
-		<hr><br>
-	</div>	
-	<div class='col-8'>
-		<h5 style='color:#0f56ba'><b>분류&nbsp;</b></h5><br>
-	</div>
-	<div class='col'>
-		&nbsp;<label for='userName' class='col-form-label'><strong>분류&emsp;&emsp;&emsp;</strong></label>
-		<input type='radio' value='신상품' id='flowerCategory' name='flowerCategory'>&emsp;신상품&emsp;&emsp;
-		<input type='radio' value='베스트' id='flowerCategory' name='flowerCategory'>&emsp;베스트&emsp;&emsp;
-		<input type='radio' value='일반상품' id='flowerCategory' name='flowerCategory'>&emsp;일반상품&emsp;&emsp;
-	</div><hr><br>
-	
-	<div class='col-8 d-flex'>
-		<h5 style='color:#0f56ba'><b>꽃 기본 사항&nbsp;</b></h5>
-	</div><br>	
-		<table class='table table-borderless' id='classTop'>				
-			<tbody>					
-				<tr>
-					<th><label>꽃 이미지: </label></th>
-					<td>
-						<input type="file" name="flowerImgfile" >
-					</td>					
-				<tr>
-					<th><label>꽃 이름 : </label></th>
-					<td>
-						<input type='text' id='flowerName' name='flowerName'/>
-					</td>
-				<tr>
-					<th>가격 : </th>
-					<td>
-						<input id='price' name='price' type='number'/>
-					</td>
-				</tr>
-				<tr>
-					<th>제품상세 : </th>
-					<td>
-						<input type='file' name="detailImgfile"/>
-					</td>
-				</tr>
-				<tr>
-					<th></th>
-					<td align='right'><button class='btn btn-outline-secondary btn-sm' type='submit' id='registerBtn'>등록</button></td>
-				</tr>
-			</tbody>
-		</table>
+			<div class='col-8 d-flex'>
+				<h5 style='color:#0f56ba'><b>종류 선택&nbsp;</b></h5><p>*필수</p>
+			</div>
+			<div class='col-8'>
+				<select id='kind' name='kind' class='text-center col-4'>
+					<option>--</option>
+					<option>꽃다발</option>
+					<option>꽃바구니</option>
+				</select>
+				<hr><br>
+			</div>	
+			<div class='col-8'>
+				<h5 style='color:#0f56ba'><b>분류&nbsp;</b></h5><br>
+			</div>
+		<div class='col'>
+			&nbsp;<label for='userName' class='col-form-label'><strong>분류&emsp;&emsp;&emsp;</strong></label>
+			<input type='radio' value='신상품' id='flowerCategory' name='flowerCategory'>&emsp;신상품&emsp;&emsp;
+			<input type='radio' value='베스트' id='flowerCategory' name='flowerCategory'>&emsp;베스트&emsp;&emsp;
+			<input type='radio' value='일반상품' id='flowerCategory' name='flowerCategory'>&emsp;일반상품&emsp;&emsp;
+		</div><hr><br>
+			<div class='col-8 d-flex'>
+				<h5 style='color:#0f56ba'><b>꽃 기본 사항&nbsp;</b></h5>
+			</div><br>	
+				<table class='table table-borderless' id='classTop'>				
+					<tbody>					
+						<tr>
+							<th><label>꽃 이미지: </label></th>
+							<td>
+								<input type="file" name="flowerImgfile" >
+							</td>					
+						<tr>
+							<th><label>꽃 이름 : </label></th>
+							<td>
+								<input type='text' id='flowerName' name='flowerName'/>
+							</td>
+						<tr>
+							<th>가격 : </th>
+							<td>
+								<input id='price' name='price' type='number'/>
+							</td>
+						</tr>
+						<tr>
+							<th>제품상세 : </th>
+							<td>
+								<input type='file' name="detailImgfile"/>
+							</td>
+						</tr>
+						<tr>
+							<th></th>
+							<td align='right'><button class='btn btn-outline-secondary btn-sm' type='submit' id='registerBtn'>등록</button></td>
+						</tr>
+				</tbody>
+			</table>
 		</form>
 	</div>
 </div>

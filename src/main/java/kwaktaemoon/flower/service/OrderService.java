@@ -11,6 +11,5 @@ public interface OrderService {
 	void addOrder(Order order);
 	void fixDeliState(int orderNum);
 	void fixAdmDeliState(int orderNum);
-	void fixOrder(Order order);
 	void delOrder(int orderNum);
 }
