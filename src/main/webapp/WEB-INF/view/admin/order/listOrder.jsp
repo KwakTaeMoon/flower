@@ -9,7 +9,7 @@ function listOrders() {
 	
 	$.ajax({
 		method: 'post',
-		url: "<%=request.getContextPath() %>/admin/order/adminListOrder"
+		url: "<%=request.getContextPath() %>/admin/order/listOrder"
 	}).done(orders => {
 		if(orders.length) {
 			const orderArr = []
@@ -59,7 +59,7 @@ function init() {
 	$('#yesBtn').click(() => {
 		$('#confirmModal').modal('hide')
 			$.ajax({
-				url: 'adminDel/' + $('#orderNum:checked').val(),
+				url: 'del/' + $('#orderNum:checked').val(),
 				method: 'delete'
 			}).done(listOrders)
 	})
@@ -85,7 +85,7 @@ function init() {
 	$('#comYesBtn').click(() => {
 		$('#completeModal').modal('hide')
 			$.ajax({
-				url: 'adminFix/' + $('#orderNum:checked').val(),
+				url: 'fix/' + $('#orderNum:checked').val(),
 				method: 'put'
 			}).done(listOrders)
 	})

@@ -29,10 +29,21 @@
 	
 	<insert id='insertFlower'>
 		insert into flowers(flower_num, flower_name, price, kind, flower_category, flower_imgfile_name,
-				  detail_imgfile_name, regdate)
+				  detail_imgfile_name)
 		values(FLOWERS_FLOWERNUM_SEQ.nextval, #{flowerName}, #{price}, #{kind}, #{flowerCategory},  
-			#{flowerImgfileName}, #{detailImgfileName}, sysdate)	
+			#{flowerImgfileName}, #{detailImgfileName})	
 	</insert>
+	
+	<update id='updateFlower'>
+		update flowers
+		set flower_name = #{flowerName},
+			price = #{price},
+			kind = #{kind},
+			flower_category = #{flowerCategory}
+			flower_imgfile_name = #{flowerImgfileName},
+			detail_imgfile_name = #{detailImgfileName}
+		where flower_num = #{flowerNum}
+	</update>
 	
 	<delete id='deleteFlower'>
 	   delete flowers

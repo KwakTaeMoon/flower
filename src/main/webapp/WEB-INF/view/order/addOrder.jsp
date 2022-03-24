@@ -220,13 +220,13 @@ textarea {
 					<td>
 						<div class='row'>
 							<div class='col'>
-								<input type='text' id='recPostCode' name='recPostCode' placeholder='(우편번호)' > &nbsp;
+								<input type='text' id='recPostCode' name='recPostCode' placeholder='(우편번호)' readonly> &nbsp;
 								<button type='button' class='btn btn-sm btn-outline-secondary' id='searchAddr'>찾기</button>
 							</div>
 						</div>
 						<div class='row'>
 							<div class='col'>
-								<input type="text" id='recAddr' name='recAddr' style='width:80%' placeholder='(주소)' />
+								<input type="text" id='recAddr' name='recAddr' style='width:80%' placeholder='(주소)' readonly/>
 							</div>
 						</div>
 						<div class='row'>
