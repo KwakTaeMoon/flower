@@ -22,16 +22,10 @@
 								<a class='nav-link' href='#'>꽃바구니</a>
 							</li>
 							<li class='nav-item active'>
-								<a class='nav-link' href='#'>화분</a>
-							</li>
-							<li class='nav-item active'>
-								<a class='nav-link' href='#'>조화 / 비누꽃</a>
-							</li>
-							<li class='nav-item active'>
 								<a class='nav-link' href='.<%=request.getContextPath() %>/notice/01.html'>공지</a>
 							</li>
 							<li class='nav-item active'>
-								<a class='nav-link' href='<%=request.getContextPath() %>/review/#'>후기</a>
+								<a class='nav-link' href='<%=request.getContextPath() %>/user/login'>후기</a>
 							</li>
 							<li class='nav-item active'>
 								<a class='nav-link' href='<%=request.getContextPath() %>/user/login'>Login</a>
@@ -69,16 +63,10 @@
 								<a class='nav-link' href='#'>꽃바구니</a>
 							</li>
 							<li class='nav-item active'>
-								<a class='nav-link' href='#'>화분</a>
-							</li>
-							<li class='nav-item active'>
-								<a class='nav-link' href='#'>조화 / 비누꽃</a>
-							</li>
-							<li class='nav-item active'>
 								<a class='nav-link' href='.<%=request.getContextPath() %>/notice/01.html'>공지</a>
 							</li>
 							<li class='nav-item active'>
-								<a class='nav-link' href='<%=request.getContextPath() %>/review/#'>후기</a>
+								<a class='nav-link' href='<%=request.getContextPath() %>/review/listReview'>후기</a>
 							</li>
 							<li class='nav-item active'>
 								<a class='nav-link' href='<%=request.getContextPath() %>/user/myPage'>MyPage</a>

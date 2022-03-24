@@ -8,9 +8,9 @@
 		order by review_num
 	</select>
 	
-	<select id='detailReviews' parameterType="java.lang.Integer" resultType='review'>
+	<select id='detailReviews' resultType='review'>
 		select * from reviews
-		where review_num = #{reviewNum}
+		where title = #{title}
 	</select>
 	
 	<insert id='insertReview'>

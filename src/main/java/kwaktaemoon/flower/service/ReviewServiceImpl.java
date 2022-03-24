@@ -18,8 +18,8 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 	
 	@Override
-	public List<Review> getdetailReviews(int reviewNum) {
-		return reviewDao.detailReviews(reviewNum);
+	public List<Review> getdetailReviews(String title) {
+		return reviewDao.detailReviews(title);
 	}
 	
 	@Override

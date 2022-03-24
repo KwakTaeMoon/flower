@@ -66,42 +66,49 @@ $('#purchaseBtn').click(() => {
 									$('#modalMsg').empty();
 									$('#modalMsg').text('약관에 동의해주세요.');
 									$('#cofirmModal').modal();
+									$('#okBtn').show();
 									$('#noBtn').hide();
 								}
 							}else {
 								$('#modalMsg').empty();
 								$('#modalMsg').text('희망 배송지를 입력하세요.');
 								$('#cofirmModal').modal();
+								$('#okBtn').show();
 								$('#noBtn').hide();
 							}
 						}else {
 							$('#modalMsg').empty();
 							$('#modalMsg').text('상세주소를 입력하세요.');
 							$('#cofirmModal').modal();
+							$('#okBtn').show();
 							$('#noBtn').hide();
 						}
 					}else {
 						$('#modalMsg').empty();
 						$('#modalMsg').text('기본주소를 입력하세요.');
 						$('#cofirmModal').modal();
+						$('#okBtn').show();
 						$('#noBtn').hide();
 					}
 				}else {
 					$('#modalMsg').empty();
 					$('#modalMsg').text('우편번호를 입력하세요.');
 					$('#cofirmModal').modal();
+					$('#okBtn').show();
 					$('#noBtn').hide();
 				}
 			}else {
 				$('#modalMsg').empty();
 				$('#modalMsg').text('수령인 연락처를 입력하세요. (-를 제외 11자리)');
 				$('#cofirmModal').modal();
+				$('#okBtn').show();
 				$('#noBtn').hide();
 			}
 		}else {
 			$('#modalMsg').empty();
 			$('#modalMsg').text('수령인명을 입력하세요.');
 			$('#cofirmModal').modal();
+			$('#okBtn').show();
 			$('#noBtn').hide();
 		}
 	})
@@ -160,6 +167,7 @@ textarea {
 <div class='container'>
 	<%@ include file='../include/header.jsp' %>
 	<br><br><br>
+<c:if test="${not empty sessionScope.userId}">
 <div class='row d-flex justify-content-center mt-5'>
 		<div class='col'>
 			<h5 style='color: #0f56ba;'><b>| 주문 상품</b></h5>
@@ -212,13 +220,13 @@ textarea {
 					<td>
 						<div class='row'>
 							<div class='col'>
-								<input type='text' id='recPostCode' name='recPostCode' placeholder='(우편번호)' > &nbsp;
+								<input type='text' id='recPostCode' name='recPostCode' placeholder='(우편번호)' readonly> &nbsp;
 								<button type='button' class='btn btn-sm btn-outline-secondary' id='searchAddr'>찾기</button>
 							</div>
 						</div>
 						<div class='row'>
 							<div class='col'>
-								<input type="text" id='recAddr' name='recAddr' style='width:80%' placeholder='(주소)' />
+								<input type="text" id='recAddr' name='recAddr' style='width:80%' placeholder='(주소)' readonly/>
 							</div>
 						</div>
 						<div class='row'>
@@ -264,7 +272,7 @@ textarea {
 	</div>
 	<div class='form-row align-items-center mt-5'>
 		<div class='col-3'>
-			<a href='<%=request.getContextPath() %>/user/terms'><button type='button' class='btn btn-secondary btn-block btn-sm'>약관보기</button></a>
+			<a href='${pageContext.request.contextPath}/user/terms'><button type='button' class='btn btn-secondary btn-block btn-sm'>약관보기</button></a>
 		</div>
 		<div class='form-check form-check-inline'>
 			<input type='checkbox' class='form-check-input' id='terms'/>
@@ -275,7 +283,9 @@ textarea {
 		<button type="button" class="btn btn-outline-secondary m-5 d-flex justify-content-center" id='purchaseBtn'
 			data-toggle='modal' data-target='#noCheckModal'>결제하기</button>
 	</div>
+	</c:if>
 </div>
+
 
 <div id='cofirmModal' class='modal fade' tabindex='-1'>
 	<div class='modal-dialog'>

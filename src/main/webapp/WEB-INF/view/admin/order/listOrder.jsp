@@ -9,7 +9,7 @@ function listOrders() {
 	
 	$.ajax({
 		method: 'post',
-		url: "<%=request.getContextPath() %>/admin/order/adminListOrder"
+		url: "<%=request.getContextPath() %>/admin/order/listOrder"
 	}).done(orders => {
 		if(orders.length) {
 			const orderArr = []
@@ -44,17 +44,22 @@ function init() {
 			$('#modalTitle').text('구매내역 삭제');
 			$('#modalMsg').text('구매를 삭제하시겠습니까?');
 			$('#confirmModal').modal();
+			$('#noBtn').show();
+			$('#yesBtn').show();
+			$('#okBtn').hide();
 		} else {
 			$('#modalMsg').empty();
 			$('#modalMsg').text('상품을 선택해주세요.');
 			$('#confirmModal').modal();
 			$('#noBtn').hide();
+			$('#yesBtn').hide();
+			$('#okBtn').show();
 		}
 	})
-	$('#okBtn').click(() => {
+	$('#yesBtn').click(() => {
 		$('#confirmModal').modal('hide')
 			$.ajax({
-				url: 'adminDel/' + $('#orderNum:checked').val(),
+				url: 'del/' + $('#orderNum:checked').val(),
 				method: 'delete'
 			}).done(listOrders)
 	})
@@ -64,18 +69,23 @@ function init() {
 			$('#comModalTitle').text('배송 완료');
 			$('#comModalMsg').text('구매를 완료하겠습니까?');
 			$('#completeModal').modal();
+			$('#comNoBtn').show();
+			$('#comYesBtn').show();
+			$('#comOkBtn').hide();
 		} else {
 			$('#modalMsg').empty();
 			$('#modalMsg').text('상품을 선택해주세요.');
 			$('#confirmModal').modal();
 			$('#noBtn').hide();
+			$('#yesBtn').hide();
+			$('#okBtn').show();
 		}
 	})
 	
-	$('#comOkBtn').click(() => {
+	$('#comYesBtn').click(() => {
 		$('#completeModal').modal('hide')
 			$.ajax({
-				url: 'adminFix/' + $('#orderNum:checked').val(),
+				url: 'fix/' + $('#orderNum:checked').val(),
 				method: 'put'
 			}).done(listOrders)
 	})
@@ -84,9 +94,6 @@ $(init)
 </script>
 <style>
 <%@ include file ="../../../../res/lib2.css"%>
-h5 {
-   color: #0f56ba;
-}
 table.type10 {
     width: 100%;
     text-align: center;
@@ -115,7 +122,7 @@ table.type1 td{
 }
 </style>
 <div class='container-fluid'>
-	<%@ include file='../include/header2.jsp' %>
+	<%@ include file='../include/headerAdmin.jsp' %>
 	<br><br>
 	<div class='row'>
 		<div class='col-2' id="adminBorder">
@@ -139,7 +146,7 @@ table.type1 td{
 		</div>
 		
 		<div class='col mt-5'>
-            <h5><strong>&nbsp;&nbsp;| 주문 현황</strong></h5><hr>    
+            <h5 style='color: #0f56ba;'><strong>&nbsp;&nbsp;| 주문 현황</strong></h5><hr>    
   			<table class='type1 mb-4'>
 				<thead style='background-color:#b1c3e0'>
 					<tr>
@@ -175,6 +182,7 @@ table.type1 td{
 				<p id='modalMsg'></p>
 			</div>
 			<div class='modal-footer'>
+				<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='yesBtn'>예</button>
 				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='noBtn'>아니오</button>
 				<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='okBtn'>확인</button>
 			</div>
@@ -195,6 +203,7 @@ table.type1 td{
 				<p id='comModalMsg'></p>
 			</div>
 			<div class='modal-footer'>
+				<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='comYesBtn'>예</button>
 				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='comNoBtn'>아니오</button>
 				<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='comOkBtn'>확인</button>
 			</div>

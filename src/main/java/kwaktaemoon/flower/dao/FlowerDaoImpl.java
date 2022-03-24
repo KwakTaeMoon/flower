@@ -8,34 +8,48 @@ import org.springframework.stereotype.Repository;
 import kwaktaemoon.flower.dao.map.FlowerMap;
 import kwaktaemoon.flower.domain.Flower;
 
-
-
 @Repository
 public class FlowerDaoImpl implements FlowerDao{
 	@Autowired private FlowerMap flowerMap;
 	
 	@Override
-	public List<Flower> selectFlowers(){
+	public List<Flower> selectFlowers() {
 		return flowerMap.selectFlowers();
 	}
+	
+	
 	@Override
-	public List<Flower> searchFlowerWithKeyword(String keyword){
+	public List<Flower> detailFlowers(String flowerName) {
+		return flowerMap.detailFlowers(flowerName);
+	}
+	
+	@Override
+	public List<Flower> searchFlowerWithKeyword(String keyword) {
 		return flowerMap.searchFlowerWithKeyword(keyword);
 	}
+	
+	@Override
+	public List<Flower> selectAdminFlowers() {
+		return flowerMap.selectAdminFlowers();
+	}
+	
 	@Override
 	public Flower searchFlower(String flowerName) {
 		return flowerMap.searchFlower(flowerName);
 	}
+	
 	@Override
-	public int insertFlowerAdmin(Flower flower) {
-		return flowerMap.insertFlowerAdmin(flower);
+	public void insertFlower(Flower flower) {
+		flowerMap.insertFlower(flower);
 	}
+	
 	@Override
-	public int updateFlowerAdmin(Flower flower) {
-		return flowerMap.updateFlowerAdmin(flower);
+	public void updateFlower(Flower flower) {
+		flowerMap.updateFlower(flower);
 	}
+	
 	@Override
-	public int deleteFlowerAdmin(Flower flower) {
-		return flowerMap.deleteFlowerAdmin(flower);
+	public void deleteFlower(int flowerNum) {
+		flowerMap.deleteFlower(flowerNum);
 	}
 }

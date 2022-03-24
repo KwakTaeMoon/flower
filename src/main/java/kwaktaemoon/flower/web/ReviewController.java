@@ -34,8 +34,8 @@ public class ReviewController{
 	}
 	
 	@RequestMapping(value = "/detailReview", method=RequestMethod.GET)
-	public String detailReview(Model model, @RequestParam("reviewNum") int reviewNum) {
-	    List<Review> reviewList = reviewService.getdetailReviews(reviewNum);
+	public String detailReview(Model model, @RequestParam("title") String title) {
+	    List<Review> reviewList = reviewService.getdetailReviews(title);
 	    model.addAttribute("reviewList", reviewList);
 		return "review/detailReview";
 	}

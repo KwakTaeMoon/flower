@@ -12,6 +12,7 @@
 </style>
 <div class='container'>
 	<%@ include file='../include/header.jsp' %>
+	<br><br><br><br>
 	<h5 style='color:#0f56ba'><b>| 비밀번호 찾기</b></h5><hr><br>
 		<form action='findPw-send' method='post'>
 			<div class='row justify-content-center'>

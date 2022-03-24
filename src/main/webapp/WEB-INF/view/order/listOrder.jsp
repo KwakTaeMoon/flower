@@ -43,14 +43,19 @@ function init() {
 			$('#modalTitle').text('취소/환불');
 			$('#modalMsg').text('취소/환불 하시겠습니까?');
 			$('#confirmModal').modal();
+			$('#noBtn').show();
+			$('#yesBtn').show();
+			$('#okBtn').hide();
 		} else {
 			$('#modalTitle').text('상품 미선택');
 			$('#modalMsg').text('상품을 선택해주세요.');
 			$('#confirmModal').modal();
 			$('#noBtn').hide();
+			$('#yesBtn').hide();
+			$('#okBtn').show();
 		}
 	})
-	$('#okBtn').click(() => {
+	$('#yesBtn').click(() => {
 		$('#confirmModal').modal('hide')
 			$.ajax({
 				url: 'fix/' + $('#orderNum:checked').val(),
@@ -98,7 +103,7 @@ tr {
                  <tbody id='orders'>
                  
 				</tbody>
-								<tr>
+				<tr>
 					<td colspan='5' style='text-align:left;'><small>※환불 상담은 문의로 진행됩니다. 아래 링크를 이용해 주세요.</small></td>
 				</tr>
 			</table>
@@ -123,6 +128,7 @@ tr {
 				<p id='modalMsg'></p>
 			</div>
 			<div class='modal-footer'>
+				<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='yesBtn'>예</button>
 				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='noBtn'>아니오</button>
 				<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='okBtn'>확인</button>
 			</div>
