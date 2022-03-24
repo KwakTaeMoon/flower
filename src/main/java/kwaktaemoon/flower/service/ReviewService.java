@@ -12,4 +12,4 @@ public interface ReviewService {
 	void fixReview(int reviewNum);
 	void delReview(int reviewNum);
 }
- 
+  

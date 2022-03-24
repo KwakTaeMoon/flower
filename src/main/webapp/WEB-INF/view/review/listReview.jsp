@@ -52,22 +52,15 @@ $(listReviews)
 				<td></td><td></td><td></td>
 				<td>
 					<c:if test="${not empty sessionScope.userId}">
-<<<<<<< HEAD
 						<button type='button' id='addBtn' class='btn btn-outline-secondary btn-sm' 
 							style='float:right' onclick="location.href='./addReview'">글쓰기 </button>
 					</c:if>
 					<c:if test="${empty sessionScope.userId}">
 						<button type='button' id='addBtn' class='btn btn-outline-secondary btn-sm' 
 							style='float:right' onclick="location.href='../user/login'">글쓰기</button>	
-=======
 					<button type='button' id='addBtn' class='btn btn-outline-secondary btn-sm' 
 						style='float:right' onclick="location.href='./addReview'">글쓰기 </button>
-					</c:if>
-					<c:if test="${empty sessionScope.userId}">
-					<button type='button' id='addBtn' class='btn btn-outline-secondary btn-sm' 
-						style='float:right' onclick="location.href='../user/login'">글쓰기</button>	
->>>>>>> branch 'master' of https://github.com/KwakTaeMoon/flower.git
-					</c:if>		
+					</c:if>	
 				</td>
 			 </tr>
 		</table>

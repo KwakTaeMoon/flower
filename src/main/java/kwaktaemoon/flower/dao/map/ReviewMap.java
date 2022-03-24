@@ -14,3 +14,4 @@ public interface ReviewMap {
 	void updateReview(int reviewNum);
 	void deleteReview(int reviewNum);
 }
+ 

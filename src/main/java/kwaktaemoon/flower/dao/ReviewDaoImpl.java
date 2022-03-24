@@ -17,7 +17,7 @@ public class ReviewDaoImpl implements ReviewDao{
 		return reviewMap.selectReviews();
 	}
 	
-	@Override
+	@Override 
 	public List<Review> detailReviews(String title) {
 		return reviewMap.detailReviews(title);
 	}

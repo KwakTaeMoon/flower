@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import kwaktaemoon.flower.dao.ReviewDao;
 import kwaktaemoon.flower.domain.Review;
 
-@Service
+@Service 
 public class ReviewServiceImpl implements ReviewService {
 	@Autowired private ReviewDao reviewDao;
 	

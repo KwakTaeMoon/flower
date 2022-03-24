@@ -16,7 +16,7 @@
 		select * from flowers
 		where flower_name = #{flowerName}
 	</select>
-
+ 
 	<select id='searchFlowerWithKeyword' resultType='flower'>
 		select * from flowers
 		WHERE flower_name LIKE '%'||#{keyword}||'%'

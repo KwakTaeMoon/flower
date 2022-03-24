@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kwaktaemoon.flower.domain.Review;
 import kwaktaemoon.flower.service.ReviewService;
 
-@Controller
+@Controller 
 @RequestMapping("/review")
 public class ReviewController{
 	@Autowired private ReviewService reviewService;	
