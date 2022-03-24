@@ -57,11 +57,8 @@ public class ReviewController{
 	
 	@ResponseBody
 	@PostMapping("/listReview")
-	public List<Review> getReviews(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		String userId = (String) session.getAttribute("userId");
-		List<Review> result = reviewService.getReviews(userId);
-		return result;
+	public List<Review> getReviews() {
+		return reviewService.getReviews();
 	}
 	
 	@ResponseBody

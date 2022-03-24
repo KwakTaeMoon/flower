@@ -13,8 +13,8 @@ public class ReviewServiceImpl implements ReviewService {
 	@Autowired private ReviewDao reviewDao;
 	
 	@Override
-	public List<Review> getReviews(String userId) {
-		return reviewDao.selectReviews(userId);
+	public List<Review> getReviews() {
+		return reviewDao.selectReviews();
 	}
 	
 	@Override

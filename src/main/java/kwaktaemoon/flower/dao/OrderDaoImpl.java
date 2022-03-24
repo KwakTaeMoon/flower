@@ -33,12 +33,6 @@ public class OrderDaoImpl implements OrderDao {
 	}
 	
 	@Override
-	public void updateOrder(Order order) {
-		orderMap.updateOrder(order);
-	}
-	
-	
-	@Override
 	public void updateDeliState(int orderNum) {
 		orderMap.updateDeliState(orderNum);
 	}

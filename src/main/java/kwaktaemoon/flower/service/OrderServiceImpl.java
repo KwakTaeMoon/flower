@@ -34,12 +34,6 @@ public class OrderServiceImpl implements OrderService {
 	}
 	
 	@Override
-	public void fixOrder(Order order) {
-		orderDao.updateOrder(order);
-	}
-	
-	
-	@Override
 	public void fixDeliState(int orderNum) {
 		orderDao.updateDeliState(orderNum);
 	}
