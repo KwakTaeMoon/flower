@@ -18,11 +18,6 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public String chkId(String userId) {
-		return userDao.selectId(userId);
-	}
-	
-	@Override
 	public String findId(String userName, String contactNum) {
 		return userDao.selectId2(userName, contactNum);
 	}
@@ -40,6 +35,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int addUser(User user) {
 		return userDao.insertUser(user);
+	}
+	
+	@Override
+	public String chkId(String userId) {
+		return userDao.selectId(userId);
 	}
 	
 	@Override

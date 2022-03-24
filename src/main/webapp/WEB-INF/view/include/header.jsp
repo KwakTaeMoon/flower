@@ -25,7 +25,11 @@
 								<a class='nav-link' href='.<%=request.getContextPath() %>/notice/01.html'>공지</a>
 							</li>
 							<li class='nav-item active'>
+<<<<<<< HEAD
 								<a class='nav-link' href='<%=request.getContextPath() %>/user/login'>후기</a>
+=======
+								<a class='nav-link' href='<%=request.getContextPath() %>/review/listReview'>후기</a>
+>>>>>>> refs/heads/dev
 							</li>
 							<li class='nav-item active'>
 								<a class='nav-link' href='<%=request.getContextPath() %>/user/login'>Login</a>
