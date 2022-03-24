@@ -24,13 +24,8 @@
 							<li class='nav-item active'>
 								<a class='nav-link' href='.<%=request.getContextPath() %>/notice/01.html'>공지</a>
 							</li>
-<<<<<<< HEAD
 							<li class='nav-item active'>
 								<a class='nav-link' href='<%=request.getContextPath() %>/review/listReview'>후기</a>
-=======
-							<li class='nav-item active'>
-								<a class='nav-link' href='<%=request.getContextPath() %>/review/listReview'>후기</a>
->>>>>>> branch 'master' of https://github.com/KwakTaeMoon/flower.git
 							</li>
 							<li class='nav-item active'>
 								<a class='nav-link' href='<%=request.getContextPath() %>/user/login'>Login</a>

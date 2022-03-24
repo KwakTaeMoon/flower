@@ -38,10 +38,6 @@ $(listReviews)
 <div class='container'>
 	<%@ include file='../include/header.jsp' %>
 <br><br><br><br>
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/KwakTaeMoon/flower.git
 	<div class='row'>
          <h5 style='color:#0f56ba'><b>| 후기</b></h5>
            <table class='table'>
@@ -58,8 +54,6 @@ $(listReviews)
 					<c:if test="${empty sessionScope.userId}">
 						<button type='button' id='addBtn' class='btn btn-outline-secondary btn-sm' 
 							style='float:right' onclick="location.href='../user/login'">글쓰기</button>	
-					<button type='button' id='addBtn' class='btn btn-outline-secondary btn-sm' 
-						style='float:right' onclick="location.href='./addReview'">글쓰기 </button>
 					</c:if>	
 				</td>
 			 </tr>
