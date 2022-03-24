@@ -39,7 +39,7 @@ $('#delBtn').click(() => {
 				<td>
 					<div style='float:right;'>
 						<button type='button' id='listBtn' class='btn btn-outline-secondary btn-sm' 
-							onclick="location.href='./01.html'">목록</button>
+							onclick="location.href='./listReview'">목록</button>
 						<button type='button' id='delBtn' class='btn btn-outline-secondary btn-sm' 
 							data-toggle='modal' data-target='#deleteModal'>삭제 </button>
 						<button type='button' id='fixtBtn' class='btn btn-outline-secondary btn-sm' 
