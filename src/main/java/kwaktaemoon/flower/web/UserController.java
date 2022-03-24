@@ -89,6 +89,13 @@ public class UserController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping("/myPage")
+	public String myPage(HttpSession session, Model model) throws Exception {
+	model.addAttribute("user", userService.getMyPage((String)session.getAttribute("userId")));
+		
+		return "user/myPage";
+	}
+	
 	@RequestMapping("/join")
 	public String join(User user) {
 		return "user/join";
@@ -118,12 +125,7 @@ public class UserController {
 		return "user/joinSuccess";
 	}
 	
-	@RequestMapping("/myPage")
-	public String myPage(HttpSession session, Model model) throws Exception {
-	model.addAttribute("user", userService.getMyPage((String)session.getAttribute("userId")));
-		
-		return "user/myPage";
-	}
+	
 	
 	@RequestMapping("/fixPw")
 	public String fixPwAddr() {

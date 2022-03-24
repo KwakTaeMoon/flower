@@ -18,10 +18,10 @@
 								<a class='nav-link' href='/admin/user/manage'>회원</a>
 							</li>
 							<li class='nav-item active'>
-								<a class='nav-link' href='../flower/01.html'>꽃</a>
+								<a class='nav-link' href='/admin/flower/adminListFlower'>꽃</a>
 							</li>
 							<li class='nav-item active'>
-								<a class='nav-link' href='../order/01.html'>주문</a>
+								<a class='nav-link' href='/admin/order/adminListOrder'>주문</a>
 							</li>
 							<li class='nav-item active'>
 								<a class='nav-link' href='../notice/01.html'>게시판</a>

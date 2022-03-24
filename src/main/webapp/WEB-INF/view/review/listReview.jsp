@@ -38,6 +38,10 @@ $(listReviews)
 <div class='container'>
 	<%@ include file='../include/header.jsp' %>
 <br><br><br><br>
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/KwakTaeMoon/flower.git
 	<div class='row'>
          <h5 style='color:#0f56ba'><b>| 후기</b></h5>
            <table class='table'>
@@ -48,12 +52,21 @@ $(listReviews)
 				<td></td><td></td><td></td>
 				<td>
 					<c:if test="${not empty sessionScope.userId}">
+<<<<<<< HEAD
 						<button type='button' id='addBtn' class='btn btn-outline-secondary btn-sm' 
 							style='float:right' onclick="location.href='./addReview'">글쓰기 </button>
 					</c:if>
 					<c:if test="${empty sessionScope.userId}">
 						<button type='button' id='addBtn' class='btn btn-outline-secondary btn-sm' 
 							style='float:right' onclick="location.href='../user/login'">글쓰기</button>	
+=======
+					<button type='button' id='addBtn' class='btn btn-outline-secondary btn-sm' 
+						style='float:right' onclick="location.href='./addReview'">글쓰기 </button>
+					</c:if>
+					<c:if test="${empty sessionScope.userId}">
+					<button type='button' id='addBtn' class='btn btn-outline-secondary btn-sm' 
+						style='float:right' onclick="location.href='../user/login'">글쓰기</button>	
+>>>>>>> branch 'master' of https://github.com/KwakTaeMoon/flower.git
 					</c:if>		
 				</td>
 			 </tr>
@@ -61,10 +74,6 @@ $(listReviews)
 		<div class='col d-flex justify-content-center' id='pagination'>
 			<a href='#'>&lt;이전&nbsp;</a>
 		   <strong>[1]</strong>
-		   <a href='#'>[2]</a>
-		   <a href='#'>[3]</a>
-		   <a href='#'>[4]</a>
-		   <a href='#'>[5]</a>
 		   <a href='#'>&nbsp;다음&gt;</a>
 		</div>
 	</div>
