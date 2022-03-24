@@ -63,8 +63,8 @@
 	</update>
 	
 	<delete id='deleteUser'>
-		delete from users
-		where user_id = #{userId} and user_pw = #{userPw}
+		delete users
+		where user_id = #{userId}
 	</delete>
 	
 	<select id='selectUsersAdmin' resultType='user'>

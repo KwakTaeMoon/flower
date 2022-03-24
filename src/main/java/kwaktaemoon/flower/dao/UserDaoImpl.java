@@ -62,8 +62,8 @@ public class UserDaoImpl implements UserDao {
 	}
 	
 	@Override
-	public void deleteUser(User user) {
-		userMap.deleteUser(user);
+	public void deleteUser(String userId) {
+		userMap.deleteUser(userId);
 	}
 	
 	@Override
