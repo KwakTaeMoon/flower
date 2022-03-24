@@ -31,7 +31,11 @@
 				<td>
 					<div style='float:right;'>
 						<button type='button' id='listBtn' class='btn btn-outline-secondary btn-sm' 
+<<<<<<< HEAD
 							onclick="location.href='#'">목록</button>
+=======
+							onclick="location.href='./listReview'">목록</button>
+>>>>>>> refs/heads/dev
 						<button type='button' id='delBtn' class='btn btn-outline-secondary btn-sm' 
 							data-toggle='modal' data-target='#deleteModal'>삭제 </button>
 						<button type='button' id='fixtBtn' class='btn btn-outline-secondary btn-sm' 
