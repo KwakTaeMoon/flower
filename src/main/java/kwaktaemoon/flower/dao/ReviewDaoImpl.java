@@ -42,3 +42,4 @@ public class ReviewDaoImpl implements ReviewDao{
 		reviewMap.deleteReview(reviewNum);
 	}
 }
+ 

@@ -31,7 +31,7 @@ function listReviews(){
 		} else {
 			$('#reviews').append('<tr><td colspan=5 class=text-center>리뷰가 없습니다.</td></tr>')
 		}
-	})
+	}) 
 }
 $(listReviews)
 </script>

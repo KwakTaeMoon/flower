@@ -28,4 +28,4 @@
 	   delete reviews
 	   where review_num = #{reviewNum}
 	</delete>
-</mapper>
+</mapper> 

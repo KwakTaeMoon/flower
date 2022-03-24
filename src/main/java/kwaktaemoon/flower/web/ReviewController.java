@@ -91,3 +91,4 @@ public class ReviewController{
 		reviewService.delReview(reviewNum);
 	}
 }
+ 
