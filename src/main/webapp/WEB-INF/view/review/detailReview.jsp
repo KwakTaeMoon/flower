@@ -5,14 +5,58 @@
 <%@ include file ='../include/lib.jsp'%>
 
 <script>
-$('#delBtn').click(() => {
-	$('#confirmModal').modal('hide')
+/*function init(){
+	getList();
+	
+	$('#delBtn').click(() => {
+		if(isVal($('#reviewNum:checked'))) {
+			$('#bodyMsg').text('글을 삭제하시겠습니까?');
+			$('#commonModal').modal();
+		} 
+	});
+	
+	$('#okBtn').click(() => {
+		var delNum = $('#reviewNum:checked').val();
+		alert($('#reviewNum:checked').val());
 		$.ajax({
-			url: 'del/' + $('#reviewNum:checked').val(),
-			method: 'delete'
-		}).done
+			url:`${pageContext.request.contextPath}/question/del/\${delNum}`,
+			method: 'post'
+		}).done(result => {
+			if(result != null){
+				getList();	
+			}
+		});
+		$('#commonModal').modal('hide');
+	});
+}
+$(init)*/
+
+
+
+function init() {
+
+$('#delBtn').click(() => {
+   if(isVal($('#reviewNum:checked'))) {
+      $('#modalMsg').text('글을 삭제하시겠습니까?')
+      $('#modalBtn').show()
+      $('#modal').modal()
+   }
 })
+
+$('#delOkBtn').click(() => {
+   $('#modal').modal('hide')
+   $.ajax({
+      url: 'review/del/' + $('#reviewNum:checked').val(),
+      method: 'delete'
+   }).done(listReview)
+})
+
+}
+
+$(init)
+
 </script>
+
 <style>
 <%@ include file ="../../../res/lib.css"%>
 #reviewImg {
@@ -61,4 +105,24 @@ $('#delBtn').click(() => {
 		</table>
 	</div>
 </div>
+
+<div class='modal fade' tabindex='-1' id='modal'>
+   <div class='modal-dialog'>
+      <div class='modal-content'>
+         <div class='modal-header'>
+            <button type='button' class='close' data-dismiss='modal'>
+               <span>&times;</span>
+            </button>
+         </div>
+         <div class='modal-body'>
+            <p id='modalMsg'></p>
+         </div>
+         <div class='modal-footer' id='modalBtn'>
+            <button type='button' class='btn btn-secondary' data-dismiss='modal'>아니오</button>
+            <button type='button' class='btn btn-primary' id='delLaborerOkBtn'>예</button>
+         </div>
+      </div>
+   </div>
+</div>
+
 <%@ include file='../include/footer.jsp' %>
