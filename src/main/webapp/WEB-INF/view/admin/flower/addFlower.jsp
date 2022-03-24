@@ -96,7 +96,7 @@ table.type1 td{
 	<%@ include file='../include/headerAdmin.jsp' %>
 </div>
 	<div class='row'>
-		<div class='col-2' id="adminBorder">
+		<div class='col-2 ml-4' id="adminBorder">
 			<table class='table table-bordered mt-3 text-center'>
 				<thead>
 					<tr>
@@ -109,7 +109,7 @@ table.type1 td{
 				<tbody id='noticeBorder' class='table-borderless'>
 					<tr><td></td></tr>
 					<tr>
-						<td><a href='./adminListFlower' style='color:black'>꽃 조회</a></td>
+						<td><a href='./listFlower' style='color:black;'>꽃 조회</a></td>
 					</tr>
 					<tr>
 						<td><a href='./addFlower' style='color:black; font-weight: bold'>꽃 등록</a></td>

@@ -15,13 +15,6 @@ $('#delBtn').click(() => {
 </script>
 <style>
 <%@ include file ="../../../res/lib.css"%>
-#reviewImg {
-   width: 200px;
-   height: 200px;
-   border: 1px solid lightgrey;
-   text-align: center;
-   margin: 0 auto;
-}
 </style>
 <div class='container'>
 	<%@ include file='../include/header.jsp' %>
@@ -37,12 +30,9 @@ $('#delBtn').click(() => {
 			</c:forEach>
 		</table>
 		<table class='table'>
-			<tr>
-				<td style='border-bottom: hidden' align='center'><div id='reviewImg'><img>꽃 이미지</div></td>
-			</tr>
 			<c:forEach var="review" items="${reviewList}">
 			<tr>
-				<td>${review.content}</td>
+				<td><textarea style='width:100%' rows='15' readonly>${review.content}</textarea></td>
 			</tr>
 			</c:forEach>
 			<tr>
@@ -54,7 +44,6 @@ $('#delBtn').click(() => {
 							data-toggle='modal' data-target='#deleteModal'>삭제 </button>
 						<button type='button' id='fixtBtn' class='btn btn-outline-secondary btn-sm' 
 							onclick="location.href='./fixReview'">수정 </button>
-							
 					</div>
 				</td>
 			</tr>

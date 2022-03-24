@@ -19,10 +19,9 @@ import kwaktaemoon.flower.service.FlowerService;
 public class FlowerController {
 	@Autowired private FlowerService flowerService;
 	
-	@RequestMapping(value = "/detailFlower", method=RequestMethod.GET)
-	public String detailFlowers(Model model, @RequestParam("flowerName") String flowerName) {
-	    List<Flower> flowerList = flowerService.getDetailFlowers(flowerName);
-	    model.addAttribute("flowerList", flowerList);
+	@RequestMapping("/detailFlower")
+	public String detailFlowers() {
+		flowerService.getFlowers();
 		return "flower/detailFlower";
 	}
 }

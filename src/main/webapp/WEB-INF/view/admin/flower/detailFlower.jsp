@@ -52,9 +52,9 @@
 <div class='container-fluid'>
 	<%@ include file='../include/headerAdmin.jsp' %>
 		</div>
-	<div class='col'>	
+<div class='col'>	
 	<div class='row'>
-		<div class='col-2' id="adminBorder">
+		<div class='col-2 ml-3' id="adminBorder">
 			<table class='table table-bordered mt-3 text-center'>
 				<thead>
 					<tr>
@@ -67,10 +67,10 @@
 				<tbody id='noticeBorder' class='table-borderless'>
 					<tr><td></td></tr>
 					<tr>
-						<td><a href='../flower/01.html' style='color:black; font-weight: bold'>꽃 조회</a></td>
+						<td><a href='./listFlower' style='color:black; font-weight: bold'>꽃 조회</a></td>
 					</tr>
 					<tr>
-						<td><a href='../flower/03.html' style='color:black'>꽃 등록</a></td>
+						<td><a href='./addFlower' style='color:black'>꽃 등록</a></td>
 					</tr>
 					<tr><td></td></tr>
 				</tbody>
@@ -94,18 +94,18 @@
 			</div>
 		</div>
 	</div><br><hr>
-	<div class='col'>
-		<div class='row'>
-			<div class='col-2'></div>
-				<div class='col-10 text-center'>				
-					<c:forEach var="flower" items="${flowerList}">
-						<img style='max-width: 100%; height:1000' src='<c:url value="/attach/${flower.detailImgfileName}"/>'/><br>
-					</c:forEach>
-				</div>
-			</div><br><br><hr>
+<div class='col'>
+	<div class='row'>
+		<div class='col-2'></div>
+			<div class='col-10 text-center'>				
+				<c:forEach var="flower" items="${flowerList}">
+					<img style='max-width: 100%; height:1000' src='<c:url value="/attach/${flower.detailImgfileName}"/>'/><br>
+				</c:forEach>
+			</div>
+		</div><br><br><hr>
 			<div class='col'>
 				<c:forEach var="flower" items="${flowerList}">
-					<a href='/admin/flower/fixFlower?flowerName=${flower.flowerName}'><button class='btn btn-outline-secondary  float-right  mr-2' >수정</button></a>	
+					<a href='/admin/flower/fixFlower?flowerNum=${flower.flowerNum}'><button class='btn btn-outline-secondary  float-right  mr-2' >수정</button></a>	
 				</c:forEach>
 			</div>
 	</div>

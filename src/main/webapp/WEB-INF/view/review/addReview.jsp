@@ -21,23 +21,36 @@ function init() {
 					content: $('#content').val()
 				}
 			}).done(reviews => {
-				$('#modalTitle').text('후기 작성');
 				$('#modalMsg').text('글이 등록되었습니다.');
 				$('#cofirmModal').modal();
 				$('#noBtn').hide();
-				$('#okBtn').hide();
+				$('#yesBtn').hide();
+				$('#okBtn').show();
+				$('#okBtn').click(() => {
+					location.href='./listReview'
+				})	
 			})
 			}else {
-				$('#modalTitle').text('후기 작성');
 				$('#modalMsg').text('후기를 입력해 주세요.');
 				$('#cofirmModal').modal();
-				$('#completeOkBtn').hide();
 				$('#noBtn').hide();
+				$('#yesBtn').hide();
+				$('#okBtn').show();
 			}
 	})
 	
-	$('#completeOkBtn').click(() => {
-		location.href='./listReview'
+
+	
+	$('#cancelBtn').click(() => {
+		$('#modalMsg').text('작성을 취소 하시겠습니까?');
+		$('#cofirmModal').modal();
+		$('#completeOkBtn').hide();
+		$('#noBtn').show();
+		$('#yesBtn').show();
+		$('#okBtn').hide();
+		$('#yesBtn').click(() => {
+			location.href='./listReview'
+		})	
 	})
 }  
 
@@ -56,13 +69,10 @@ $(init)
 			<input type='text' class='form-control' placeholder='제목을 입력해 주세요.'
 			style='height:30; border:none;' minlength='3' id='title'/><hr>
 			 <textarea placeholder='내용을 입력하세요.' style='width:100%' rows='15'  id='content'></textarea>
-			<input type='file' multiple style='margin-top:10px' id='imgFileName'/>
 			</f:form>
 			<div style='float:right; margin-top:10px;'>
-				<button class='btn btn-outline-secondary btn-sm' id='cancelBtn' 
-					data-toggle='modal' data-target='#cancelModal'>취소</button>
-				<button class='btn btn-outline-secondary btn-sm' id='registerBtn' 
-					data-toggle='modal' data-target='#registerModal'>등록</button>
+				<button class='btn btn-outline-secondary btn-sm' id='cancelBtn'>취소</button>
+				<button class='btn btn-outline-secondary btn-sm' id='registerBtn'>등록</button>
 			</div>
 		</div>
 	</div>
@@ -72,7 +82,7 @@ $(init)
 	<div class='modal-dialog'>
 		<div class='modal-content'>
 			<div class='modal-header'>
-				<h5 id='modalTitle'></h5>
+				<h5 id='modalTitle'>후기 작성</h5>
 				<button type='button' class='close' data-dismiss='modal'>
 					<span>&times;</span>
 				</button>
@@ -81,8 +91,8 @@ $(init)
 				<p id='modalMsg'></p>
 			</div>
 			<div class='modal-footer'>
+				<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='yesBtn'>예</button>
 				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='noBtn'>아니오</button>
-				<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='completeOkBtn'>확인</button>
 				<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='okBtn'>확인</button>
 			</div>
 		</div>

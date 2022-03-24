@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +21,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import kwaktaemoon.flower.domain.Flower;
-import kwaktaemoon.flower.domain.Review;
 import kwaktaemoon.flower.service.FlowerService;
 
 @Controller
@@ -29,16 +30,16 @@ public class FlowerAdminController {
 	
 	@Value("${attachPath}") private String attachPath;
 	
-	@RequestMapping("/adminListFlower")
-	public String adminListFlower() {
-		return "admin/flower/adminListFlower";
+	@RequestMapping("/listFlower")
+	public String listFlower() {
+		return "admin/flower/listFlower";
 	}
 	
-	@RequestMapping(value = "/adminDetailFlower", method=RequestMethod.GET)
-	public String adminDetailFlower(Model model, @RequestParam("flowerName") String flowerName) {
+	@RequestMapping(value = "/detailFlower", method=RequestMethod.GET)
+	public String detailFlower(Model model, @RequestParam("flowerName") String flowerName) {
 	    List<Flower> flowerList = flowerService.getDetailFlowers(flowerName);
 	    model.addAttribute("flowerList", flowerList);
-		return "admin/flower/adminDetailFlower";
+		return "admin/flower/detailFlower";
 	}
 	
 	@RequestMapping("/addFlower")
@@ -50,20 +51,12 @@ public class FlowerAdminController {
 	public String fixFlower() {
 		return "admin/flower/fixFlower";
 	}
-	
-	
-	@RequestMapping(value = "/fixFlower", method=RequestMethod.GET)
-	public String fixFlower(Model model, @RequestParam("flowerName") String flowerName) {
-	    List<Flower> flowerList = flowerService.getDetailFlowers(flowerName);
-	    model.addAttribute("flowerList", flowerList);
-		return "admin/flower/fixFlower";
-	}
 	@ResponseBody
-	@PostMapping("/adminListFlower")
+	@PostMapping("/listFlower")
 	public List<Flower> getAdminFlowers() {
 		return flowerService.getAdminFlowers();
 	}
-
+	
 	@ResponseBody	
 	@DeleteMapping("adminDel/{flowerNum}")
 	public void delFlower(@PathVariable int flowerNum) {
@@ -72,39 +65,43 @@ public class FlowerAdminController {
 	
 	@ResponseBody
 	@PostMapping("/addFlower")
-	public ModelAndView addFlower(Flower flower, ModelAndView mv){
+	public ModelAndView addFlower(Flower flower, ModelAndView mv) {
+		try {
 		String flowerFileName = flower.getFlowerImgfile().getOriginalFilename();
+		String detailFileName = flower.getDetailImgfile().getOriginalFilename();
+		
 		saveFlowerFile(attachPath + "/" + flowerFileName, flower.getFlowerImgfile());
 		flower.setFlowerImgfileName(flowerFileName);
 		
-		String detailFileName = flower.getDetailImgfile().getOriginalFilename();
 		saveDetailFile(attachPath + "/" + detailFileName, flower.getDetailImgfile());
 		flower.setDetailImgfileName(detailFileName);
 		flowerService.addFlower(flower);
+		} catch(NullPointerException e) {}
 		return mv;
 	}
 	
 	@ResponseBody
-	@PostMapping("/fixFlower")
-	public ModelAndView fixFlower(Flower flower, ModelAndView mv){
+	@PutMapping("/fixFlower")
+	public ModelAndView fixFlower(@RequestBody Flower flower, ModelAndView mv)throws IOException{
 		String flowerFileName = flower.getFlowerImgfile().getOriginalFilename();
+		String detailFileName = flower.getDetailImgfile().getOriginalFilename();
+
 		saveFlowerFile(attachPath + "/" + flowerFileName, flower.getFlowerImgfile());
 		flower.setFlowerImgfileName(flowerFileName);
-		
-		String detailFileName = flower.getDetailImgfile().getOriginalFilename();
+
 		saveDetailFile(attachPath + "/" + detailFileName, flower.getDetailImgfile());
 		flower.setDetailImgfileName(detailFileName);
-		flowerService.addFlower(flower);
+		flowerService.fixFlower(flower);
 		return mv;
 	}
-	
-	private void saveFlowerFile(String flowerFileName, MultipartFile flowerFile) { // 절대경로 
+
+	private void saveFlowerFile(String flowerFileName, MultipartFile flowerFile) {
 		try {
 			flowerFile.transferTo(new File(flowerFileName));
 		} catch(IOException e) {}
 	}
 	
-	private void saveDetailFile(String flowerFileName, MultipartFile detailFile) { // 절대경로 
+	private void saveDetailFile(String flowerFileName, MultipartFile detailFile) { 
 		try {
 			detailFile.transferTo(new File(flowerFileName));
 		} catch(IOException e) {}

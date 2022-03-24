@@ -6,15 +6,15 @@
 
 <script>
 function init() {
-$('#registerBtn').click(() => {
+$('#fixBtn').click(() => {
 	let flowerName = $('#flowerName').val();
 	let price = $('#price').val();
 	let flowerCategory = $('#flowerCategory:checked').val();
 	let kind = $('#kind').val();
 	if(flowerName && price && flowerCategory && kind) {
 		$.ajax({
-			type: 'post',
-			url: '${pageContext.request.contextPath}/admin/flower/addFlower',
+			type: 'put',
+			url: '<%=request.getContextPath() %>/admin/flower/flxFlower',
 			data: {
 				flowerName: flowerName,
 				price: price,
@@ -69,7 +69,7 @@ table.type1 td{
 	<%@ include file='../include/headerAdmin.jsp' %>
 </div>
 	<div class='row'>
-		<div class='col-2' id="adminBorder">
+		<div class='col-2 ml-4' id="adminBorder">
 			<table class='table table-bordered mt-3 text-center'>
 				<thead>
 					<tr>
@@ -82,10 +82,10 @@ table.type1 td{
 				<tbody id='noticeBorder' class='table-borderless'>
 					<tr><td></td></tr>
 					<tr>
-						<td><a href='./adminListFlower' style='color:black'>꽃 조회</a></td>
+						<td><a href='./listFlower' style='color:black; font-weight: bold'>꽃 조회</a></td>
 					</tr>
 					<tr>
-						<td><a href='./addFlower' style='color:black; font-weight: bold'>꽃 등록</a></td>
+						<td><a href='./addFlower' style='color:black'>꽃 등록</a></td>
 					</tr>
 					<tr><td></td></tr>
 				</tbody>
@@ -153,7 +153,7 @@ table.type1 td{
 				</tr>
 				<tr>
 					<th></th>
-					<td align='right'><button class='btn btn-outline-secondary btn-sm' type='submit' id='registerBtn'>등록</button></td>
+					<td align='right'><button class='btn btn-outline-secondary btn-sm'  id='fixBtn'>수정</button></td>
 				</tr>
 			</tbody>
 		</table>
