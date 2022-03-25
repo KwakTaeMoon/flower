@@ -51,6 +51,7 @@ public class FlowerAdminController {
 	public String fixFlower() {
 		return "admin/flower/fixFlower";
 	}
+	
 	@ResponseBody
 	@PostMapping("/listFlower")
 	public List<Flower> getAdminFlowers() {
@@ -81,7 +82,7 @@ public class FlowerAdminController {
 	}
 	
 	@ResponseBody
-	@PutMapping("/fixFlower")
+	@PutMapping("/fix")
 	public ModelAndView fixFlower(@RequestBody Flower flower, ModelAndView mv)throws IOException{
 		String flowerFileName = flower.getFlowerImgfile().getOriginalFilename();
 		String detailFileName = flower.getDetailImgfile().getOriginalFilename();
