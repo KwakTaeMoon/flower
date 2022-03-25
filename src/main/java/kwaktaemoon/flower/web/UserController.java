@@ -4,18 +4,17 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -185,31 +184,12 @@ public class UserController {
 		userService.fixAddr(userId, postcode, addr, detailAddr);
 	}
 	
-	@RequestMapping(value="/withdraw", method = RequestMethod.GET)
-	public String withdraw(User user, HttpServletRequest request) {
+	@ResponseBody
+	@DeleteMapping("/delUser/{userId}")
+	public void delUser(@PathVariable String userId, HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
-		session.getAttribute("userId");
-		
-		if(user.getUserId() != null) {
-			session.setAttribute("userId", user.getUserId());
-		}
-		return "/user/withdraw";
-	}
-	
-	@RequestMapping(value="/withdraw", method = RequestMethod.POST)
-	public String withdraw(User user, HttpSession session, RedirectAttributes ra) throws Exception {
-		User user1 = (User) session.getAttribute("user");
-		
-		String oldPass = user1.getUserPw();
-		String newPass = user.getUserPw();
-		if(oldPass.equals(newPass)) {
-			userService.delUser(user);
-			ra.addFlashAttribute("result", "removeOk");
-			return "redirect:../user/withdrawSuccess";
-		} else {
-			ra.addFlashAttribute("result", "removeFalse");
-			return "redirect:../user/withdraw";
-		}
+		String userId1 = (String) session.getAttribute("userId");
+		userService.delUser(userId1);
 	}
 	
 	@RequestMapping("/withdrawSuccess")

@@ -103,6 +103,18 @@ function init() {
 	$('#searchAddr').click(() => {
 		searchAddr();
 	})
+	
+	$('#delUserBtn').click(() => {
+		$('#delUserModal').modal()
+	})
+	
+	$('#delUserOkBtn').click(() => {
+		$('#delUserModal').modal('hide')
+		$.ajax({
+			url:'delUser/' + $('#userId').val(),
+			method:'delete'
+		})
+	})
 }
 
 $(init);
@@ -216,7 +228,7 @@ li {
 	<hr>
 	<div class='row d-flex justify-content-center mt-2 float-right'>
 		<div class='col'>				
-			<a href='<%=request.getContextPath() %>/user/withdraw'><button type='button' class='btn btn-secondary sm-btn' >회원탈퇴</button></a>						
+			<button type='button' id='delUserBtn' class='btn btn-secondary sm-btn' >회원탈퇴</button>					
 		</div>
 	</div>
 	</c:if>
@@ -286,7 +298,7 @@ li {
 	</div>
 </div>
 
-<div id='withdrawModal' class='modal fade' tabindex='-1'>
+<div id='delUserModal' class='modal fade' tabindex='-1'>
      <div class='modal-dialog'>
         <div class='modal-content'>
            <div class='modal-header'>
@@ -294,11 +306,12 @@ li {
               <button type='button' class='close' data-dismiss='modal'><i class='fa fa-times'></i></button>
            </div>
          <div class='modal-body' align='center'>
-         	<p id='withdrawModalMsg'>회원 탈퇴하시겠습니까?</p>
+         	<p id='delUserModalMsg'>회원 탈퇴하시겠습니까?</p>
          </div>
          <div class='modal-footer' id='modalBtn'>
-            <button type='button' class='btn btn-outline-secondary' id='withdrawOkBtn' onclick='location.href="<%=request.getContextPath() %>/user/withdrawSuccess"'>예</button>
-			<button type='button' class='btn btn-secondary' id='withdrawNoBtn' data-dismiss='modal'>아니오</button>
+            <button type='button' class='btn btn-outline-secondary' id='delUserOkBtn' 
+				onclick='location.href="<%=request.getContextPath() %>/user/withdrawSuccess"'>예</button>
+			<button type='button' class='btn btn-secondary' id='delUserNoBtn' data-dismiss='modal'>아니오</button>
          </div>
       </div>
    </div>

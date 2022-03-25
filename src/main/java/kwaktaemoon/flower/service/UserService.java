@@ -15,7 +15,7 @@ public interface UserService {
 	int fixEmail(String userId, String email);
 	int fixContactNum(String userId, String contactNum);
 	int fixAddr(String userId, String postcode, String addr, String detailAddr);
-	void delUser(User user);
+	void delUser(String userId);
 	List<User> getUsersAdmin();
 	void fixUserAdmin(User user);
 	void delUserAdmin(String userId);

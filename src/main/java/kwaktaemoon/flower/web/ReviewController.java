@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kwaktaemoon.flower.domain.Review;
 import kwaktaemoon.flower.service.ReviewService;
 
-@Controller
+@Controller 
 @RequestMapping("/review")
 public class ReviewController{
 	@Autowired private ReviewService reviewService;	
@@ -57,11 +57,8 @@ public class ReviewController{
 	
 	@ResponseBody
 	@PostMapping("/listReview")
-	public List<Review> getReviews(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		String userId = (String) session.getAttribute("userId");
-		List<Review> result = reviewService.getReviews(userId);
-		return result;
+	public List<Review> getReviews() {
+		return reviewService.getReviews();
 	}
 	
 	@ResponseBody
@@ -91,3 +88,4 @@ public class ReviewController{
 		reviewService.delReview(reviewNum);
 	}
 }
+ 

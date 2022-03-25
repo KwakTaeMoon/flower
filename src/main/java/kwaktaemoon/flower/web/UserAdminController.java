@@ -22,9 +22,9 @@ import kwaktaemoon.flower.service.UserService;
 public class UserAdminController {
 	@Autowired private UserService userService;
 	
-	@GetMapping("/manage")
-	public ModelAndView manage(ModelAndView mv) {
-		mv.setViewName("/admin/user/manage");
+	@GetMapping("/listUser")
+	public ModelAndView listUser(ModelAndView mv) {
+		mv.setViewName("/admin/user/listUser");
 		return mv;
 	}
 	

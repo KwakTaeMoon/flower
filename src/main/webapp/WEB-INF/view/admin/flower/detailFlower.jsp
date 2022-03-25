@@ -9,19 +9,17 @@
 </script>
 <style>
 <%@ include file ="../../../../res/lib2.css"%>
-
 #flowerImage{
 	width: 300px;
 	height:250px;
     margin: auto;
 }
 
-
-
 #searchbtn {
 	margin: auto;
 	display: block;
 }
+
 .bold {
 	font-weight: bold;
 }
@@ -103,11 +101,11 @@
 				</c:forEach>
 			</div>
 		</div><br><br><hr>
-			<div class='col'>
-				<c:forEach var="flower" items="${flowerList}">
-					<a href='/admin/flower/fixFlower?flowerNum=${flower.flowerNum}'><button class='btn btn-outline-secondary  float-right  mr-2' >수정</button></a>	
-				</c:forEach>
-			</div>
+		<div class='col'>
+			<c:forEach var="flower" items="${flowerList}">
+				<a href='/admin/flower/fixFlower?flowerNum=${flower.flowerNum}'><button class='btn btn-outline-secondary  float-right  mr-2' >수정</button></a>	
+			</c:forEach>
+		</div>
 	</div>
 </div>
 

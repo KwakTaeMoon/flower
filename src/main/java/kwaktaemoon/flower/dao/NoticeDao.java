@@ -11,3 +11,4 @@ public interface NoticeDao {
 	void updateAdminNotice(int noticeNum);
 	void deleteAdminNotice(int noticeNum);
 }
+
