@@ -15,13 +15,13 @@
 					<div class='collapse navbar-collapse' id='menu'>
 						<ul class='nav navbar-nav w-100 justify-content-around'>
 							<li class='nav-item active'>
-								<a class='nav-link' href='/admin/user/manage'>회원</a>
+								<a class='nav-link' href='/admin/user/listUser'>회원</a>
 							</li>
 							<li class='nav-item active'>
-								<a class='nav-link' href='/admin/flower/adminListFlower'>꽃</a>
+								<a class='nav-link' href='/admin/flower/listFlower'>꽃</a>
 							</li>
 							<li class='nav-item active'>
-								<a class='nav-link' href='/admin/order/adminListOrder'>주문</a>
+								<a class='nav-link' href='/admin/order/listOrder'>주문</a>
 							</li>
 							<li class='nav-item active'>
 								<a class='nav-link' href='../notice/01.html'>게시판</a>

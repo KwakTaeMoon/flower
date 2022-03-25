@@ -249,7 +249,7 @@ $(init);
 					<tbody id='borderStatus' class='table-borderless'>
 						<tr><td></td></tr>
 						<tr>
-							<td><a href='../user/manage' style='color:black; font-weight:bold'>회원 관리</a></td>
+							<td><a href='../user/listUser' style='color:black; font-weight:bold'>회원 관리</a></td>
 						</tr>
 						<tr><td></td></tr>
 					</tbody>
