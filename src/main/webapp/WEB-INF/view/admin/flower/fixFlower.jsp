@@ -11,23 +11,53 @@ $('#fixBtn').click(() => {
 	let price = $('#price').val();
 	let flowerCategory = $('#flowerCategory:checked').val();
 	let kind = $('#kind').val();
-	if(flowerName && price && flowerCategory && kind) {
-		$.ajax({
-			type: 'put',
-			url: '<%=request.getContextPath() %>/admin/flower/flxFlower',
-			data: {
-				flowerName: flowerName,
-				price: price,
-				flowerCategory: flowerCategory,
-				kind: kind
+	if(kind) {
+		if(kind=='꽃다발'|| kind=='꽃바구니'|| kind=='화분'|| kind=='조화/꽃비누') {
+			if(flowerCategory) {	
+				if(flowerName) {	
+					if(price) {	
+								$.ajax({
+									type: 'put',
+									url: 'fix',
+									data: {
+										flowerName: flowerName,
+										price: price,
+										flowerCategory: flowerCategory,
+										kind: kind
+									}
+							}).done
+							} else {
+								event.preventDefault();
+								$('#modalMsg').empty();
+								$('#modalMsg').text('가격을 입력해주세요.');
+								$('#cofirmModal').modal();
+								$('#okBtn').show();
+								$('#noBtn').hide();
+							}
+					} else {
+						event.preventDefault();
+						$('#modalMsg').empty();
+						$('#modalMsg').text('꽃 이름을 입력해주세요.');
+						$('#cofirmModal').modal();
+						$('#okBtn').show();
+						$('#noBtn').hide();
+					}
+				} else {
+					event.preventDefault();
+					$('#modalMsg').empty();
+					$('#modalMsg').text('분류를 선택해주세요.');
+					$('#cofirmModal').modal();
+					$('#okBtn').show();
+					$('#noBtn').hide();
+				}
+			} else{
+				event.preventDefault();
+				$('#modalMsg').empty();
+				$('#modalMsg').text('종류를 선택해주세요.');
+				$('#cofirmModal').modal();
+				$('#okBtn').show();
+				$('#noBtn').hide();
 			}
-		}).done
-		} else {
-			event.preventDefault();
-			$('#modalMsg').empty();
-			$('#modalMsg').text('정보를 입력해주세요.');
-			$('#cofirmModal').modal();
-			$('#noBtn').hide();
 		}
 	})
 }  
@@ -35,9 +65,6 @@ $(init)
 </script>
 <style>
 <%@ include file ="../../../../res/lib2.css"%>
-h5 {
-   color: #0f56ba;
-}
 table.type10 {
     width: 100%;
     text-align: center;
@@ -79,7 +106,7 @@ table.type1 td{
 						<th>꽃 관리</th>
 					</tr>
 				</thead>
-				<tbody id='noticeBorder' class='table-borderless'>
+				<tbody class='table-borderless'>
 					<tr><td></td></tr>
 					<tr>
 						<td><a href='./listFlower' style='color:black; font-weight: bold'>꽃 조회</a></td>
@@ -91,72 +118,64 @@ table.type1 td{
 				</tbody>
 			</table>
 		</div>
-	<div class='col-8 mt-3'>
-		<h5 style='color:#0f56ba'><b>| 꽃 수정</b></h5>
-		<hr><br>
-			<c:forEach var="flower" items="${flowerList}">
-				<p><b>꽃 번호:</b> ${flower.flowerNum}&emsp;&emsp;<b>꽃 이름:</b> ${flower.flowerName}</p>
-				<p><b>가격:</b> ${flower.price}&emsp;&emsp;<b>등록일:</b> ${flower.regDate}</p>
-				<p><b>종류:</b> ${flower.kind}&emsp;&emsp;<b>분류:</b> ${flower.flowerCategory}</p>
-				<p></p>
-			</c:forEach>
-		<form id='form' method='post' encType='multipart/form-data'>
-			<div class='col-8 d-flex'>
-				<h5><b>종류 선택&nbsp;</b></h5><p>*필수</p>
-			</div>
-			<div class='col-8'>
-				<select id='kind' name='kind' class='text-center col-4'>
-					<option value='꽃다발'>꽃다발</option>
-					<option value='꽃바구니'>꽃바구니</option>
-					<option value='화분'>화분</option>
-					<option value='조화/꽃비누'>조화/꽃비누</option>
-				</select>
-				<hr><br>
-			</div>	
-			<div class='col-8'>
-				<h5><b>분류&nbsp;</b></h5><br>
-			</div>
-			<div class='col'>
-				&nbsp;<label for='userName' class='col-form-label'><strong>분류&emsp;&emsp;&emsp;</strong></label>
-				<input type='radio' value='신상품' id='flowerCategory' name='flowerCategory'>&emsp;신상품&emsp;&emsp;
-				<input type='radio' value='베스트' id='flowerCategory' name='flowerCategory'>&emsp;베스트&emsp;&emsp;
-				<input type='radio' value='일반상품' id='flowerCategory' name='flowerCategory'>&emsp;일반상품&emsp;&emsp;
-			</div><hr><br>
-			
-			<div class='col-8 d-flex'>
-				<h5><b>꽃 기본 사항&nbsp;</b></h5>
-			</div><br>	
-				<table class='table table-borderless' id='classTop'>				
-					<tbody>					
-						<tr>
-							<th><label>꽃 이미지: </label></th>
-							<td>
-								<input type="file" name="flowerImgfile" >
-							</td>					
-						<tr>
-							<th><label>꽃 이름 : </label></th>
-							<td>
-								<input type='text' id='flowerName' name='flowerName'/>
-							</td>
-						<tr>
-							<th>가격 : </th>
-							<td>
-								<input id='price' name='price' type='number'/>
-							</td>
-						</tr>
-						<tr>
-							<th>제품상세 : </th>
-							<td>
-								<input type='file' name="detailImgfile"/>
-							</td>
-						</tr>
-						<tr>
-							<th></th>
-							<td align='right'><button class='btn btn-outline-secondary btn-sm'  id='fixBtn'>수정</button></td>
-						</tr>
-					</tbody>
-				</table>
-		 </form>
+		<div class='col-8 mt-3'>
+			<h5 style='color:#0f56ba'><b>| 꽃 수정</b></h5>
+			<hr><br>
+			<form id='form' method='post' encType='multipart/form-data'>
+		<div class='col-8 d-flex'>
+			<h5 style='color:#0f56ba'><b>종류 선택&nbsp;</b></h5><p>*필수</p>
+		</div>
+		<div class='col-8'>
+			<select id='kind' name='kind' class='text-center col-4'>
+				<option>--</option>
+				<option>꽃다발</option>
+				<option>꽃바구니</option>
+			</select>
+			<hr><br>
+		</div>	
+		<div class='col-8'>
+			<h5 style='color:#0f56ba'><b>분류&nbsp;</b></h5><br>
+		</div>
+		<div class='col'>
+			&nbsp;<label for='flowerName' class='col-form-label'><strong>분류&emsp;&emsp;&emsp;</strong></label>
+			<input type='radio' value='BEST' id='flowerCategory' name='flowerCategory'>&emsp;BEST&emsp;&emsp;
+			<input type='radio' value='NEW' id='flowerCategory' name='flowerCategory'>&emsp;NEW&emsp;&emsp;
+		</div><hr><br>
+		
+		<div class='col-8 d-flex'>
+			<h5 style='color:#0f56ba'><b>꽃 기본 사항&nbsp;</b></h5>
+		</div><br>	
+			<table class='table table-borderless' id='classTop'>				
+				<tbody>					
+					<tr>
+						<th><label>꽃 이미지: </label></th>
+						<td>
+							<input type="file" name="flowerImgfile" >
+						</td>					
+					<tr>
+						<th><label>꽃 이름 : </label></th>
+						<td>
+							<input type='text' id='flowerName' name='flowerName'/>
+						</td>
+					<tr>
+						<th>가격 : </th>
+						<td>
+							<input id='price' name='price' type='number'/>
+						</td>
+					</tr>
+					<tr>
+						<th>제품상세 : </th>
+						<td>
+							<input type='file' name="detailImgfile"/>
+						</td>
+					</tr>
+					<tr>
+						<th></th>
+						<td align='right'><button class='btn btn-outline-secondary btn-sm'  id='fixBtn'>수정</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
 	</div>
 </div>
 
@@ -164,7 +183,7 @@ table.type1 td{
 	<div class='modal-dialog'>
 		<div class='modal-content'>
 			<div class='modal-header'>
-				<h5 class='modalTitle'>꽃 등록</h5>
+				<h5 class='modalTitle'>꽃 수정</h5>
 				<button type='button' class='close' data-dismiss='modal'>
 					<span>&times;</span>
 				</button>
