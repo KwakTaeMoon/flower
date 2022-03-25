@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 import kwaktaemoon.flower.dao.ReviewDao;
 import kwaktaemoon.flower.domain.Review;
 
-@Service
+@Service 
 public class ReviewServiceImpl implements ReviewService {
 	@Autowired private ReviewDao reviewDao;
 	
 	@Override
-	public List<Review> getReviews(String userId) {
-		return reviewDao.selectReviews(userId);
+	public List<Review> getReviews() {
+		return reviewDao.selectReviews();
 	}
 	
 	@Override
@@ -42,3 +42,4 @@ public class ReviewServiceImpl implements ReviewService {
 		reviewDao.deleteReview(reviewNum);
 	}
 }
+ 

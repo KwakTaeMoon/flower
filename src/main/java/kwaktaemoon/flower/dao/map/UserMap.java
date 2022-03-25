@@ -19,7 +19,7 @@ public interface UserMap {
 	int updateContactNum(@Param("userId") String userId, @Param("contactNum") String contactNum);
 	int updateAddr(@Param("userId") String userId, @Param("postcode") String postcode,
 							@Param("addr") String addr,@Param("detailAddr") String detailAddr);
-	void deleteUser(User user);
+	void deleteUser(@Param("userId")String userId);
 	List<User> selectUsersAdmin();
 	void updateUserAdmin(User user);
 	void deleteUserAdmin(@Param("userId") String userId);

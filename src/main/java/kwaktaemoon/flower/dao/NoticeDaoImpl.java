@@ -23,15 +23,15 @@ public class NoticeDaoImpl implements NoticeDao{
 	}
 	
 	@Override
-	public void insertNotice(Notice notice) {
-		noticeMap.insertNotice(notice);
+	public void insertAdminNotice(Notice notice) {
+		noticeMap.insertAdminNotice(notice);
 	}
 	@Override
-	public void updateNotice(int noticeNum) {
-		noticeMap.updateNotice(noticeNum);
+	public void updateAdminNotice(int noticeNum) {
+		noticeMap.updateAdminNotice(noticeNum);
 	}
 	@Override
-	public void deleteNotice(int noticeNum) {
-		noticeMap.deleteNotice(noticeNum);
+	public void deleteAdminNotice(int noticeNum) {
+		noticeMap.deleteAdminNotice(noticeNum);
 	}
 }

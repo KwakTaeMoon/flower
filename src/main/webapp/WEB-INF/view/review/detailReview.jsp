@@ -1,16 +1,10 @@
 <%@ page language='java' contentType='text/html; charset=UTF-8' pageEncoding='UTF-8'%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core'%>
 <title>TAEMOON Flower</title>
-
 <%@ include file ='../include/lib.jsp'%>
-
 <script>
 
-
-$(init)
-
 </script>
-
 <style>
 <%@ include file ="../../../res/lib.css"%>
 </style>
@@ -29,43 +23,23 @@ $(init)
 		</table>
 		<table class='table'>
 			<c:forEach var="review" items="${reviewList}">
-			<tr>
-				<td><textarea style='width:100%' rows='15' readonly>${review.content}</textarea></td>
-			</tr>
+				<tr>
+					<td><textarea style='width:100%' rows='15' readonly>${review.content}</textarea></td>
+				</tr>
 			</c:forEach>
 			<tr>
 				<td>
 					<div style='float:right;'>
 						<button type='button' id='listBtn' class='btn btn-outline-secondary btn-sm' 
-							onclick="location.href='./01.html'">목록</button>
+							onclick="location.href='./listReview'">목록</button>
 						<button type='button' id='delBtn' class='btn btn-outline-secondary btn-sm' 
 							data-toggle='modal' data-target='#deleteModal'>삭제 </button>
 						<button type='button' id='fixtBtn' class='btn btn-outline-secondary btn-sm' 
-							onclick="location.href='./fixReview'">수정 </button>
+							onclick="location.href='#'">수정 </button>
 					</div>
 				</td>
 			</tr>
 		</table>
 	</div>
 </div>
-
-<div class='modal fade' tabindex='-1' id='modal'>
-   <div class='modal-dialog'>
-      <div class='modal-content'>
-         <div class='modal-header'>
-            <button type='button' class='close' data-dismiss='modal'>
-               <span>&times;</span>
-            </button>
-         </div>
-         <div class='modal-body'>
-            <p id='modalMsg'></p>
-         </div>
-         <div class='modal-footer' id='modalBtn'>
-            <button type='button' class='btn btn-secondary' data-dismiss='modal'>아니오</button>
-            <button type='button' class='btn btn-primary' id='delLaborerOkBtn'>예</button>
-         </div>
-      </div>
-   </div>
-</div>
-
 <%@ include file='../include/footer.jsp' %>

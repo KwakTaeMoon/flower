@@ -21,15 +21,15 @@ public class NoticeServiceImpl implements NoticeService{
 		return noticeDao.detailNotices(noticeNum);
 	}
 	@Override
-	public void addNotice(Notice notice) {
-		noticeDao.insertNotice(notice);
+	public void addAdminNotice(Notice notice) {
+		noticeDao.insertAdminNotice(notice);
 	}
 	@Override
-	public void fixNotice(int noticeNum) {
-		noticeDao.updateNotice(noticeNum);
+	public void fixAdminNotice(int noticeNum) {
+		noticeDao.updateAdminNotice(noticeNum);
 	}
 	@Override
-	public void delNotice(int noticeNum) {
-		noticeDao.deleteNotice(noticeNum);
+	public void delAdminNotice(int noticeNum) {
+		noticeDao.deleteAdminNotice(noticeNum);
 	}
 }

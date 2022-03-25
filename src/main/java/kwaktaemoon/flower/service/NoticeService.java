@@ -8,7 +8,7 @@ public interface NoticeService {
 
 	List<Notice> getNotices();
 	List<Notice> getdetailNotices(int noticeNum);
-	void addNotice(Notice notice);
-	void fixNotice(int noticeNum);
-	void delNotice(int noticeNum);
+	void addAdminNotice(Notice notice);
+	void fixAdminNotice(int noticeNum);
+	void delAdminNotice(int noticeNum);
 }

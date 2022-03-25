@@ -13,11 +13,11 @@ public class ReviewDaoImpl implements ReviewDao{
 	@Autowired private ReviewMap reviewMap;
 	
 	@Override
-	public List<Review> selectReviews(String userId) {
-		return reviewMap.selectReviews(userId);
+	public List<Review> selectReviews() {
+		return reviewMap.selectReviews();
 	}
 	
-	@Override
+	@Override 
 	public List<Review> detailReviews(String title) {
 		return reviewMap.detailReviews(title);
 	}
@@ -42,3 +42,4 @@ public class ReviewDaoImpl implements ReviewDao{
 		reviewMap.deleteReview(reviewNum);
 	}
 }
+ 
