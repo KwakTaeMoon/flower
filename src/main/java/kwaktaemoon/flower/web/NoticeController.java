@@ -32,20 +32,6 @@ public class NoticeController {
 		model.addAttribute("noticeList", noticeList);
 		return "notice/detailNotice";
 	}
-	
-	@PostMapping("/addNotice")
-	public void addNotice(Notice notice) {
-		noticeService.addNotice(notice);
-	}
-	
-	@PutMapping("/fixNotice")
-	public void fixNotice(int noticeNum) {
-		noticeService.fixNotice(noticeNum);
-	}
-	
-	@DeleteMapping("/delNotice/{noticeNum}") 
-	public void delNotice(int noticeNum) {
-		noticeService.delNotice(noticeNum);
-	}
+
 }
 
