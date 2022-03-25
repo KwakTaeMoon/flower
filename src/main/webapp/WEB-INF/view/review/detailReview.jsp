@@ -5,53 +5,7 @@
 <%@ include file ='../include/lib.jsp'%>
 
 <script>
-/*function init(){
-	getList();
-	
-	$('#delBtn').click(() => {
-		if(isVal($('#reviewNum:checked'))) {
-			$('#bodyMsg').text('글을 삭제하시겠습니까?');
-			$('#commonModal').modal();
-		} 
-	});
-	
-	$('#okBtn').click(() => {
-		var delNum = $('#reviewNum:checked').val();
-		alert($('#reviewNum:checked').val());
-		$.ajax({
-			url:`${pageContext.request.contextPath}/question/del/\${delNum}`,
-			method: 'post'
-		}).done(result => {
-			if(result != null){
-				getList();	
-			}
-		});
-		$('#commonModal').modal('hide');
-	});
-}
-$(init)*/
 
-
-
-function init() {
-
-$('#delBtn').click(() => {
-   if(isVal($('#reviewNum:checked'))) {
-      $('#modalMsg').text('글을 삭제하시겠습니까?')
-      $('#modalBtn').show()
-      $('#modal').modal()
-   }
-})
-
-$('#delOkBtn').click(() => {
-   $('#modal').modal('hide')
-   $.ajax({
-      url: 'review/del/' + $('#reviewNum:checked').val(),
-      method: 'delete'
-   }).done(listReview)
-})
-
-}
 
 $(init)
 
