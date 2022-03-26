@@ -9,17 +9,19 @@
 </script>
 <style>
 <%@ include file ="../../../../res/lib2.css"%>
+
 #flowerImage{
 	width: 300px;
 	height:250px;
     margin: auto;
 }
 
+
+
 #searchbtn {
 	margin: auto;
 	display: block;
 }
-
 .bold {
 	font-weight: bold;
 }
@@ -38,14 +40,7 @@
 	margin:auto; 
 	height:auto; 
 	}
-	
-#detailImg {
-   width: 900;
-   height: 1000;
-   border: 1px solid lightgrey;
-   text-align: center;
-   margin: auto;
-}
+
 </style>
 <div class='container-fluid'>
 	<%@ include file='../include/headerAdmin.jsp' %>
@@ -78,7 +73,7 @@
 			<div class='row' id='flowerImage'>
 				<div class='col'>
 					<c:forEach var="flower" items="${flowerList}">
-						<img style="max-width: 100%; height:250px;"src='<c:url value="/attach/${flower.flowerImgfileName}"/>'/><br>
+						<img style="width: 100%; height:250px;"src='<c:url value="/attach/${flower.flowerImgfileName}"/>'/><br>
 					</c:forEach>
 				</div>
 			</div>
@@ -97,15 +92,15 @@
 		<div class='col-2'></div>
 			<div class='col-10 text-center'>				
 				<c:forEach var="flower" items="${flowerList}">
-					<img style='max-width: 100%; height:1000' src='<c:url value="/attach/${flower.detailImgfileName}"/>'/><br>
+					<img style='width:900; height:1000' src='<c:url value="/attach/${flower.detailImgfileName}"/>'/><br>
 				</c:forEach>
 			</div>
 		</div><br><br><hr>
-		<div class='col'>
-			<c:forEach var="flower" items="${flowerList}">
-				<a href='/admin/flower/fixFlower?flowerNum=${flower.flowerNum}'><button class='btn btn-outline-secondary  float-right  mr-2' >수정</button></a>	
-			</c:forEach>
-		</div>
+			<div class='col'>
+				<c:forEach var="flower" items="${flowerList}">
+					<a href='/admin/flower/fixFlower?flowerNum=${flower.flowerNum}'><button class='btn btn-outline-secondary  float-right  mr-2' >수정</button></a>	
+				</c:forEach>
+			</div>
 	</div>
 </div>
 
