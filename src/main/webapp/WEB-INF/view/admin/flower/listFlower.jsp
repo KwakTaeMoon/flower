@@ -22,7 +22,7 @@ function listFlowers() {
 						</td>
 						<td>
 						\${flower.flowerNum}</td>
-						<td><a href='/admin/flower/detailFlower?flowerName=\${flower.flowerName}'>\${flower.flowerName}</a></td>
+						<td><a href='/admin/flower/detailFlower?flowerNum=\${flower.flowerNum}'>\${flower.flowerName}</a></td>
 						<td>\${flower.price}</td>
 						<td>\${flower.regDate}</td>
 					</tr>`

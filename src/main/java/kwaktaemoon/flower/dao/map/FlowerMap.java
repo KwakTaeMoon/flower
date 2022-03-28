@@ -8,7 +8,7 @@ import kwaktaemoon.flower.domain.Flower;
 
 public interface FlowerMap {
 	List<Flower> selectFlowers();
-	List<Flower> detailFlowers(@Param("flowerName") String flowerName);
+	List<Flower> detailFlowers(@Param("flowerNum") int flowerNum);
 	List<Flower> searchFlowerWithKeyword(@Param("keyword") String keyword);
 	List<Flower> selectAdminFlowers();
 	Flower searchFlower(String flowerName);

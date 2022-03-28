@@ -28,8 +28,8 @@ public class FlowerController {
 	}
 	
 	@RequestMapping(value = "/detailFlower", method=RequestMethod.GET)
-	public String detailFlower(Model model, @RequestParam("flowerName") String flowerName) {
-	    List<Flower> flowerList = flowerService.getDetailFlowers(flowerName);
+	public String detailFlower(Model model, @RequestParam("flowerNum") int flowerNum) {
+	    List<Flower> flowerList = flowerService.getDetailFlowers(flowerNum);
 	    model.addAttribute("flowerList", flowerList);
 		return "flower/detailFlower";
 	}

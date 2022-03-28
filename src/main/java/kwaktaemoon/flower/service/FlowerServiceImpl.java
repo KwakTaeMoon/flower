@@ -20,8 +20,8 @@ public class FlowerServiceImpl implements FlowerService{
 	}
 	
 	@Override
-	public List<Flower> getDetailFlowers(String flowerName) {
-		return flowerDao.detailFlowers(flowerName);
+	public List<Flower> getDetailFlowers(int flowerNum) {
+		return flowerDao.detailFlowers(flowerNum);
 	}
 	
 	@Override

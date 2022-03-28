@@ -41,8 +41,8 @@ public class FlowerAdminController {
 	}
 	
 	@RequestMapping(value = "/detailFlower", method=RequestMethod.GET)
-	public String detailFlower(Model model, @RequestParam("flowerName") String flowerName, HttpSession session) {
-	    List<Flower> flowerList = flowerService.getDetailFlowers(flowerName);
+	public String detailFlower(Model model, @RequestParam("flowerNum") int flowerNum, HttpSession session) {
+	    List<Flower> flowerList = flowerService.getDetailFlowers(flowerNum);
 	    model.addAttribute("flowerList", flowerList);
 		return "admin/flower/detailFlower";
 	}
