@@ -138,8 +138,8 @@ table.type1 td{
 			</div>
 		<div class='col'>
 			&nbsp;<label for='flowerCategory' class='col-form-label'><strong>분류&emsp;&emsp;&emsp;</strong></label>
-			<input type='radio' value='신상품' id='flowerCategory' name='flowerCategory'>&emsp;신상품&emsp;&emsp;
-			<input type='radio' value='베스트' id='flowerCategory' name='flowerCategory'>&emsp;베스트&emsp;&emsp;
+			<input type='radio' value='NEW' id='flowerCategory' name='flowerCategory'>&emsp;NEW&emsp;&emsp;
+			<input type='radio' value='BEST' id='flowerCategory' name='flowerCategory'>&emsp;BEST&emsp;&emsp;
 		</div><hr><br>
 			<div class='col-8 d-flex'>
 				<h5 style='color:#0f56ba'><b>꽃 기본 사항&nbsp;</b></h5>

@@ -44,8 +44,8 @@ public class FlowerDaoImpl implements FlowerDao{
 	}
 	
 	@Override
-	public void updateFlower(int flowerNum, String flowerName, int price, String kind, String flowerCategory) {
-		flowerMap.updateFlower(flowerNum, flowerName, price, kind, flowerCategory);
+	public void updateFlower(Flower flower) {
+		flowerMap.updateFlower(flower);
 	}
 	
 	@Override

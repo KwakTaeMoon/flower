@@ -45,8 +45,8 @@ public class FlowerServiceImpl implements FlowerService{
 	}
 	
 	@Override
-	public void fixFlower(int flowerNum, String flowerName, int price, String kind, String flowerCategory) {
-		flowerDao.updateFlower(flowerNum, flowerName, price, kind, flowerCategory);
+	public void fixFlower(Flower flower) {
+		flowerDao.updateFlower(flower);
 	}
 	
 	@Override

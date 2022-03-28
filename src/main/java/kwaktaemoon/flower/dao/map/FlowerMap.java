@@ -13,7 +13,6 @@ public interface FlowerMap {
 	List<Flower> selectAdminFlowers();
 	Flower searchFlower(String flowerName);
 	void insertFlower(Flower flower);
-	void updateFlower(@Param("flowerNum") int flowerNum, @Param("flowerName") String flowerName,
-						@Param("price") int price, @Param("kind") String kind, @Param("flowerCategory") String flowerCategory);
+	void updateFlower(Flower flower);
 	void deleteFlower(int flowerNum);
 }

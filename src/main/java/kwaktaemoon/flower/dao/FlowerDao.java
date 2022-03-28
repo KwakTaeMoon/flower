@@ -11,7 +11,7 @@ public interface FlowerDao {
 	List<Flower> selectAdminFlowers();
 	Flower searchFlower(String flowerName);
 	void insertFlower(Flower flower);
-	void updateFlower(int flowerNum, String flowerName, int price, String kind, String flowerCategory);
+	void updateFlower(Flower flower);
 	void deleteFlower(int flowerNum);
 }
 

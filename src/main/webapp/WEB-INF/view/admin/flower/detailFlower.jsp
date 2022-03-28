@@ -7,6 +7,7 @@
 <script>
 function init() {
 	$('#fixFlowerBtn').click(() => {
+		let flowerNum = $('#flowerNum').val();
 		let flowerName = $('#flowerName').val();
 		let price = $('#price').val();
 		let flowerCategory = $('#flowerCategory:checked').val();
@@ -21,6 +22,7 @@ function init() {
 										method:'post',
 										contentType: 'application/json',
 										data: JSON.stringify ({
+											flowerNum: flowerNum,
 											flowerName: flowerName,
 											price: price,
 											flowerCategory: flowerCategory,
@@ -126,7 +128,7 @@ $(init)
 						<th>꽃 관리</th>
 					</tr>
 				</thead>
-				<tbody id='noticeBorder' class='table-borderless'>
+				<tbody id='flowerBorder' class='table-borderless'>
 					<tr><td></td></tr>
 					<tr>
 						<td><a href='./listFlower' style='color:black; font-weight: bold'>꽃 조회</a></td>
@@ -147,8 +149,9 @@ $(init)
 				</div>
 			</div>
 			<div class='col text-center mt-5'>
+			<form>
 			<c:forEach var="flower" items="${flowerList}">
-				<p><b>꽃 번호:</b> ${flower.flowerNum}&emsp;&emsp;</p>
+				<p><b>꽃 번호:</b><input type='number' id='flowerNum' name='flowerNum' value='${flower.flowerNum}' readonly/>&emsp;&emsp;</p>
 				<p><label><b>꽃 이름:&emsp;</b><input type='text' id='flowerName' name=' flowerName' value='${flower.flowerName}'/></label></p>
 				<p><label><b>가격:&emsp;</b><input type='number' id='price' name='price' value='${flower.price}'/></label></p>
 				<p><b>등록일:&emsp;</b>${flower.regDate}</p>
@@ -164,10 +167,11 @@ $(init)
 				</p>
 				<p><b>분류:</b> ${flower.flowerCategory}
 					&nbsp;&emsp;&emsp;&emsp;<label for='flowerCategory' class='col-form-label'><strong>분류:&emsp;</strong></label>
-					<input type='radio' value='신상품' id='flowerCategory' name='flowerCategory'>&emsp;신상품&emsp;&emsp;
-					<input type='radio' value='베스트' id='flowerCategory' name='flowerCategory'>&emsp;베스트&emsp;&emsp;
+					<input type='radio' value='NEW' id='flowerCategory' name='flowerCategory'>&emsp;NEW&emsp;&emsp;
+					<input type='radio' value='BEST' id='flowerCategory' name='flowerCategory'>&emsp;BEST&emsp;&emsp;
 				</p>
 			</c:forEach>
+			</form>
 			</div>
 		</div>
 	</div><br><hr>

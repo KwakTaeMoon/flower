@@ -39,7 +39,12 @@ public class FlowerAdminController {
 	public String listFlower() {
 		return "admin/flower/listFlower";
 	}
-	
+	/*
+	@GetMapping("/detailFlower")
+	public void detailFlower() {
+		
+	}
+	*/
 	@RequestMapping(value = "/detailFlower", method=RequestMethod.GET)
 	public String detailFlower(Model model, @RequestParam("flowerNum") int flowerNum, HttpSession session) {
 	    List<Flower> flowerList = flowerService.getDetailFlowers(flowerNum);
@@ -87,21 +92,9 @@ public class FlowerAdminController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/fix", method=RequestMethod.POST)
+	@RequestMapping(value="/fix")
 	public void fixFlower(@RequestBody Flower flower, HttpServletRequest request, HttpServletResponse response) {
-		HttpSession session = request.getSession();
-		int flowerNum = (int) session.getAttribute("flowerNum");
-		String flowerName = flower.getFlowerName();
-		int price = flower.getPrice();
-		String kind = flower.getKind();
-		String flowerCategory = flower.getFlowerCategory();
-		System.out.println(flowerNum);
-		System.out.println(flowerName);
-		System.out.println(price);
-		System.out.println(kind);
-		System.out.println(flowerCategory);
-		
-		flowerService.fixFlower(flowerNum, flowerName, price, kind, flowerCategory);
+		flowerService.fixFlower(flower);
 	}
 
 	private void saveFlowerFile(String flowerFileName, MultipartFile flowerFile) {
