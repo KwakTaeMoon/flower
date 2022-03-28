@@ -137,7 +137,7 @@ table.type1 td{
 				<h5 style='color:#0f56ba'><b>분류&nbsp;</b></h5><br>
 			</div>
 		<div class='col'>
-			&nbsp;<label for='userName' class='col-form-label'><strong>분류&emsp;&emsp;&emsp;</strong></label>
+			&nbsp;<label for='flowerCategory' class='col-form-label'><strong>분류&emsp;&emsp;&emsp;</strong></label>
 			<input type='radio' value='신상품' id='flowerCategory' name='flowerCategory'>&emsp;신상품&emsp;&emsp;
 			<input type='radio' value='베스트' id='flowerCategory' name='flowerCategory'>&emsp;베스트&emsp;&emsp;
 			<input type='radio' value='일반상품' id='flowerCategory' name='flowerCategory'>&emsp;일반상품&emsp;&emsp;
@@ -160,7 +160,7 @@ table.type1 td{
 						<tr>
 							<th>가격 : </th>
 							<td>
-								<input id='price' name='price' type='number'/>
+								<input type='number' id='price' name='price'/>
 							</td>
 						</tr>
 						<tr>

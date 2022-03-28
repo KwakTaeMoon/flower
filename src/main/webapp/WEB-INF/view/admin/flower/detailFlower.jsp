@@ -84,9 +84,23 @@
 			</div>
 			<div class='col text-center mt-5'>
 			<c:forEach var="flower" items="${flowerList}">
-				<p><b>꽃 번호:</b> ${flower.flowerNum}&emsp;&emsp;<b>꽃 이름:</b> ${flower.flowerName}</p>
-				<p><b>가격:</b> ${flower.price}&emsp;&emsp;<b>등록일:</b> ${flower.regDate}</p>
-				<p><b>종류:</b> ${flower.kind}&emsp;&emsp;<b>분류:</b> ${flower.flowerCategory}</p>
+				<p>
+					<label><b>꽃 이미지:&emsp;</b><input type="file" name="flowerImgfile" /></label></p>
+				<p><b>꽃 번호:</b> ${flower.flowerNum}&emsp;&emsp;</p>
+				<p><label><b>꽃 이름:&emsp;</b><input type='text' id='flowerName' name=' flowerName' value='${flower.flowerName}'/></label></p>
+				<p><label><b>가격:&emsp;</b><input type='number' id='price' name='price' value='${flower.price}'/></label></p>
+				<p><b>등록일:&emsp;</b>${flower.regDate}</p>
+				<p>
+					<label>
+					<b>종류:&emsp;</b>${flower.kind}&emsp;
+					<select id='kind' name='kind' class='text-center col-4'>
+					<option>--</option>
+					<option>꽃다발</option>
+					<option>꽃바구니</option>
+					</select>
+					</label>	
+				</p>
+				<p><b>분류:</b> ${flower.flowerCategory}</p>
 				<p></p>
 			</c:forEach>
 			</div>
@@ -97,7 +111,7 @@
 		<div class='col-2'></div>
 			<div class='col-10 text-center'>				
 				<c:forEach var="flower" items="${flowerList}">
-					<img style='max-width: 100%; height:1000' src='<c:url value="/attach/${flower.detailImgfileName}"/>'/><br>
+					<img style='max-width: 1000; height:1000' src='<c:url value="/attach/${flower.detailImgfileName}"/>'/><br>
 				</c:forEach>
 			</div>
 		</div><br><br><hr>

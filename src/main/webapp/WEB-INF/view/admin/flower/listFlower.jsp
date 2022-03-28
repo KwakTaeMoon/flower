@@ -119,7 +119,7 @@ $(init)
 				<tbody id='borderStatus' class='table-borderless'>
 					<tr><td></td></tr>
 					<tr>
-						<td><a href='./adminListFlower' style='color:black; font-weight: bold'>꽃 조회</a></td>
+						<td><a href='./listFlower' style='color:black; font-weight: bold'>꽃 조회</a></td>
 					</tr>
 					<tr>
 						<td><a href='./addFlower' style='color:black'>꽃 등록</a></td>
