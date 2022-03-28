@@ -4,11 +4,16 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -36,7 +41,7 @@ public class FlowerAdminController {
 	}
 	
 	@RequestMapping(value = "/detailFlower", method=RequestMethod.GET)
-	public String detailFlower(Model model, @RequestParam("flowerName") String flowerName) {
+	public String detailFlower(Model model, @RequestParam("flowerName") String flowerName, HttpSession session) {
 	    List<Flower> flowerList = flowerService.getDetailFlowers(flowerName);
 	    model.addAttribute("flowerList", flowerList);
 		return "admin/flower/detailFlower";
@@ -82,18 +87,21 @@ public class FlowerAdminController {
 	}
 	
 	@ResponseBody
-	@PutMapping("/fix")
-	public ModelAndView fixFlower(@RequestBody Flower flower, ModelAndView mv)throws IOException{
-		String flowerFileName = flower.getFlowerImgfile().getOriginalFilename();
-		String detailFileName = flower.getDetailImgfile().getOriginalFilename();
-
-		saveFlowerFile(attachPath + "/" + flowerFileName, flower.getFlowerImgfile());
-		flower.setFlowerImgfileName(flowerFileName);
-
-		saveDetailFile(attachPath + "/" + detailFileName, flower.getDetailImgfile());
-		flower.setDetailImgfileName(detailFileName);
-		flowerService.fixFlower(flower);
-		return mv;
+	@RequestMapping(value="/fix", method=RequestMethod.POST)
+	public void fixFlower(@RequestBody Flower flower, HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		int flowerNum = (int) session.getAttribute("flowerNum");
+		String flowerName = flower.getFlowerName();
+		int price = flower.getPrice();
+		String kind = flower.getKind();
+		String flowerCategory = flower.getFlowerCategory();
+		System.out.println(flowerNum);
+		System.out.println(flowerName);
+		System.out.println(price);
+		System.out.println(kind);
+		System.out.println(flowerCategory);
+		
+		flowerService.fixFlower(flowerNum, flowerName, price, kind, flowerCategory);
 	}
 
 	private void saveFlowerFile(String flowerFileName, MultipartFile flowerFile) {

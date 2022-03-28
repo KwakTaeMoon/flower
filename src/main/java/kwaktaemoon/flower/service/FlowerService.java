@@ -12,6 +12,6 @@ public interface FlowerService {
 	Flower findFlower(String flowerName);
 	List<Flower> getAdminFlowers();
 	void addFlower(Flower flower);
-	void fixFlower(Flower flower);
+	void fixFlower(int flowerNum, String flowerName, int price, String kind, String flowerCategory);
 	void delFlower(int flowerNum);
 }

@@ -40,8 +40,6 @@
 			price = #{price},
 			kind = #{kind},
 			flower_category = #{flowerCategory}
-			flower_imgfile_name = #{flowerImgfileName},
-			detail_imgfile_name = #{detailImgfileName}
 		where flower_num = #{flowerNum}
 	</update>
 	

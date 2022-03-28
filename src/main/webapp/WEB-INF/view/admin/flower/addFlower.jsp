@@ -12,7 +12,7 @@ $('#registerBtn').click(() => {
 	let flowerCategory = $('#flowerCategory:checked').val();
 	let kind = $('#kind').val();
 	if(kind) {
-		if(kind=='꽃다발'|| kind=='꽃바구니'|| kind=='화분'|| kind=='조화/꽃비누') {
+		if(kind=='꽃다발'|| kind=='꽃바구니') {
 			if(flowerCategory) {	
 				if(flowerName) {	
 					if(price) {	
@@ -140,7 +140,6 @@ table.type1 td{
 			&nbsp;<label for='flowerCategory' class='col-form-label'><strong>분류&emsp;&emsp;&emsp;</strong></label>
 			<input type='radio' value='신상품' id='flowerCategory' name='flowerCategory'>&emsp;신상품&emsp;&emsp;
 			<input type='radio' value='베스트' id='flowerCategory' name='flowerCategory'>&emsp;베스트&emsp;&emsp;
-			<input type='radio' value='일반상품' id='flowerCategory' name='flowerCategory'>&emsp;일반상품&emsp;&emsp;
 		</div><hr><br>
 			<div class='col-8 d-flex'>
 				<h5 style='color:#0f56ba'><b>꽃 기본 사항&nbsp;</b></h5>

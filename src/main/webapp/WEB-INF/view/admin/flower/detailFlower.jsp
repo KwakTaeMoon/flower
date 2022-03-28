@@ -5,7 +5,70 @@
 <%@ include file ='../include/lib.jsp'%>
 
 <script>
-
+function init() {
+	$('#fixFlowerBtn').click(() => {
+		let flowerName = $('#flowerName').val();
+		let price = $('#price').val();
+		let flowerCategory = $('#flowerCategory:checked').val();
+		let kind = $('#kind').val();
+		if(kind) {
+			if(kind=='꽃다발'|| kind=='꽃바구니') {
+				if(flowerCategory) {	
+					if(flowerName) {	
+						if(price) {	
+									$.ajax({
+										url: 'fix',
+										method:'post',
+										contentType: 'application/json',
+										data: JSON.stringify ({
+											flowerName: flowerName,
+											price: price,
+											flowerCategory: flowerCategory,
+											kind: kind
+										})
+									}).done(() => {
+										$('#modalMsg').empty();
+										$('#modalMsg').text('수정 되었습니다.');
+										$('#cofirmModal').modal();
+										$('#okBtn').show();
+										$('#noBtn').hide();
+									})
+								} else {
+									event.preventDefault();
+									$('#modalMsg').empty();
+									$('#modalMsg').text('가격을 입력해주세요.');
+									$('#cofirmModal').modal();
+									$('#okBtn').show();
+									$('#noBtn').hide();
+								}
+						} else {
+							event.preventDefault();
+							$('#modalMsg').empty();
+							$('#modalMsg').text('꽃 이름을 입력해주세요.');
+							$('#cofirmModal').modal();
+							$('#okBtn').show();
+							$('#noBtn').hide();
+						}
+					} else {
+						event.preventDefault();
+						$('#modalMsg').empty();
+						$('#modalMsg').text('분류를 선택해주세요.');
+						$('#cofirmModal').modal();
+						$('#okBtn').show();
+						$('#noBtn').hide();
+					}
+				} else{
+					event.preventDefault();
+					$('#modalMsg').empty();
+					$('#modalMsg').text('종류를 선택해주세요.');
+					$('#cofirmModal').modal();
+					$('#okBtn').show();
+					$('#noBtn').hide();
+				}
+			}
+		})
+}  
+$(init)
 </script>
 <style>
 <%@ include file ="../../../../res/lib2.css"%>
@@ -85,8 +148,6 @@
 			</div>
 			<div class='col text-center mt-5'>
 			<c:forEach var="flower" items="${flowerList}">
-				<p>
-					<label><b>꽃 이미지:&emsp;</b><input type="file" name="flowerImgfile" /></label></p>
 				<p><b>꽃 번호:</b> ${flower.flowerNum}&emsp;&emsp;</p>
 				<p><label><b>꽃 이름:&emsp;</b><input type='text' id='flowerName' name=' flowerName' value='${flower.flowerName}'/></label></p>
 				<p><label><b>가격:&emsp;</b><input type='number' id='price' name='price' value='${flower.price}'/></label></p>
@@ -101,8 +162,11 @@
 					</select>
 					</label>	
 				</p>
-				<p><b>분류:</b> ${flower.flowerCategory}</p>
-				<p></p>
+				<p><b>분류:</b> ${flower.flowerCategory}
+					&nbsp;&emsp;&emsp;&emsp;<label for='flowerCategory' class='col-form-label'><strong>분류:&emsp;</strong></label>
+					<input type='radio' value='신상품' id='flowerCategory' name='flowerCategory'>&emsp;신상품&emsp;&emsp;
+					<input type='radio' value='베스트' id='flowerCategory' name='flowerCategory'>&emsp;베스트&emsp;&emsp;
+				</p>
 			</c:forEach>
 			</div>
 		</div>
@@ -118,8 +182,28 @@
 		</div><br><br><hr>
 		<div class='col'>
 			<c:forEach var="flower" items="${flowerList}">
-				<a href='/admin/flower/fixFlower?flowerNum=${flower.flowerNum}'><button class='btn btn-outline-secondary  float-right  mr-2' >수정</button></a>	
+				<!--  <a href='/admin/flower/listFlower'>--><button id='fixFlowerBtn' class='btn btn-outline-secondary  float-right  mr-2' >수정</button><!-- </a> -->	
 			</c:forEach>
+		</div>
+	</div>
+</div>
+
+<div id='cofirmModal' class='modal fade' tabindex='-1'>
+	<div class='modal-dialog'>
+		<div class='modal-content'>
+			<div class='modal-header'>
+				<h5 class='modalTitle'>꽃 수정</h5>
+				<button type='button' class='close' data-dismiss='modal'>
+					<span>&times;</span>
+				</button>
+			</div>
+			<div class='modal-body'>
+				<p id='modalMsg'></p>
+			</div>
+			<div class='modal-footer'>
+				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='noBtn'>아니오</button>
+				<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='okBtn'>확인</button>
+			</div>
 		</div>
 	</div>
 </div>
