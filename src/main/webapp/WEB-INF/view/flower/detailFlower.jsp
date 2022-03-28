@@ -5,34 +5,62 @@
 <%@ include file ='../include/lib.jsp'%>
 
 <script>
+function init() {
+	$('#plusBtn').click(() => {
+		amount = $('input[name="quantity"]').val();
+		$('input[name="quantity"]').val(parseInt(amount) + 1);
+	})
+	
+	$('#minusBtn').click(() => {
+		amount = $('input[name="quantity"]').val();
+		if(parseInt(amount) > 1) {
+			$('input[name="quantity"]').val(parseInt(amount) - 1);
+		} else {
+			$('input[name="quantity"]').val(1);
+		}	
+	});
+};
 
+$(init);
 </script>
 <style>
 <%@ include file ="../../../res/lib.css"%>
+#flowerImage{
+	width: 300px;
+	height:250px;
+    margin: auto;
+}
+
+#detailImg {
+   width: 100%;
+   height: 1000;
+   border: 1px solid lightgrey;
+   text-align: center;
+   margin: auto;
+}
 </style>
 <div class='container'>
-<%@ include file='../include/header.jsp' %>
+<%@ include file='../include/header.jsp' %><br><br><br><br>
 	<div class='row'> 
-		<div class='col'>
+		<div class='col mt-3'>
 			<div class='row' id='flowerImage'>
 				<div class='col'>
-					<div class='row' style="height:100px"></div>
 					<c:forEach var="flower" items="${flowerList}">
-					<div class='row d-flex justify-content-center align-middle' ><p>${flower.flowerImgfileName}</p></div>
+						<img style="width: 100%; height:250px;"src='<c:url value="/attach/${flower.flowerImgfileName}"/>'/><br>
 					</c:forEach>
-					<div class='row' style='height:100px'></div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class='row'> 
 		<div class='col text-center mt-5'>
-		<c:forEach var="flower" items="${flowerList}">
-			<h5>${flower.flowerName}${flower.flowerNum}${flower.kind}</h5>
-			<h6>${flower.price}${flower.flowerCategory}${flower.regDate}</h6>
-		</c:forEach>		
+			<c:forEach var="flower" items="${flowerList}">
+				<h5><b>${flower.flowerName}</b></h5>
+				<h6>${flower.price}</h6>	
+			</c:forEach>	
 			<div class='form-group row mt-3'>
-				<label for='quantity' class='col-3 col-form-label'>수량</label>
+			<div class='col-1'></div>
+				<label for='quantity' class='col-3 col-form-label'><b>수량</b></label>
 				<button type='button' class='btn btn-outline-secondary small' id='minusBtn'>-</button>
 				<input type='text' class='col-3 text-center' name='quantity' value='1' readonly='readonly' id='quantity'/>
 				<button type='button' class='btn btn-outline-secondary' id='plusBtn'>+</button>
@@ -52,14 +80,14 @@
 	<br><br><hr>
 	<div class='row'>
 		<div class='col text-center'>
-		<c:forEach var="flower" items="${flowerList}">
-			<div id='detailImg'><a href='#'><span style='color:black'>${flower.detailImgfileName}</span></a></div>
-		</c:forEach>	
+			<c:forEach var="flower" items="${flowerList}">
+				<img style='max-width: 100%; height:1000' src='<c:url value="/attach/${flower.detailImgfileName}"/>'/><br>
+			</c:forEach>	
 		</div>
-	</div><br>
+	</div><br><br>
 	<div class='row'>
 		<div class='col'>
-		<p class='bold'>후 기</p>
+		<h5><b>후 기</b></h5>
 			<table class='table table-bordered'>
 				<thead class='thead-light'>
 					<tr>
@@ -68,7 +96,7 @@
 				</thead>
 				<tbody>
 					<tr>
-						<th>1</th><td><a href='../review/02.html'><span>예뻐요</span></a>
+						<th>1</th><td><a href='<%=request.getContextPath() %>/review/listReview'><span>예뻐요</span></a>
 										</td><td>ID1</td><td>22.03.01</td>
 					</tr>
 					<tr>
