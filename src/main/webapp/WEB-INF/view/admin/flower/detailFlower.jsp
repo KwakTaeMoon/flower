@@ -9,6 +9,7 @@
 </script>
 <style>
 <%@ include file ="../../../../res/lib2.css"%>
+
 #flowerImage{
 	width: 300px;
 	height:250px;

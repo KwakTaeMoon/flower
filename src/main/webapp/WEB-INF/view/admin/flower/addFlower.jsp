@@ -106,7 +106,7 @@ table.type1 td{
 						<th>꽃 관리</th>
 					</tr>
 				</thead>
-				<tbody id='noticeBorder' class='table-borderless'>
+				<tbody  class='table-borderless'>
 					<tr><td></td></tr>
 					<tr>
 						<td><a href='./listFlower' style='color:black;'>꽃 조회</a></td>
