@@ -5,7 +5,72 @@
 <%@ include file ='../include/lib.jsp'%>
 
 <script>
-
+function init() {
+	$('#fixFlowerBtn').click(() => {
+		let flowerNum = $('#flowerNum').val();
+		let flowerName = $('#flowerName').val();
+		let price = $('#price').val();
+		let flowerCategory = $('#flowerCategory:checked').val();
+		let kind = $('#kind').val();
+		if(kind) {
+			if(kind=='꽃다발'|| kind=='꽃바구니') {
+				if(flowerCategory) {	
+					if(flowerName) {	
+						if(price) {	
+									$.ajax({
+										url: 'fix',
+										method:'post',
+										contentType: 'application/json',
+										data: JSON.stringify ({
+											flowerNum: flowerNum,
+											flowerName: flowerName,
+											price: price,
+											flowerCategory: flowerCategory,
+											kind: kind
+										})
+									}).done(() => {
+										$('#modalMsg').empty();
+										$('#modalMsg').text('수정 되었습니다.');
+										$('#cofirmModal').modal();
+										$('#okBtn').show();
+										$('#noBtn').hide();
+									})
+								} else {
+									event.preventDefault();
+									$('#modalMsg').empty();
+									$('#modalMsg').text('가격을 입력해주세요.');
+									$('#cofirmModal').modal();
+									$('#okBtn').show();
+									$('#noBtn').hide();
+								}
+						} else {
+							event.preventDefault();
+							$('#modalMsg').empty();
+							$('#modalMsg').text('꽃 이름을 입력해주세요.');
+							$('#cofirmModal').modal();
+							$('#okBtn').show();
+							$('#noBtn').hide();
+						}
+					} else {
+						event.preventDefault();
+						$('#modalMsg').empty();
+						$('#modalMsg').text('분류를 선택해주세요.');
+						$('#cofirmModal').modal();
+						$('#okBtn').show();
+						$('#noBtn').hide();
+					}
+				} else{
+					event.preventDefault();
+					$('#modalMsg').empty();
+					$('#modalMsg').text('종류를 선택해주세요.');
+					$('#cofirmModal').modal();
+					$('#okBtn').show();
+					$('#noBtn').hide();
+				}
+			}
+		})
+}  
+$(init)
 </script>
 <style>
 <%@ include file ="../../../../res/lib2.css"%>
@@ -16,12 +81,11 @@
     margin: auto;
 }
 
-
-
 #searchbtn {
 	margin: auto;
 	display: block;
 }
+
 .bold {
 	font-weight: bold;
 }
@@ -40,7 +104,14 @@
 	margin:auto; 
 	height:auto; 
 	}
-
+	
+#detailImg {
+   width: 900;
+   height: 1000;
+   border: 1px solid lightgrey;
+   text-align: center;
+   margin: auto;
+}
 </style>
 <div class='container-fluid'>
 	<%@ include file='../include/headerAdmin.jsp' %>
@@ -57,7 +128,7 @@
 						<th>꽃 관리</th>
 					</tr>
 				</thead>
-				<tbody id='noticeBorder' class='table-borderless'>
+				<tbody id='flowerBorder' class='table-borderless'>
 					<tr><td></td></tr>
 					<tr>
 						<td><a href='./listFlower' style='color:black; font-weight: bold'>꽃 조회</a></td>
@@ -73,17 +144,34 @@
 			<div class='row' id='flowerImage'>
 				<div class='col'>
 					<c:forEach var="flower" items="${flowerList}">
-						<img style="width: 100%; height:250px;"src='<c:url value="/attach/${flower.flowerImgfileName}"/>'/><br>
+						<img style="max-width: 100%; height:250px;"src='<c:url value="/attach/${flower.flowerImgfileName}"/>'/><br>
 					</c:forEach>
 				</div>
 			</div>
 			<div class='col text-center mt-5'>
+			<form>
 			<c:forEach var="flower" items="${flowerList}">
-				<p><b>꽃 번호:</b> ${flower.flowerNum}&emsp;&emsp;<b>꽃 이름:</b> ${flower.flowerName}</p>
-				<p><b>가격:</b> ${flower.price}&emsp;&emsp;<b>등록일:</b> ${flower.regDate}</p>
-				<p><b>종류:</b> ${flower.kind}&emsp;&emsp;<b>분류:</b> ${flower.flowerCategory}</p>
-				<p></p>
+				<p><b>꽃 번호:</b><input type='number' id='flowerNum' name='flowerNum' value='${flower.flowerNum}' readonly/>&emsp;&emsp;</p>
+				<p><label><b>꽃 이름:&emsp;</b><input type='text' id='flowerName' name=' flowerName' value='${flower.flowerName}'/></label></p>
+				<p><label><b>가격:&emsp;</b><input type='number' id='price' name='price' value='${flower.price}'/></label></p>
+				<p><b>등록일:&emsp;</b>${flower.regDate}</p>
+				<p>
+					<label>
+					<b>종류:&emsp;</b>${flower.kind}&emsp;
+					<select id='kind' name='kind' class='text-center col-4'>
+					<option>--</option>
+					<option>꽃다발</option>
+					<option>꽃바구니</option>
+					</select>
+					</label>	
+				</p>
+				<p><b>분류:</b> ${flower.flowerCategory}
+					&nbsp;&emsp;&emsp;&emsp;<label for='flowerCategory' class='col-form-label'><strong>분류:&emsp;</strong></label>
+					<input type='radio' value='NEW' id='flowerCategory' name='flowerCategory'>&emsp;NEW&emsp;&emsp;
+					<input type='radio' value='BEST' id='flowerCategory' name='flowerCategory'>&emsp;BEST&emsp;&emsp;
+				</p>
 			</c:forEach>
+			</form>
 			</div>
 		</div>
 	</div><br><hr>
@@ -92,15 +180,35 @@
 		<div class='col-2'></div>
 			<div class='col-10 text-center'>				
 				<c:forEach var="flower" items="${flowerList}">
-					<img style='width:900; height:1000' src='<c:url value="/attach/${flower.detailImgfileName}"/>'/><br>
+					<img style='max-width: 1000; height:1000' src='<c:url value="/attach/${flower.detailImgfileName}"/>'/><br>
 				</c:forEach>
 			</div>
 		</div><br><br><hr>
-			<div class='col'>
-				<c:forEach var="flower" items="${flowerList}">
-					<a href='/admin/flower/fixFlower?flowerNum=${flower.flowerNum}'><button class='btn btn-outline-secondary  float-right  mr-2' >수정</button></a>	
-				</c:forEach>
+		<div class='col'>
+			<c:forEach var="flower" items="${flowerList}">
+				<!--  <a href='/admin/flower/listFlower'>--><button id='fixFlowerBtn' class='btn btn-outline-secondary  float-right  mr-2' >수정</button><!-- </a> -->	
+			</c:forEach>
+		</div>
+	</div>
+</div>
+
+<div id='cofirmModal' class='modal fade' tabindex='-1'>
+	<div class='modal-dialog'>
+		<div class='modal-content'>
+			<div class='modal-header'>
+				<h5 class='modalTitle'>꽃 수정</h5>
+				<button type='button' class='close' data-dismiss='modal'>
+					<span>&times;</span>
+				</button>
 			</div>
+			<div class='modal-body'>
+				<p id='modalMsg'></p>
+			</div>
+			<div class='modal-footer'>
+				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='noBtn'>아니오</button>
+				<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='okBtn'>확인</button>
+			</div>
+		</div>
 	</div>
 </div>
 

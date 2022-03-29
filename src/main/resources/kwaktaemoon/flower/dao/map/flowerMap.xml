@@ -14,7 +14,7 @@
 
 	<select id='detailFlowers' resultType='flower'>
 		select * from flowers
-		where flower_name = #{flowerName}
+		where flower_num = #{flowerNum}
 	</select>
  
 	<select id='searchFlowerWithKeyword' resultType='flower'>
@@ -40,8 +40,6 @@
 			price = #{price},
 			kind = #{kind},
 			flower_category = #{flowerCategory}
-			flower_imgfile_name = #{flowerImgfileName},
-			detail_imgfile_name = #{detailImgfileName}
 		where flower_num = #{flowerNum}
 	</update>
 	
