@@ -43,6 +43,12 @@
 		where flower_num = #{flowerNum}
 	</update>
 	
+	<update id='updateAmount'>
+		update flowers
+		set amount = #{amount}
+		where flower_num = #{flowerNum}
+	</update>
+	
 	<delete id='deleteFlower'>
 	   delete flowers
 	   where flower_num = #{flowerNum}

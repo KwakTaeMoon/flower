@@ -6,6 +6,13 @@
 <%@ include file ='../include/lib.jsp'%>
 
 <script>
+window.onload = function() {
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+}
+
 function constrainRecContactNum(text){
 	if(text.length == 11){
 		return true;
@@ -27,6 +34,7 @@ function searchAddr(){
 	}
 
 function init() {
+
 	$('#searchAddr').click(() => {
 		searchAddr();
 	})	
@@ -39,6 +47,9 @@ $('#purchaseBtn').click(() => {
 	let recDetailAddr = $('#recDetailAddr').val();
 	let hopeDeliDate = $('#hopeDeliDate').val();
 	let request = $('#request').val();
+	let payment = $('#payment:checked').val();
+	let flowerNum = $('#flowerNum').val();
+	let amount = $('#amount').val();
 	let terms = $('#terms:checked').val();
 	if(recName){
 		if(recContactNum) {
@@ -46,25 +57,36 @@ $('#purchaseBtn').click(() => {
 				if(recAddr) {
 					if(recDetailAddr) {
 						if(hopeDeliDate) {
+							if(payment) {
 								if(terms) {
-									$.ajax({
-										url: '${pageContext.request.contextPath}/order/addOrder',
-										type: 'post',
-										data: {
-											recName: recName,
-											recContactNum: recContactNum,
-											recPostCode: recPostCode,
-											recAddr: recAddr,
-											recDetailAddr: recDetailAddr,
-											hopeDeliDate: hopeDeliDate,
-											request: request,
-										}
-									}).done(orders => {
-										location.href='./successOrder'
-									})
+										$.ajax({
+											url: '${pageContext.request.contextPath}/order/addOrder',
+											type: 'post',
+											data: {
+												recName: recName,
+												recContactNum: recContactNum,
+												recPostCode: recPostCode,
+												recAddr: recAddr,
+												recDetailAddr: recDetailAddr,
+												hopeDeliDate: hopeDeliDate,
+												request: request,
+												payment: payment,
+												amount: amount,
+												flowerNum: flowerNum
+											}
+										}).done(orders => {
+											location.href='./successOrder'
+										})
+									}else {
+										$('#modalMsg').empty();
+										$('#modalMsg').text('약관에 동의해주세요.');
+										$('#cofirmModal').modal();
+										$('#okBtn').show();
+										$('#noBtn').hide();
+									}
 								}else {
 									$('#modalMsg').empty();
-									$('#modalMsg').text('약관에 동의해주세요.');
+									$('#modalMsg').text('결제방법을 선택해주세요.');
 									$('#cofirmModal').modal();
 									$('#okBtn').show();
 									$('#noBtn').hide();
@@ -126,12 +148,12 @@ table {
 
 th {
 	border: 1px solid lightgray;
-	padding: 20px;
+	padding: 15px;
 }
 
 td {
 	border: 1px solid lightgray;
-	padding: 10px;
+	padding: 15px;
 }
 
 table.type1 {
@@ -143,10 +165,8 @@ table.type1 {
 }
 
 table.type1 th {
-  padding: 40px;
   font-weight: bold;
-  vertical-align: top;
-  text-align: center;
+  vertical-align: center;
   width: 150px;
 }
 
@@ -177,24 +197,11 @@ textarea {
 				</thead>
 				<tbody>
 					<tr>
-						<td>
-							<div class='row d-flex justify-content-center'>
-								<p>빨간 장미다발</p>
-							</div>
-							<div class='row d-flex justify-content-center'>
-								<p>사이즈: S</p>
-							</div>
-						</td><td>1개</td><td>10000원</td>
-					</tr>
-					<tr>
-						<td>
-							<div class='row d-flex justify-content-center'>
-								<p>스투키</p>
-							</div>
-							<div class='row d-flex justify-content-center'>
-								<p>사이즈: S</p>
-							</div>
-						</td><td>1개</td><td>10000원</td>
+						<c:forEach var="flower" items="${flowerList}">
+							<td>${flower.flowerName}<input type='hidden' id='flowerNum' name='flowerNum' value='${flower.flowerNum}' readonly/></td>
+							<td><input type='hidden' id='amount' name='amount' value='${flower.amount}' readonly/>${flower.amount}</td>
+							<td>${flower.price * flower.amount}원</td>
+						</c:forEach>
 					</tr>
 				</tbody>
 			</table>
@@ -257,16 +264,39 @@ textarea {
 			<table class="type1">
 				<tr>
 					<th>상품 합계</th>
-					<td><p>20000 원</p></td>
+					<c:forEach var="flower" items="${flowerList}">
+						<td>${flower.price * flower.amount}원</td>
+					</c:forEach>
 				</tr>
 				<tr>
 					<th>배송비</th>
-					<td>5000원 (택배)</td>
+					<td>5000원</td>
 				</tr>
 				<tr>
 					<th>결제 금액</th>
-					<td><span id='price'>25000 원</span></td>
+					<c:forEach var="flower" items="${flowerList}">
+						<td>${flower.price * flower.amount + 5000}원</td>
+					</c:forEach>
 				</tr>
+			</table>
+		</div>
+	</div>
+	<div class='row d-flex mt-5'>
+		<div class='col'>
+			<h5 style='color: #0f56ba;'><b>| 결제 방법</b></h5>
+			<table class="type2">
+				<tr>
+					<th><input type='radio' value='카드 결제' id='payment'  name='payment'></th>
+					<td><label>카드 결제</label></td>
+				</tr>
+				<tr>
+					<th><input type='radio' value='무통장 입금' id='payment' name='payment'></th>
+					<td><label>무통장 입금</label></td>
+				</tr>
+				<tr>
+					<th><input type='radio' value='휴대폰 결제' id='payment' name='payment'></th>
+					<td><label>휴대폰 결제</label></td>
+				</tr>	
 			</table>
 		</div>
 	</div>
@@ -280,8 +310,8 @@ textarea {
 		</div>	
 	</div><br><br><br>
 	<div class='row d-flex justify-content-center mt-1'>
-		<button type="button" class="btn btn-outline-secondary m-5 d-flex justify-content-center" id='purchaseBtn'
-			data-toggle='modal' data-target='#noCheckModal'>결제하기</button>
+		<button class="btn btn-outline-secondary m-5 d-flex justify-content-center" 
+			id='purchaseBtn'>결제하기</button>
 	</div>
 	</c:if>
 </div>

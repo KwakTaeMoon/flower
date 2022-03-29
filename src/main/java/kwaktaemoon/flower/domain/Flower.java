@@ -12,6 +12,7 @@ public class Flower {
 	private String flowerName;
 	private int price;
 	private String kind;
+	private int amount;
 	private String flowerCategory;
 	private String flowerImgfileName;
 	private MultipartFile flowerImgfile;

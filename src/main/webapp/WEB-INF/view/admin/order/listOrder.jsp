@@ -20,11 +20,11 @@ function listOrders() {
 						<td>
 							<input type='radio' value='\${order.orderNum}' name='orderNum' id='orderNum'/>
 						</td>
-						<td><a href='/order/detailOrder?orderNum=\${order.orderNum}'>
-						\${order.orderNum}</a></td>
+						<td><a href='/order/detailOrder?orderNum=\${order.orderNum}&flowerNum=\${order.flowerNum}'>
+						\${order.orderNum}<input type='hidden' id='flowerNum' name='flowerNum' value='\${order.flowerNum}' readonly/></a></td>
 						<td>\${order.userId}</td>
-						<td>빨간 장미다발</td>
-						<td>10000원</td>
+						<td>\${order.payment}</td>
+						<td>\${order.hopeDeliDate}</td>
 						<td>\${order.deliState}</td>
 					</tr>`
 				);
@@ -153,9 +153,9 @@ table.type1 td{
 						<td></td>
 						<td><b>주문번호</b></td>
 						<td><b>아이디</b></td>
-						<td><b>주문상품</b></td>
-						<td><b>주문금액</b></td>
-						<td><b>주문상태</b></td>
+						<td><b>결제 방법</b></td>
+						<td><b>희망 배송일</b></td>
+						<td><b>주문 상태</b></td>
 					</tr>
 				</thead>
 				<tbody id='orders'>

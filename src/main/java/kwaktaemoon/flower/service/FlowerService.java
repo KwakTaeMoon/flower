@@ -13,5 +13,6 @@ public interface FlowerService {
 	List<Flower> getAdminFlowers();
 	void addFlower(Flower flower);
 	void fixFlower(Flower flower);
+	void fixAmount(Flower flower);
 	void delFlower(int flowerNum);
 }
