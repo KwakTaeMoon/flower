@@ -17,9 +17,9 @@
 		where flower_num = #{flowerNum}
 	</select>
  
-	<select id='searchFlowerWithKeyword' resultType='flower'>
+	<select id='searchFlowerWithKeyword' resultMap='flowerMap'>
 		select * from flowers
-		WHERE flower_name LIKE '%'||#{keyword}||'%'
+		where flower_name LIKE '%'||#{keyword}||'%'
 	</select>
 	
 	<select id='searchFlower' resultType='flower'>
@@ -55,4 +55,16 @@
 	   delete flowers
 	   where flower_num = #{flowerNum}
 	</delete>
+	
+	<resultMap id='flowerMap' type='flower'>
+		<id property='flowerNum' column='flower_num'/>
+		<result property='flowerName' column='flower_name'/>
+		<result property='price' column='price'/>
+		<result property='kind' column='kind'/>
+		<result property='flowerCategori' column='flower_catagori'/>
+		<result property='flowerImgfileName' column='flower_imgfile_name'/>
+		<result property='detailImgfileName' column='detail_imgfile_name'/>
+		<result property='regDate' column='reg_date'/>
+		<result property='keyword' column='keyword'/>
+	</resultMap>
 </mapper>

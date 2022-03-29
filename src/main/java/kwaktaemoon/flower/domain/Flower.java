@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
 
-@Data 
+@Data
 public class Flower {
 	private int flowerNum;
 	private String flowerName;
@@ -19,4 +19,5 @@ public class Flower {
 	private String detailImgfileName;
 	private MultipartFile detailImgfile;
 	private LocalDate regDate;
+	private String keyworkd;
 }

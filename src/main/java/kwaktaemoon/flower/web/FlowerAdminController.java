@@ -39,12 +39,7 @@ public class FlowerAdminController {
 	public String listFlower() {
 		return "admin/flower/listFlower";
 	}
-	/*
-	@GetMapping("/detailFlower")
-	public void detailFlower() {
-		
-	}
-	*/
+	
 	@RequestMapping(value = "/detailFlower", method=RequestMethod.GET)
 	public String detailFlower(Model model, @RequestParam("flowerNum") int flowerNum, HttpSession session) {
 	    List<Flower> flowerList = flowerService.getDetailFlowers(flowerNum);
@@ -92,7 +87,7 @@ public class FlowerAdminController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/fix")
+	@PostMapping("/fix")
 	public void fixFlower(@RequestBody Flower flower, HttpServletRequest request, HttpServletResponse response) {
 		flowerService.fixFlower(flower);
 	}
