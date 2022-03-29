@@ -4,11 +4,16 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -34,10 +39,15 @@ public class FlowerAdminController {
 	public String listFlower() {
 		return "admin/flower/listFlower";
 	}
-	
+	/*
+	@GetMapping("/detailFlower")
+	public void detailFlower() {
+		
+	}
+	*/
 	@RequestMapping(value = "/detailFlower", method=RequestMethod.GET)
-	public String detailFlower(Model model, @RequestParam("flowerName") String flowerName) {
-	    List<Flower> flowerList = flowerService.getDetailFlowers(flowerName);
+	public String detailFlower(Model model, @RequestParam("flowerNum") int flowerNum, HttpSession session) {
+	    List<Flower> flowerList = flowerService.getDetailFlowers(flowerNum);
 	    model.addAttribute("flowerList", flowerList);
 		return "admin/flower/detailFlower";
 	}
@@ -82,18 +92,9 @@ public class FlowerAdminController {
 	}
 	
 	@ResponseBody
-	@PutMapping("/fix")
-	public ModelAndView fixFlower(@RequestBody Flower flower, ModelAndView mv)throws IOException{
-		String flowerFileName = flower.getFlowerImgfile().getOriginalFilename();
-		String detailFileName = flower.getDetailImgfile().getOriginalFilename();
-
-		saveFlowerFile(attachPath + "/" + flowerFileName, flower.getFlowerImgfile());
-		flower.setFlowerImgfileName(flowerFileName);
-
-		saveDetailFile(attachPath + "/" + detailFileName, flower.getDetailImgfile());
-		flower.setDetailImgfileName(detailFileName);
+	@RequestMapping(value="/fix")
+	public void fixFlower(@RequestBody Flower flower, HttpServletRequest request, HttpServletResponse response) {
 		flowerService.fixFlower(flower);
-		return mv;
 	}
 
 	private void saveFlowerFile(String flowerFileName, MultipartFile flowerFile) {

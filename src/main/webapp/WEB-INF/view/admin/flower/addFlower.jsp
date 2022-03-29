@@ -12,7 +12,7 @@ $('#registerBtn').click(() => {
 	let flowerCategory = $('#flowerCategory:checked').val();
 	let kind = $('#kind').val();
 	if(kind) {
-		if(kind=='꽃다발'|| kind=='꽃바구니'|| kind=='화분'|| kind=='조화/꽃비누') {
+		if(kind=='꽃다발'|| kind=='꽃바구니') {
 			if(flowerCategory) {	
 				if(flowerName) {	
 					if(price) {	
@@ -138,8 +138,8 @@ table.type1 td{
 			</div>
 		<div class='col'>
 			&nbsp;<label for='flowerCategory' class='col-form-label'><strong>분류&emsp;&emsp;&emsp;</strong></label>
-			<input type='radio' value='BEST' id='flowerCategory' name='flowerCategory'>&emsp;BEST&emsp;&emsp;
 			<input type='radio' value='NEW' id='flowerCategory' name='flowerCategory'>&emsp;NEW&emsp;&emsp;
+			<input type='radio' value='BEST' id='flowerCategory' name='flowerCategory'>&emsp;BEST&emsp;&emsp;
 		</div><hr><br>
 			<div class='col-8 d-flex'>
 				<h5 style='color:#0f56ba'><b>꽃 기본 사항&nbsp;</b></h5>
@@ -159,7 +159,7 @@ table.type1 td{
 						<tr>
 							<th>가격 : </th>
 							<td>
-								<input id='price' name='price' type='number'/>
+								<input type='number' id='price' name='price'/>
 							</td>
 						</tr>
 						<tr>

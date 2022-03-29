@@ -19,8 +19,8 @@ public class FlowerDaoImpl implements FlowerDao{
 	
 	
 	@Override
-	public List<Flower> detailFlowers(String flowerName) {
-		return flowerMap.detailFlowers(flowerName);
+	public List<Flower> detailFlowers(int flowerNum) {
+		return flowerMap.detailFlowers(flowerNum);
 	}
 	
 	@Override

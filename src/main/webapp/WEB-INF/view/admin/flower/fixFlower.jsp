@@ -17,7 +17,7 @@ $('#fixBtn').click(() => {
 				if(flowerName) {	
 					if(price) {	
 								$.ajax({
-									type: 'put',
+									type: 'post',
 									url: 'fix',
 									data: {
 										flowerName: flowerName,
@@ -121,7 +121,7 @@ table.type1 td{
 		<div class='col-8 mt-3'>
 			<h5 style='color:#0f56ba'><b>| 꽃 수정</b></h5>
 			<hr><br>
-			<form id='form' method='post' encType='multipart/form-data'>
+			<form>
 		<div class='col-8 d-flex'>
 			<h5 style='color:#0f56ba'><b>종류 선택&nbsp;</b></h5><p>*필수</p>
 		</div>
@@ -171,7 +171,7 @@ table.type1 td{
 					</tr>
 					<tr>
 						<th></th>
-						<td align='right'><button class='btn btn-outline-secondary btn-sm'  id='fixBtn'>수정</button></td>
+						<td align='right'><button type='button' class='btn btn-outline-secondary btn-sm'  id='fixBtn'>수정</button></td>
 					</tr>
 				</tbody>
 			</table>

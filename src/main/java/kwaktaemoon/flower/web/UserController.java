@@ -190,6 +190,7 @@ public class UserController {
 		HttpSession session = request.getSession();
 		String userId1 = (String) session.getAttribute("userId");
 		userService.delUser(userId1);
+		session.invalidate();
 	}
 	
 	@RequestMapping("/withdrawSuccess")

@@ -24,8 +24,8 @@
 		<c:forEach var='flower' items='${flowerList}'>
 			<c:if test='${flower.kind == "꽃다발"}'>
 				<div class='col text-center'>
-					<div><a href='/flower/detailFlower?flowerName=${flower.flowerName}'><img style="width:150px; height:150px;"src='<c:url value="/attach/${flower.flowerImgfileName}"/>'/></a></div>
-					<p><a href='/flower/detailFlower?flowerName=${flower.flowerName}' style='color:#000000;'>${flower.flowerName}</a><br><small>${flower.price}&nbsp;<span class='badge badge-primary'>${flower.flowerCategory}</span></small></p>		
+					<div><a href='/flower/detailFlower?flowerNum=${flower.flowerNum}'><img style="width:150px; height:150px;"src='<c:url value="/attach/${flower.flowerImgfileName}"/>'/></a></div>
+					<p><a href='/flower/detailFlower?flowerNum=${flower.flowerNum}' style='color:#000000;'>${flower.flowerName}</a><br><small>${flower.price}&nbsp;<span class='badge badge-primary'>${flower.flowerCategory}</span></small></p>		
 				</div>
 			</c:if>
 		</c:forEach>
@@ -42,8 +42,8 @@
 		<c:forEach var='flower' items='${flowerList}'>
 			<c:if test='${flower.kind == "꽃바구니"}'>
 				<div class='col text-center'>
-					<div><a href='/flower/detailFlower?flowerName=${flower.flowerName}'><img style="width:165px; height:165px;"src='<c:url value="/attach/${flower.flowerImgfileName}"/>'/></a></div>
-					<p><a href='/flower/detailFlower?flowerName=${flower.flowerName}' style='color:#000000;'>${flower.flowerName}</a><br><small>${flower.price}&nbsp;<span class='badge badge-primary'>${flower.flowerCategory}</span></small></p>		
+					<div><a href='/flower/detailFlower?flowerNum=${flower.flowerNum}'><img style="width:165px; height:165px;"src='<c:url value="/attach/${flower.flowerImgfileName}"/>'/></a></div>
+					<p><a href='/flower/detailFlower?flowerNum=${flower.flowerNum}' style='color:#000000;'>${flower.flowerName}</a><br><small>${flower.price}&nbsp;<span class='badge badge-primary'>${flower.flowerCategory}</span></small></p>		
 				</div>
 			</c:if>
 		</c:forEach>
