@@ -93,8 +93,8 @@ $(init);
 							</li>
 							<li>
 							<div class='d-flex align-items-center'>
-		    					<input id='searchBtn' class='form-control form-control-sm' type='search' placeholder='Search'>
-		    					&emsp;<a href='#'><i class="fa fa-search" style='color:#3C5087'></i></a>&nbsp;
+		    					<input id='searchBar' class='form-control form-control-sm' type='search' placeholder='Search'>
+		    					&emsp;<button  id='searchBtn' type='button' class='btn btn-outline-secondary'><i class="fa fa-search" style='color:#3C5087'></i></button>&nbsp;
 	  						</div>
 	  						</li>
 						</ul>

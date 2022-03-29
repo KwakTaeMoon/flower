@@ -28,16 +28,10 @@ function showResult() {
 		if(result.length){
 			$.each(result, (idx, flower) => {
 				flowerList.push(
-					`<tr>
-					<th>
-						<a href='<%=request.getContextPath() %>/flower/detailFlower?flowerNum=\${flower.flowerNum}'>
-							<button value='\${flower.flowerNum}' class='btn btn-outline-dark' type='button'>
-								<p>\${flower.flowerName}</p>
-							</button>
-						</a>
-					</th>
-					<td>\${flower.price}</td>
-				</tr>`
+					`<div class='col text-center'>
+						<div><a href='/flower/detailFlower?flowerNum=\${flower.flowerNum}'><img style="width:165px; height:165px;"src='<c:url value="/attach/\${flower.flowerImgfileName}"/>'/></a></div>
+						<p><a href='/flower/detailFlower?flowerNum=\${flower.flowerNum}' style='color:#000000;'>\${flower.flowerName}</a><br><small>\${flower.price}&nbsp;<span class='badge badge-primary'>\${flower.flowerCategory}</span></small></p>
+					</div>`
 				);
 			});
 			
@@ -61,26 +55,7 @@ $(init);
 <%@ include file='../include/header.jsp' %>
 	<br><br><br><br>
 	<h5 style='color:#0f56ba'><b>| 검색 결과</b></h5><hr><br>
-	<div class='row'></div>
-		<div class='form-group row justify-content-center'>
-			<div class='col'>
-				<table class='table table-bordered'>
-					<thead class='thead-light'>
-						<tr>
-							<th>상품명</th>
-							<th>판매가</th>
-						</tr>
-					</thead>
-					<tbody id='flowerList'>
-					</tbody>
-				</table>
-			</div>
+		<div class='row'  id='flowerList'>
 		</div>
-		<div class='row' style='height:500px'></div>
-	</div>
-	
-	
-	
-	
-</div>
+	</div><br><br><br>
 <%@ include file='../include/footer.jsp' %>
