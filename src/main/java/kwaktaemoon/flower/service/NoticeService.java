@@ -5,10 +5,9 @@ import java.util.List;
 import kwaktaemoon.flower.domain.Notice;
 
 public interface NoticeService {
-
 	List<Notice> getNotices();
-	List<Notice> getdetailNotices(int noticeNum);
-	void addAdminNotice(Notice notice);
-	void fixAdminNotice(int noticeNum);
-	void delAdminNotice(int noticeNum);
+	Notice getNotice(int noticeNum);
+	int addNotice(Notice notice);
+	int fixNotice(Notice notice);
+	int delNotice(int noticeNum);
 }

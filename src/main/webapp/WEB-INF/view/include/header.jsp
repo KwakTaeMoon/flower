@@ -16,13 +16,13 @@
 					<div class='collapse navbar-collapse' id='menu'>
 						<ul class='nav navbar-nav w-100 justify-content-around'>
 							<li class='nav-item active'>
-								<a class='nav-link' href='#'>꽃다발</a>
+								<a class='nav-link' href='<%=request.getContextPath() %>/flower/listFlower?posy'>꽃다발</a>
 							</li>
 							<li class='nav-item active'>
-								<a class='nav-link' href='#'>꽃바구니</a>
+								<a class='nav-link' href='<%=request.getContextPath() %>/flower/listFlower?basket'>꽃바구니</a>
 							</li>
 							<li class='nav-item active'>
-								<a class='nav-link' href='.<%=request.getContextPath() %>/notice/01.html'>공지</a>
+								<a class='nav-link' href='<%=request.getContextPath() %>/notice/listNotice'>공지</a>
 							</li>
 							<li class='nav-item active'>
 								<a class='nav-link' href='<%=request.getContextPath() %>/review/listReview'>후기</a>
@@ -63,7 +63,7 @@
 								<a class='nav-link' href='#'>꽃바구니</a>
 							</li>
 							<li class='nav-item active'>
-								<a class='nav-link' href='.<%=request.getContextPath() %>/notice/01.html'>공지</a>
+								<a class='nav-link' href='<%=request.getContextPath() %>/notice/listNotice'>공지</a>
 							</li>
 							<li class='nav-item active'>
 								<a class='nav-link' href='<%=request.getContextPath() %>/review/listReview'>후기</a>

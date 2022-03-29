@@ -5,7 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kwaktaemoon.flower.domain.Flower;
 import kwaktaemoon.flower.service.FlowerService;
@@ -23,4 +26,12 @@ public class FlowerController {
 	public List<Flower> listFlower() {
 		return flowerService.getFlowers();
 	}
+	
+	@RequestMapping(value = "/detailFlower", method=RequestMethod.GET)
+	public String detailFlower(Model model, @RequestParam("flowerName") String flowerName) {
+	    List<Flower> flowerList = flowerService.getDetailFlowers(flowerName);
+	    model.addAttribute("flowerList", flowerList);
+		return "flower/detailFlower";
+	}
+
 }
