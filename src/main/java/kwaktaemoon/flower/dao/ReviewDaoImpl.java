@@ -18,8 +18,8 @@ public class ReviewDaoImpl implements ReviewDao{
 	}
 	
 	@Override 
-	public List<Review> detailReviews(String title) {
-		return reviewMap.detailReviews(title);
+	public List<Review> detailReviews(int reviewNum) {
+		return reviewMap.detailReviews(reviewNum);
 	}
 	
 	@Override
@@ -28,18 +28,28 @@ public class ReviewDaoImpl implements ReviewDao{
 	}
 	
 	@Override
+	public List<Review> detailAdminReviews(int reviewNum) {
+		return reviewMap.detailAdminReviews(reviewNum);
+	}
+	
+	@Override
 	public void insertReview(Review review) {
 		reviewMap.insertReview(review);
 	}
 	
 	@Override
-	public void updateReview(int reviewNum) {
-		reviewMap.updateReview(reviewNum);
+	public void updateReview(Review review) {
+		reviewMap.updateReview(review);
 	}
 	
 	@Override
 	public void deleteReview(int reviewNum) {
 		reviewMap.deleteReview(reviewNum);
+	}
+	
+	@Override
+	public void deleteAdminReview(int reviewNum) {
+		reviewMap.deleteAdminReview(reviewNum);
 	}
 }
  

@@ -50,6 +50,11 @@ public class FlowerServiceImpl implements FlowerService{
 	}
 	
 	@Override
+	public void fixAmount(Flower flower) {
+		flowerDao.updateAmount(flower);
+	}
+	
+	@Override
 	public void delFlower(int flowerNum) {
 		flowerDao.deleteFlower(flowerNum);
 	}

@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -17,13 +16,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kwaktaemoon.flower.domain.Flower;
 import kwaktaemoon.flower.domain.Order;
+import kwaktaemoon.flower.service.FlowerService;
 import kwaktaemoon.flower.service.OrderService;
 
 @Controller
 @RequestMapping("/order")
 public class OrderController{
-	@Autowired private OrderService orderService;	
+	@Autowired private OrderService orderService;
+	@Autowired private FlowerService flowerService;	
 	
 	@RequestMapping("/listOrder")
 	public String listOrder() {
@@ -31,17 +33,27 @@ public class OrderController{
 	}
 	
 	@RequestMapping(value = "/detailOrder", method=RequestMethod.GET)
-	public String detailOrder(Model model, @RequestParam("orderNum") int orderNum) {
+	public String detailOrder(Model model, @RequestParam("flowerNum") int flowerNum, @RequestParam("orderNum") int orderNum) {
 	    List<Order> orderList = orderService.getdetailOrders(orderNum);
 	    model.addAttribute("orderList", orderList);
+	    
+	    List<Flower> flowerList = flowerService.getDetailFlowers(flowerNum);
+	    model.addAttribute("flowerList", flowerList);
 		return "order/detailOrder";
 	}
 	
 	@RequestMapping("/addOrder")
 	public String addOrder() {
-		return "order/addOrder";
+		return "/order/addOrder";
 	}
 
+	
+	@RequestMapping(value = "/addOrder", method=RequestMethod.GET)
+	public String addOrder(Model model, @RequestParam("flowerNum") int flowerNum, HttpSession session) {
+	    List<Flower> flowerList = flowerService.getDetailFlowers(flowerNum);
+	    model.addAttribute("flowerList", flowerList);
+		return "order/addOrder";
+	}
 	
 	@RequestMapping("/successOrder")
 	public String successOrder() {
@@ -50,7 +62,7 @@ public class OrderController{
 	
 	@ResponseBody
 	@PostMapping("/listOrder")
-	public List<Order> getOrders(HttpServletRequest request) {
+	public List<Order> getOrders(Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		String userId = (String) session.getAttribute("userId");
 		List<Order> result = orderService.getOrders(userId);

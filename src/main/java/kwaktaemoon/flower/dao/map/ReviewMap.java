@@ -8,10 +8,12 @@ import kwaktaemoon.flower.domain.Review;
 
 public interface ReviewMap {
 	List<Review> selectReviews();
-	List<Review> detailReviews(@Param("title") String title);
+	List<Review> detailReviews(@Param("reviewNum") int reviewNum);
 	List<Review> selectAdminReviews();
+	List<Review> detailAdminReviews(@Param("reviewNum") int reviewNum);
 	void insertReview(Review review);
-	void updateReview(int reviewNum);
+	void updateReview(Review review);
 	void deleteReview(int reviewNum);
+	void deleteAdminReview(int reviewNum);
 }
  

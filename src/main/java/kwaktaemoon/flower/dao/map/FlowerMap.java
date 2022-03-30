@@ -14,5 +14,6 @@ public interface FlowerMap {
 	Flower searchFlower(String flowerName);
 	void insertFlower(Flower flower);
 	void updateFlower(Flower flower);
+	void updateAmount(Flower flower);
 	void deleteFlower(int flowerNum);
 }

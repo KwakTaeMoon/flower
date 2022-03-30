@@ -9,7 +9,17 @@
 	
 	<select id='detailReviews' resultType='review'>
 		select * from reviews
-		where title = #{title}
+		where review_num = #{reviewNum}
+	</select>
+	
+	<select id='selectAdminReviews' resultType='review'>
+		select * from reviews
+		order by review_num
+	</select>
+	
+	<select id='detailAdminReviews' resultType='review'>
+		select * from reviews
+		where review_num = #{reviewNum}
 	</select>
 	
 	<insert id='insertReview'>
@@ -26,5 +36,10 @@
 	<delete id='deleteReview'>
 	   delete reviews
 	   where review_num = #{reviewNum}
+	</delete>
+	
+	<delete id='deleteAdminReview'>
+		delete reviews
+		where review_num = #{reviewNum}
 	</delete>
 </mapper> 

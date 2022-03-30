@@ -17,18 +17,20 @@ function listOrders() {
 			$.each(orders, (i, order) => {
 				orderArr.unshift(
 					`<tr>
-							<td>
-								<input type='radio' value='\${order.orderNum}' name='orderNum' id='orderNum'/>
-							</td>
-							<td><a href='/order/detailOrder?orderNum=\${order.orderNum}'>
-							\${order.orderNum}</a></td>
-							<td></td>
-							<td></td>
-							<td>\${order.deliState}</td>
-						</tr>`
+						<td>
+							<input type='radio' value='\${order.orderNum}' name='orderNum' id='orderNum'/>
+						</td>
+						<td><a href='/order/detailOrder?orderNum=\${order.orderNum}&flowerNum=\${order.flowerNum}'>
+						\${order.orderNum}</a><input type='hidden' id='flowerNum' name='flowerNum' value='\${order.flowerNum}' readonly/></td>
+						<td>\${order.payment}</td>
+						<td>\${order.hopeDeliDate}</td>
+						<td>\${order.deliState}</td>
+					</tr>`
 				);
 			})
 	
+			
+			
 			$('#orders').append(orderArr.join(''))
 		} else {
 			$('#orders').append('<tr><td colspan=5 class=text-center>구매내역이 없습니다.</td></tr>')
@@ -98,7 +100,7 @@ tr {
 
 			<table>
 				<thead>
-					<tr><th></th><th>주문번호</th><th>상품</th><th>금액</th><th>상태</th></tr>
+					<tr><th></th><th>주문번호</th><th>결제방법</th><th>희망 배송일</th><th>상태</th></tr>
 				</thead>
                  <tbody id='orders'>
                  
