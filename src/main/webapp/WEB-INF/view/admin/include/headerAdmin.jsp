@@ -24,7 +24,7 @@
 								<a class='nav-link' href='/admin/order/listOrder'>주문</a>
 							</li>
 							<li class='nav-item active'>
-								<a class='nav-link' href='../notice/01.html'>게시판</a>
+								<a class='nav-link' href='/admin/review/listReview'>게시판</a>
 							</li>
 						</ul>
 					</div>

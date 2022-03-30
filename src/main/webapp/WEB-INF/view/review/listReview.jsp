@@ -17,7 +17,7 @@ function listReviews(){
 					`<tr>
 						<td>
 						\${review.reviewNum}</a></td>
-						<td><a href='/review/detailReview?title=\${review.title}'>
+						<td><a href='/review/detailReview?reviewNum=\${review.reviewNum}'>
 						\${review.title}</td>
 						<td>\${review.userId}</td>
 						<td>\${review.regDate}</td>
