@@ -17,7 +17,6 @@ public class Notice {
 	private int noticeNum;
 	private String title;
 	private String content;
-	private String imgFileName;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
 	private LocalDate regDate;
