@@ -2,6 +2,26 @@
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <script>
 
+function changeView(address){
+	window.location.href=address;
+}
+function init(){
+	
+	$('#searchBtn').click(()=>{
+		var target = $('#searchBar').val();
+		$.ajax({
+			type:'post',
+			url: '<%=request.getContextPath() %>/flower/saveKeyword',
+			data: ({
+				keyword:target
+			})
+		}).done(() => {
+			changeView('<%=request.getContextPath() %>/flower/searchFlower');
+		});
+	});
+}
+
+$(init);
 </script>
 	<c:if test="${empty sessionScope.userId}">
 	<div class='header'>
@@ -22,7 +42,7 @@
 								<a class='nav-link' href='<%=request.getContextPath() %>/flower/listFlower?basket'>꽃바구니</a>
 							</li>
 							<li class='nav-item active'>
-								<a class='nav-link' href='.<%=request.getContextPath() %>/notice/01.html'>공지</a>
+								<a class='nav-link' href='<%=request.getContextPath() %>/notice/01.html'>공지</a>
 							</li>
 							<li class='nav-item active'>
 								<a class='nav-link' href='<%=request.getContextPath() %>/review/listReview'>후기</a>
@@ -32,8 +52,8 @@
 							</li>
 							<li>
 							<div class='d-flex align-items-center'>
-		    					<input class='form-control form-control-sm' type='search' placeholder='Search'>
-		    					&emsp;<a href='#'><i class="fa fa-search" style='color:#3C5087'></i></a>&nbsp;
+		    					<input id='searchBar' class='form-control form-control-sm' type='search' placeholder='Search'>
+		    					&emsp;<button  id='searchBtn' type='button' class='btn btn-outline-secondary'><i class="fa fa-search" style='color:#3C5087'></i></button>&nbsp;
 	  						</div>
 	  						</li>
 						</ul>
@@ -63,7 +83,7 @@
 								<a class='nav-link' href='<%=request.getContextPath() %>/flower/listFlower?basket'>꽃바구니</a>
 							</li>
 							<li class='nav-item active'>
-								<a class='nav-link' href='.<%=request.getContextPath() %>/notice/01.html'>공지</a>
+								<a class='nav-link' href='<%=request.getContextPath() %>/notice/01.html'>공지</a>
 							</li>
 							<li class='nav-item active'>
 								<a class='nav-link' href='<%=request.getContextPath() %>/review/listReview'>후기</a>
@@ -73,8 +93,8 @@
 							</li>
 							<li>
 							<div class='d-flex align-items-center'>
-		    					<input class='form-control form-control-sm' type='search' placeholder='Search'>
-		    					&emsp;<a href='#'><i class="fa fa-search" style='color:#3C5087'></i></a>&nbsp;
+		    					<input id='searchBar' class='form-control form-control-sm' type='search' placeholder='Search'>
+		    					&emsp;<button  id='searchBtn' type='button' class='btn btn-outline-secondary'><i class="fa fa-search" style='color:#3C5087'></i></button>&nbsp;
 	  						</div>
 	  						</li>
 						</ul>

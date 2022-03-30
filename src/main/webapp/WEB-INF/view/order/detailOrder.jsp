@@ -49,14 +49,24 @@ table.type2 tr {
 					<tr><th>주문번호</th><th>상품</th><th>금액</th><th>상태</th></tr>
 				</thead>
 				<tbody class='border-bottom lightgray'>
-				<c:forEach var="order" items="${orderList}">
+				
 					<tr>
+					<c:forEach var="order" items="${orderList}">
 						<td>${order.orderNum}</td>
-						<td>빨간 장미다발<br>사이즈:S</td>
-						<td>10000원</td>
-						<td>${order.deliState}</td>
-					</tr>
 					</c:forEach>
+					<c:forEach var="flower" items="${flowerList}">
+						<td>${flower.flowerName}</td>
+					</c:forEach>
+					<c:forEach var="flower" items="${flowerList}">
+					<c:forEach var="order" items="${orderList}">
+						<td>${flower.price * order.amount}원</td>
+					</c:forEach>
+					</c:forEach>
+					<c:forEach var="order" items="${orderList}">
+						<td>${order.deliState}</td>
+					</c:forEach>
+					</tr>
+					
 				</tbody>
 			</table>
 		</div>
@@ -72,6 +82,7 @@ table.type2 tr {
 				</tr>
 				<tr>
 					<th>희망 배송일: </th><td>${order.hopeDeliDate}</td>
+					<td><b>결제방법: </b>${order.payment}</td>
 				</tr>
 				<tr>
 					<th>배송지 : </th>
@@ -107,7 +118,11 @@ table.type2 tr {
 	</div>
 	<div class='row'>
 		<div class='col'>
-			<p><strong>금액 :</strong> 10000 원</p>
+			<c:forEach var="flower" items="${flowerList}">
+			<c:forEach var="order" items="${orderList}">
+				<p><strong>금액 :</strong> ${flower.price * order.amount + order.deliFee}원</p>
+			</c:forEach>
+			</c:forEach>
 		</div>
 	</div>
 	<div class='row d-flex justify-content-center mt-1'>
@@ -134,4 +149,3 @@ table.type2 tr {
 		</div>
 	</div>
 </div>
-<%@ include file='../include/footer.jsp' %>

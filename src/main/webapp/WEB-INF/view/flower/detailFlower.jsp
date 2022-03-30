@@ -7,18 +7,34 @@
 <script>
 function init() {
 	$('#plusBtn').click(() => {
-		amount = $('input[name="quantity"]').val();
-		$('input[name="quantity"]').val(parseInt(amount) + 1);
+		amount = $('input[name="amount"]').val();
+		$('input[name="amount"]').val(parseInt(amount) + 1);
 	})
 	
 	$('#minusBtn').click(() => {
-		amount = $('input[name="quantity"]').val();
+		amount = $('input[name="amount"]').val();
 		if(parseInt(amount) > 1) {
-			$('input[name="quantity"]').val(parseInt(amount) - 1);
+			$('input[name="amount"]').val(parseInt(amount) - 1);
 		} else {
-			$('input[name="quantity"]').val(1);
+			$('input[name="amount"]').val(1);
 		}	
 	});
+	
+	$('#orderBtn').click(() => {
+		if(${not empty sessionScope.userId}) {
+			$.ajax({
+				url: 'fix',
+				method: 'post',
+				contentType: 'application/json',
+				data: JSON.stringify({
+					flowerNum: $('#flowerNum').val(),
+					amount: $('#amount').val()
+				})
+			}).done()
+		} else {
+			location.href='${pageContext.request.contextPath}/user/login'
+		}
+	})
 };
 
 $(init);
@@ -55,14 +71,15 @@ $(init);
 	<div class='row'> 
 		<div class='col text-center mt-5'>
 			<c:forEach var="flower" items="${flowerList}">
+			<p><input type='hidden' id='flowerNum' name='flowerNum' value='${flower.flowerNum}' readonly/>&emsp;&emsp;</p>
 				<h5><b>${flower.flowerName}</b></h5>
-				<h6>${flower.price}</h6>	
-			</c:forEach>	
+				<h6>${flower.price}</h6>
+			</c:forEach>
 			<div class='form-group row mt-3'>
 			<div class='col-1'></div>
-				<label for='quantity' class='col-3 col-form-label'><b>수량</b></label>
+				<label for='amount' class='col-3 col-form-label'><b>수량</b></label>
 				<button type='button' class='btn btn-outline-secondary small' id='minusBtn'>-</button>
-				<input type='text' class='col-3 text-center' name='quantity' value='1' readonly='readonly' id='quantity'/>
+				<input type='text' class='col-3 text-center' name='amount' id='amount' value='1' readonly='readonly' />
 				<button type='button' class='btn btn-outline-secondary' id='plusBtn'>+</button>
 			</div>
 			<div class='form-group col mt-5'>
@@ -71,7 +88,9 @@ $(init);
 						<button type='button'class='btn btn-outline-secondary' id='cartBtn'
 						data-toggle='modal' data-target='#cartModal'>장바구니</button>
 						<div style='width:60px'></div>
-						<a href ='../order/01.html' class='btn btn-outline-secondary'>구 매</a>
+						<c:forEach var="flower" items="${flowerList}">
+							<button class='btn btn-outline-secondary' id='orderBtn' onclick='location.href="/order/addOrder?flowerNum=${flower.flowerNum}"'>구매</button>
+						</c:forEach>
 					</div>
 				</div>
 			</div>

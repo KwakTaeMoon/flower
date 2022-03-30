@@ -49,6 +49,11 @@ public class FlowerDaoImpl implements FlowerDao{
 	}
 	
 	@Override
+	public void updateAmount(Flower flower) {
+		flowerMap.updateAmount(flower);
+	}
+	
+	@Override
 	public void deleteFlower(int flowerNum) {
 		flowerMap.deleteFlower(flowerNum);
 	}

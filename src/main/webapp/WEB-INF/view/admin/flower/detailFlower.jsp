@@ -32,8 +32,8 @@ function init() {
 										$('#modalMsg').empty();
 										$('#modalMsg').text('수정 되었습니다.');
 										$('#cofirmModal').modal();
-										$('#okBtn').show();
-										$('#noBtn').hide();
+										$('#okBtn').hide();
+										$('#fixOkBtn').show();
 									})
 								} else {
 									event.preventDefault();
@@ -41,7 +41,7 @@ function init() {
 									$('#modalMsg').text('가격을 입력해주세요.');
 									$('#cofirmModal').modal();
 									$('#okBtn').show();
-									$('#noBtn').hide();
+									$('#fixOkBtn').hide();
 								}
 						} else {
 							event.preventDefault();
@@ -49,7 +49,7 @@ function init() {
 							$('#modalMsg').text('꽃 이름을 입력해주세요.');
 							$('#cofirmModal').modal();
 							$('#okBtn').show();
-							$('#noBtn').hide();
+							$('#fixOkBtn').hide();
 						}
 					} else {
 						event.preventDefault();
@@ -57,7 +57,7 @@ function init() {
 						$('#modalMsg').text('분류를 선택해주세요.');
 						$('#cofirmModal').modal();
 						$('#okBtn').show();
-						$('#noBtn').hide();
+						$('#fixOkBtn').hide();
 					}
 				} else{
 					event.preventDefault();
@@ -65,7 +65,7 @@ function init() {
 					$('#modalMsg').text('종류를 선택해주세요.');
 					$('#cofirmModal').modal();
 					$('#okBtn').show();
-					$('#noBtn').hide();
+					$('#fixOkBtn').hide();
 				}
 			}
 		})
@@ -186,7 +186,7 @@ $(init)
 		</div><br><br><hr>
 		<div class='col'>
 			<c:forEach var="flower" items="${flowerList}">
-				<!--  <a href='/admin/flower/listFlower'>--><button id='fixFlowerBtn' class='btn btn-outline-secondary  float-right  mr-2' >수정</button><!-- </a> -->	
+				<button id='fixFlowerBtn' class='btn btn-outline-secondary  float-right  mr-2' >수정</button>
 			</c:forEach>
 		</div>
 	</div>
@@ -205,7 +205,8 @@ $(init)
 				<p id='modalMsg'></p>
 			</div>
 			<div class='modal-footer'>
-				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='noBtn'>아니오</button>
+				<button type='button' class='btn btn-outline-secondary' id='fixOkBtn'
+					onclick='location.href="<%=request.getContextPath() %>/admin/flower/listFlower"'>확인</button>
 				<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='okBtn'>확인</button>
 			</div>
 		</div>
