@@ -6,10 +6,12 @@ import kwaktaemoon.flower.domain.Review;
 
 public interface ReviewService {
 	List<Review> getReviews();
-	List<Review> getdetailReviews(String title);
+	List<Review> getDetailReviews(int reviewNum);
 	List<Review> getAdminReviews();
+	List<Review> getDetailAdminReviews(int reviewNum);
 	void addReview(Review review);
-	void fixReview(int reviewNum);
+	void fixReview(Review review);
 	void delReview(int reviewNum);
+	void delAdminReview(int reviewNum);
 }
   

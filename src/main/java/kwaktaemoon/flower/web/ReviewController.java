@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,33 +27,21 @@ import kwaktaemoon.flower.service.ReviewService;
 public class ReviewController{
 	@Autowired private ReviewService reviewService;	
 	
-	@Value("${attachPath}") private String attachPath;
-	
 	@RequestMapping("/listReview")
 	public String listReview() {
 		return "review/listReview";
 	}
 	
 	@RequestMapping(value = "/detailReview", method=RequestMethod.GET)
-	public String detailReview(Model model, @RequestParam("title") String title) {
-	    List<Review> reviewList = reviewService.getdetailReviews(title);
+	public String detailReview(Model model, @RequestParam("reviewNum") int reviewNum) {
+	    List<Review> reviewList = reviewService.getDetailReviews(reviewNum);
 	    model.addAttribute("reviewList", reviewList);
 		return "review/detailReview";
-	}
-	
-	@RequestMapping("/adminListReview")
-	public String adminListReview() {
-		return "review/adminListReview";
 	}
 	
 	@RequestMapping("/addReview")
 	public String addReview() {
 		return "review/addReview";
-	}
-
-	@RequestMapping("/fixReview")
-	public String fixReview() {
-		return "review/fixReview";
 	}
 	
 	@ResponseBody
@@ -62,15 +51,9 @@ public class ReviewController{
 	}
 	
 	@ResponseBody
-	@PostMapping("/adminListReview")
-	public List<Review> getAdminReviews() {
-		return reviewService.getAdminReviews();
-	}
-	
-	@ResponseBody
-	@PutMapping("fixReview/{reviewNum}")
-	public void fixReview(@PathVariable int reviewNum) {
-		reviewService.fixReview(reviewNum);
+	@PutMapping("/fixReview")
+	public void fixReview(@RequestBody Review review) {
+		reviewService.fixReview(review);
 	}
 	
 	@ResponseBody

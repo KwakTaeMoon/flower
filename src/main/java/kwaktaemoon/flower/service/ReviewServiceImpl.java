@@ -18,8 +18,8 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 	
 	@Override
-	public List<Review> getdetailReviews(String title) {
-		return reviewDao.detailReviews(title);
+	public List<Review> getDetailReviews(int reviewNum) {
+		return reviewDao.detailReviews(reviewNum);
 	}
 	
 	@Override
@@ -28,18 +28,28 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 	
 	@Override
+	public List<Review> getDetailAdminReviews(int reviewNum) {
+		return reviewDao.detailAdminReviews(reviewNum);
+	}
+	
+	@Override
 	public void addReview(Review review) {
 		reviewDao.insertReview(review);
 	}
 	
 	@Override
-	public void fixReview(int reviewNum) {
-		reviewDao.updateReview(reviewNum);
+	public void fixReview(Review review) {
+		reviewDao.updateReview(review);
 	}
 	
 	@Override
 	public void delReview(int reviewNum) {
 		reviewDao.deleteReview(reviewNum);
+	}
+	
+	@Override
+	public void delAdminReview(int reviewNum) {
+		reviewDao.deleteAdminReview(reviewNum);
 	}
 }
  

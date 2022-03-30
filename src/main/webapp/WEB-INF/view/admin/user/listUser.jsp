@@ -210,11 +210,6 @@ function init() {
 		searchAddr();
 	})
 	
-	/*
-	$(document).on('change', 'input', function()) {
-		
-	}*/
-	
 	$('#users').on({
 		change() {
 			$('#userId').val($(this).parent().next().text())
@@ -267,12 +262,12 @@ $(init);
 				</thead>
 				<tbody class='text-center'>
 				<tr>
-					<td><br><input style='width:6rem;' type='text' id='userId' name='userId' title='아이디' readonly /></td>
-					<td><br><input style='width:6rem;' type='password' id='userPw' name='userPw' title='비밀번호' style='width:100px;'/></td>
-					<td><br><input style='width:5rem;' type='text' id='userName' name='userName' title='이름' style='width:100px;' minlength='2'/></td>
+					<td><br><input style='width:6rem; text-align:center; border:none;' type='text' id='userId' name='userId' title='아이디' readonly /></td>
+					<td><br><input style='width:6rem; text-align:center;' type='password' id='userPw' name='userPw' title='비밀번호' /></td>
+					<td><br><input style='width:5rem; text-align:center;' type='text' id='userName' name='userName' title='이름'  minlength='2'/></td>
 					<td><br><input style='width:10rem;' type='date' id='birthday' name='birthday' title='생년월일'></td>
-					<td><br><input style='width:12rem;' type='email' id='email' name='email' title='이메일' style='width:100px;'/></td>
-					<td><br><input style='width:7rem;' type='text' id='contactNum' name='contactNum' title='전화번호' style='width:100px;'/></td>
+					<td><br><input style='width:12rem; text-align:center;' type='email' id='email' name='email' title='이메일' /></td>
+					<td><br><input style='width:7rem;' type='text' id='contactNum' name='contactNum' title='전화번호'/></td>
 					<td>							
 						<div class='row mb-2'>
 							<div class='col'>
