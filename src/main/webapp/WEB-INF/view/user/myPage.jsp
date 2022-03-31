@@ -150,9 +150,9 @@ li {
 		<div class='col'>
 			<h5 style='color:#0f56ba'><b>| My Page</b></h5>
 			<ul>
-				<li><a href='<%=request.getContextPath() %>/order/listOrder' style='color:black'> 구매내역</a></li>
-				<li><a href='<%=request.getContextPath() %>/cart/listCart?userId=${userId}' style='color:black'> 장바구니</a></li>
-				<li><a href='<%=request.getContextPath() %>/review/listReview' style='color:black'> 후기 남기기</a></li>
+				<li><a href='<%=request.getContextPath() %>/order/listOrder'> 구매내역</a></li>
+				<li><a href='<%=request.getContextPath() %>/cart/listCart?userId=${userId}'> 장바구니</a></li>
+				<li><a href='<%=request.getContextPath() %>/review/listReview'> 후기 남기기</a></li>
 			</ul>
 		</div>
 	</div>
