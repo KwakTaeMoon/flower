@@ -28,7 +28,11 @@ function listReviews(){
 		} else {
 			$('#reviews').append('<tr><td colspan=5 class=text-center>후기가 없습니다.</td></tr>')
 		}
-	}) 
+	})
+	
+	$('#noLoginBtn').click(() => {
+		$('#noLoginModal').modal()
+	})
 }
 $(listReviews)
 </script>
@@ -36,9 +40,7 @@ $(listReviews)
 <%@ include file ="../../../res/lib.css"%>
 </style>
 <div class='container'>
-	<%@ include file='../include/header.jsp' %>세
-번호	제목	작성자	작성일
-4	안녕하세요	관리자	2022-03-31
+	<%@ include file='../include/header.jsp' %>
 <br><br><br><br>
 	<div class='row'>
          <h5 style='color:#0f56ba'><b>| 후기</b></h5>
@@ -54,8 +56,8 @@ $(listReviews)
 							style='float:right' onclick="location.href='./addReview'">글쓰기 </button>
 					</c:if>
 					<c:if test="${empty sessionScope.userId}">
-						<button type='button' id='addBtn' class='btn btn-outline-secondary btn-sm' 
-							style='float:right' onclick="location.href='../user/login'">글쓰기</button>	
+						<button type='button' id='noLoginBtn' class='btn btn-outline-secondary btn-sm' 
+							style='float:right'>글쓰기</button>	
 					</c:if>	
 				</td>
 			 </tr>
@@ -64,6 +66,29 @@ $(listReviews)
 			<a href='#'>&lt;이전&nbsp;</a>
 		   <strong>[1]</strong>
 		   <a href='#'>&nbsp;다음&gt;</a>
+		</div>
+	</div>
+</div>
+
+<div id='noLoginModal' class='modal fade' tabindex='-1'>
+	<div class='modal-dialog'>
+		<div class='modal-content'>
+			<div class='modal-header'>
+				<h5 id='modalTitle'>후기 권한</h5>
+				<button type='button' class='close' data-dismiss='modal'>
+					<span>&times;</span>
+				</button>
+			</div>
+			<div class='modal-body' style='text-align:center;'>
+				<p id='noWriterModalMsg'>
+					권한이 없습니다.<br>
+					로그인으로
+				</p>
+			</div>
+			<div class='modal-footer'>
+				<button type='button' class='btn btn-outline-secondary' id='noWriterConfirmBtn'
+					onclick="location.href='../user/login'">확인</button>
+			</div>
 		</div>
 	</div>
 </div>
