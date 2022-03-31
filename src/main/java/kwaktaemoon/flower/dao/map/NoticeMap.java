@@ -8,8 +8,11 @@ import kwaktaemoon.flower.domain.Notice;
 
 public interface NoticeMap {
 	List<Notice> selectNotices();
-	int insertNotice(Notice notice);
-	int updateNotice(Notice notice);
-	int deleteNotice(@Param("noticeNum")int noticeNum);
-	Notice selectNotice(@Param("noticeNum") int noticeNum);
+	List<Notice> selectDetailNotices(@Param("noticeNum") int noticeNum);
+	List<Notice> selectAdminNotices();
+	List<Notice> selectAdminDetailNotices(@Param("noticeNum") int noticeNum);
+	void insertAdminNotice(Notice notice);
+	void updateAdminNotice(Notice notice);
+	void deleteAdminNotice(@Param("noticeNum")int noticeNum);
+	
 }

@@ -55,7 +55,7 @@ $(init);
 <%@ include file='../include/header.jsp' %>
 	<br><br><br><br>
 	<h5 style='color:#0f56ba'><b>| 검색 결과</b></h5><hr><br>
-		<div class='row'  id='flowerList'>
+		<div class='row ml-3' id='flowerList'>
 		</div>
-	</div><br><br><br>
+</div><br><br><br>
 <%@ include file='../include/footer.jsp' %>

@@ -25,7 +25,9 @@ $('#registerBtn').click(() => {
 										flowerCategory: flowerCategory,
 										kind: kind
 									}
-								}).done
+								}).done(function() {
+									location.href='../flower/listFlower'
+								})
 							} else {
 								event.preventDefault();
 								$('#modalMsg').empty();

@@ -138,7 +138,7 @@ table.type1 td{
 				<tbody id='borderStatus' class='table-borderless'>
 					<tr><td></td></tr>
 					<tr>
-						<td><a href='../order/01.html' style='color:black; font-weight:bold'><b>주문현황</b></a></td>
+						<td><a href='../order/listOrder' style='color:black; font-weight:bold'><b>주문현황</b></a></td>
 					</tr>
 					<tr><td></td></tr>
 				</tbody>

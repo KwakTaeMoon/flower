@@ -42,19 +42,8 @@ $(init);
 								<a class='nav-link' href='<%=request.getContextPath() %>/flower/listFlower?basket'>꽃바구니</a>
 							</li>
 							<li class='nav-item active'>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> refs/heads/devlopment
-								<a class='nav-link' href='<%=request.getContextPath() %>/notice/01.html'>공지</a>
-<<<<<<< HEAD
-=======
 								<a class='nav-link' href='<%=request.getContextPath() %>/notice/listNotice'>공지</a>
->>>>>>> refs/heads/devlopment
 							</li>
-=======
-							</li>
->>>>>>> refs/heads/devlopment
 							<li class='nav-item active'>
 								<a class='nav-link' href='<%=request.getContextPath() %>/review/listReview'>후기</a>
 							</li>
@@ -94,17 +83,7 @@ $(init);
 								<a class='nav-link' href='<%=request.getContextPath() %>/flower/listFlower?basket'>꽃바구니</a>
 							</li>
 							<li class='nav-item active'>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> refs/heads/devlopment
-								<a class='nav-link' href='<%=request.getContextPath() %>/notice/01.html'>공지</a>
-<<<<<<< HEAD
-=======
 								<a class='nav-link' href='<%=request.getContextPath() %>/notice/listNotice'>공지</a>
->>>>>>> refs/heads/devlopment
-=======
->>>>>>> refs/heads/devlopment
 							</li>
 							<li class='nav-item active'>
 								<a class='nav-link' href='<%=request.getContextPath() %>/review/listReview'>후기</a>

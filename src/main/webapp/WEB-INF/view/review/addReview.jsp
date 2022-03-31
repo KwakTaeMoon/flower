@@ -7,7 +7,6 @@
 
 <script>
 
-
 function init() {
 	let title = $('#title').val();
 	let content = $('#content').val();
@@ -39,12 +38,9 @@ function init() {
 			}
 	})
 	
-
-	
 	$('#cancelBtn').click(() => {
 		$('#modalMsg').text('작성을 취소 하시겠습니까?');
 		$('#cofirmModal').modal();
-		$('#completeOkBtn').hide();
 		$('#noBtn').show();
 		$('#yesBtn').show();
 		$('#okBtn').hide();
@@ -65,7 +61,7 @@ $(init)
       <h5 style='color:#0f56ba'><b>| 후기&nbsp;작성</b></h5>
    	  <div class='row'>
            <div class='col'>
-           <f:form modelAttribute='review' id='loginForm' method='post'>
+           <f:form modelAttribute='review' id='reviewForm' method='post'>
 			<input type='text' class='form-control' placeholder='제목을 입력해 주세요.'
 			style='height:30; border:none;' minlength='3' id='title'/><hr>
 			 <textarea placeholder='내용을 입력하세요.' style='width:100%' rows='15'  id='content'></textarea>
