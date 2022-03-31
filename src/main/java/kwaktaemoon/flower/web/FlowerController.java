@@ -17,13 +17,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kwaktaemoon.flower.domain.Cart;
 import kwaktaemoon.flower.domain.Flower;
+import kwaktaemoon.flower.service.CartService;
 import kwaktaemoon.flower.service.FlowerService;
 
 @Controller
 @RequestMapping("/flower")
 public class FlowerController {
 	@Autowired private FlowerService flowerService;
+	@Autowired private CartService cartService;
 	
 	@Value("${attachPath}") private String attachPath;
 	
@@ -66,4 +69,12 @@ public class FlowerController {
 		flowerService.fixAmount(flower);
 	}
 	
+	@ResponseBody
+	@RequestMapping("addCart")
+	public void addCart(@RequestBody Cart cart, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("userId");
+		cart.setUserId(userId);
+		cartService.addCart(cart);
+	}
 }

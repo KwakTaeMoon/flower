@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -16,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kwaktaemoon.flower.domain.Cart;
 import kwaktaemoon.flower.domain.Flower;
 import kwaktaemoon.flower.domain.Order;
+import kwaktaemoon.flower.service.CartService;
 import kwaktaemoon.flower.service.FlowerService;
 import kwaktaemoon.flower.service.OrderService;
 
@@ -25,7 +28,8 @@ import kwaktaemoon.flower.service.OrderService;
 @RequestMapping("/order")
 public class OrderController{
 	@Autowired private OrderService orderService;
-	@Autowired private FlowerService flowerService;	
+	@Autowired private FlowerService flowerService;
+	@Autowired private CartService cartService;
 	
 	@RequestMapping("/listOrder")
 	public String listOrder() {
@@ -42,16 +46,15 @@ public class OrderController{
 		return "order/detailOrder";
 	}
 	
-	@RequestMapping("/addOrder")
-	public String addOrder() {
-		return "/order/addOrder";
-	}
-
-	
 	@RequestMapping(value = "/addOrder", method=RequestMethod.GET)
-	public String addOrder(Model model, @RequestParam("flowerNum") int flowerNum, HttpSession session) {
-	    List<Flower> flowerList = flowerService.getDetailFlowers(flowerNum);
+	public String addOrder(Model model, @Validated @RequestParam("flowerNum") int flowerNum, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("userId");
+		List<Flower> flowerList = flowerService.getDetailFlowers(flowerNum);
 	    model.addAttribute("flowerList", flowerList);
+	    
+	    List<Cart> cartList = cartService.getCart(flowerNum, userId);
+	    model.addAttribute("cartList", cartList);
 		return "order/addOrder";
 	}
 	

@@ -1,6 +1,7 @@
 <%@ page language='java' contentType='text/html; charset=UTF-8' pageEncoding='UTF-8'%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core'%>
 <%@ taglib prefix='f' uri='http://www.springframework.org/tags/form' %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <title>TAEMOON Flower</title>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
 <%@ include file ='../include/lib.jsp'%>
@@ -47,6 +48,7 @@ $('#purchaseBtn').click(() => {
 	let recDetailAddr = $('#recDetailAddr').val();
 	let hopeDeliDate = $('#hopeDeliDate').val();
 	let request = $('#request').val();
+	let price = $('#price').val();
 	let payment = $('#payment:checked').val();
 	let flowerNum = $('#flowerNum').val();
 	let amount = $('#amount').val();
@@ -72,6 +74,7 @@ $('#purchaseBtn').click(() => {
 												request: request,
 												payment: payment,
 												amount: amount,
+												price: price,
 												flowerNum: flowerNum
 											}
 										}).done(orders => {
@@ -187,7 +190,7 @@ textarea {
 <div class='container'>
 	<%@ include file='../include/header.jsp' %>
 	<br><br><br>
-<c:if test="${not empty sessionScope.userId}">
+	<c:set var="URL" value="${pageContext.request.queryString}"/>
 <div class='row d-flex justify-content-center mt-5'>
 		<div class='col'>
 			<h5 style='color: #0f56ba;'><b>| 주문 상품</b></h5>
@@ -197,11 +200,28 @@ textarea {
 				</thead>
 				<tbody>
 					<tr>
-						<c:forEach var="flower" items="${flowerList}">
-							<td>${flower.flowerName}<input type='hidden' id='flowerNum' name='flowerNum' value='${flower.flowerNum}' readonly/></td>
-							<td><input type='hidden' id='amount' name='amount' value='${flower.amount}' readonly/>${flower.amount}</td>
-							<td>${flower.price * flower.amount}원</td>
-						</c:forEach>
+						<c:if test='${not fn:containsIgnoreCase(URL, "cartNum")}'>
+							<c:forEach var="flower" items="${flowerList}">
+								<tr>
+									<td>${flower.flowerName}<input type='hidden' id='flowerNum' name='flowerNum' value='${flower.flowerNum}' readonly/></td>
+									<td><input type='hidden' id='amount' name='amount' value='${flower.amount}' readonly/>${flower.amount}</td>
+									<td><input type='hidden' id='price' name='price' value='${flower.price * flower.amount}' readonly/>${flower.price * flower.amount}원</td>
+								</tr>
+							</c:forEach>
+						</c:if>
+						<c:if test='${fn:containsIgnoreCase(URL, "cartNum")}'>
+						<c:set var="sum" value="${0}"/>
+						<c:set var="total" value="${0}"/>
+							<c:forEach var="cart" items="${cartList}">
+							<c:set var="sum" value="${sum+cart.price * cart.amount}"/>
+							<c:set var="total" value="${total+cart.amount}"/>
+								<tr>
+									<td>${cart.flowerName}<input type='hidden' id='flowerNum' name='flowerNum' value='${cart.flowerNum}' readonly/></td>
+									<td>${cart.amount}</td>
+									<td>${cart.price * cart.amount}원</td>
+								</tr>
+							</c:forEach>
+						</c:if>
 					</tr>
 				</tbody>
 			</table>
@@ -262,22 +282,40 @@ textarea {
 		<div class='col'>
 			<h5 style='color: #0f56ba;'><b>| 결제 정보</b></h5>
 			<table class="type1">
-				<tr>
-					<th>상품 합계</th>
-					<c:forEach var="flower" items="${flowerList}">
-						<td>${flower.price * flower.amount}원</td>
+				<c:if test='${not fn:containsIgnoreCase(URL, "cartNum")}'>
+					<c:forEach var="flower" items="${flowerList}">	
+						<tr>
+							<th>상품 합계</th>
+							<td>${flower.price * flower.amount}원</td>
+						</tr>
+						<tr>
+							<th>배송비</th>
+							<td>5000원</td>
+						</tr>
+						<tr>
+							<th>결제 금액</th>
+							<td>${flower.price * flower.amount + 5000}원</td>
+						</tr>
 					</c:forEach>
-				</tr>
-				<tr>
-					<th>배송비</th>
-					<td>5000원</td>
-				</tr>
-				<tr>
-					<th>결제 금액</th>
-					<c:forEach var="flower" items="${flowerList}">
-						<td>${flower.price * flower.amount + 5000}원</td>
-					</c:forEach>
-				</tr>
+				</c:if>
+				<c:if test='${fn:containsIgnoreCase(URL, "cartNum")}'>
+				
+					
+						<tr>
+							<th>상품 합계</th>
+							<td><c:out value="${total}"/><input type='hidden' id='amount' name='amount' value='${total}'/></td>
+
+						</tr>
+						<tr>
+							<th>배송비</th>
+							<td>5000원</td>
+						</tr>
+						<tr>
+							<th>결제 금액</th>
+							<td> <c:out value="${sum + 5000}"/><input type='hidden' id='price' name='price' value='${sum}' readonly/>원</td>
+						</tr>
+
+				</c:if>
 			</table>
 		</div>
 	</div>
@@ -313,7 +351,6 @@ textarea {
 		<button class="btn btn-outline-secondary m-5 d-flex justify-content-center" 
 			id='purchaseBtn'>결제하기</button>
 	</div>
-	</c:if>
 </div>
 
 

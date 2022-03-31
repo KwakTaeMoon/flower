@@ -21,6 +21,7 @@ public class Order {
 	@JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
 	private LocalDate hopeDeliDate;
 	private String request;
+	private int price;
 	private String payment;
 	private int deliFee;
 	private String deliState;

@@ -35,7 +35,7 @@ table {
 		<div class='col'>
 			<div id='rightBar' style='text-align: right'>
 				<a href='<%=request.getContextPath() %>/user/login'><i class='fa fa-user fa-lg' style='color:#3C5087'></i></a>
-				<a href='#'>&emsp;<i class='fa fa-shopping-cart fa-lg' style='color:#3C5087'></i></a>
+				<a href='<%=request.getContextPath() %>/user/login'>&emsp;<i class='fa fa-shopping-cart fa-lg' style='color:#3C5087'></i></a>
 			</div>
 		</div>
 	</c:if>
@@ -46,7 +46,7 @@ table {
 		<div class='col'>
 			<div id='rightBar' style='text-align: right'>
 				<a href='<%=request.getContextPath() %>/user/logout'><i class='fa fa-user-slash fa-lg' style='color:#3C5087'></i></a>
-				<a href='#'>&emsp;<i class='fa fa-shopping-cart fa-lg' style='color:#3C5087'></i></a>
+				<a href='<%=request.getContextPath() %>/cart/listCart?userId=${userId}'>&emsp;<i class='fa fa-shopping-cart fa-lg' style='color:#3C5087'></i></a>
 			</div>
 		</div>
 	</c:if>

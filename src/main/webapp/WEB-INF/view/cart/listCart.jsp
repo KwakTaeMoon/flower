@@ -4,27 +4,69 @@
 
 <%@ include file ='../include/lib.jsp'%>
 <script>
+window.onload = function() {
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+}
+
+function init() {
+	$('#delBtn').click(() => {
+		if($('#cartNum:checked').val()) {
+			$('#modalMsg').empty();
+			$('#modalMsg').text('상품을 삭제하시겠습니까?');
+			$('#confirmModal').modal();
+			$('#okBtn').hide();
+			$('#noBtn').show();
+			$('#yesBtn').show();
+			$('#yesBtn').click(() => {
+				$('#confirmModal').modal('hide')
+					$.ajax({
+						url: 'del/' + $('#cartNum:checked').val(),
+						method: 'delete'
+					}).done(location.reload())
+			})
+		} else {
+			$('#modalMsg').empty();
+			$('#modalMsg').text('선택한 상품이 없습니다.');
+			$('#confirmModal').modal();
+			$('#noBtn').hide();
+			$('#yesBtn').hide();
+			$('#okBtn').show();
+		}
+	})
+	
+	$('#emptyBtn').click(() => {
+			$('#modalMsg').empty();
+			$('#modalMsg').text('장바구니를 비우시겠습니까?');
+			$('#confirmModal').modal();
+			$('#okBtn').hide();
+			$('#noBtn').show();
+			$('#yesBtn').show();
+			$('#yesBtn').click(() => {
+				$('#confirmModal').modal('hide')
+					$.ajax({
+						url: 'empty',
+						method: 'delete'
+					}).done(location.reload())
+			})
+		})
+}
+
+$(init)
 </script>
 <style>
 table {
 	width: auto;
 	text-align: center;
 }
-
-#helpbottom{
-   width: 200;
-   height: 200px;
-   border: 1px solid lightgrey;
-   text-align: center;
-}
- 
  
 table.type1 {
     width: 100%;
     border-collapse: collapse;
     text-align: center;
   }
-
   
 table.type1 tr {
 	height: 100px;
@@ -35,10 +77,6 @@ table.type1 tr {
 	height: 8rem;
 	border: 1px solid lightgrey;
 }
-h5 {
-	color: #0f56ba;
-}
-
 <%@ include file ="../../../res/lib.css"%>
 </style>
 <div class='container'>
@@ -46,54 +84,65 @@ h5 {
 	<div class='container'>
 	<%@ include file ="../include/header.jsp"%>
 	<br><br><br><br>
-	
 	<div class='row d-flex justify-content-center mt-5'>
 		<div class='col'>
-			<h5><b>| 장바구니</b></h5><br>
-			<table id='cartTable' class="type1">
-				<thead>
-					<tr>
-						<th></th>
-						<th>번호</th>
-						<th>꽃이미지</th>
-						<th>꽃이름 / 수량 / 가격</th>
-					</tr>
-				</thead>
-				<tbody id='cartList' class='border-bottom lightgray'>
-					<tr>
-						<th><input type='checkbox' class='mr-3'></th>
-						<td>1</td>
+			<h5 style='color: #0f56ba;'><b>| 장바구니</b></h5><br>
+			<form action='<%=request.getContextPath() %>/order/addOrder'>
+			
+				<table id='cartTable' class="type1">
+					<tbody id='carts' class='border-bottom border-top lightgray'>
+						<c:forEach var="cart" items="${cartList}">
 						
-						<td id='image'>
-							<a href='../flower/06.html'><i>꽃 이미지</i></a>
-						</td>
-						<td>하얀 장미다발<br>수량: 1<br>가격:20000원</td>
-					</tr>
-				</tbody>
-			</table>
+							<tr>
+								<td id='cartNum'>
+									<input type='checkbox' value='${cart.cartNum}' name='cartNum' id='cartNum'/>
+									<input type='hidden' value='${cart.flowerNum}' name='flowerNum' id='flowerNum'/>
+									
+								</td>
+								<td id='image'>
+								<input type='hidden' value='${cart.cartNum}' name='cartNum' id='cartNum'/>
+									<a href='/flower/detailFlower?flowerNum=${cart.flowerNum}'>
+										<img style="width:150px; height:150px;"src='<c:url value="/attach/${cart.flowerImgfileName}"/>'/>
+									</a>
+								</td>
+								<td><b>${cart.flowerName}</b><br>수량: ${cart.amount}<br>가격: ${cart.price * cart.amount}원</td>
+							</tr>
+						
+						</c:forEach>
+						<c:if test="${not empty cartList}">
+							<tr><td colspan='4'><button id='orderBtn' type='submit' class="btn btn-secondary">전체 구매</button></td></tr>
+						</c:if>
+					</tbody>
+				</table>
+			</form>
+			<div class='row d-flex justify-content-end mt-5 mx-2'>
+				<button type='button' id='emptyBtn' class="btn btn-outline-secondary mr-2">비우기</button>
+				<button type='button' id='delBtn' class="btn btn-outline-secondary">삭제</button>
+				
+			</div>
 		</div>
-	</div>
-	<div class='row d-flex justify-content-end mt-5 mx-2'>
-		<button type='button' id='deleteBtn' class="btn btn-outline-secondary d-flex justify-content-center mr-2">삭제</button>
-		<button type='submit' id='purchaseBtn' class="btn btn-outline-secondary d-flex justify-content-center">구매</button>
 	</div>
 	</div>
 </div>
-
-<div id='modal' class='modal fade' tabindex='-1'>
+<div id='confirmModal' class='modal fade' tabindex='-1'>
 	<div class='modal-dialog'>
 		<div class='modal-content'>
 			<div class='modal-header'>
-				<p class="modal-title float-left" id="myModalLabel">장바구니</p>
-				<button type='button' class='close' data-dismiss='modal'><i class='fa fa-times'></i></button>					
+				<h5 id='modalTitle'>장바구니</h5>
+				<button type='button' class='close' data-dismiss='modal'>
+					<span>&times;</span>
+				</button>
 			</div>
-			<div class='modal-body' align='center'>
+			<div class='modal-body'>
 				<p id='modalMsg'></p>
-				<button type='button' id='deleteOkBtn'  class='btn btn-outline-secondary'>예</button>&emsp;&emsp;         	
-				 <button type='button' id='noBtn' data-dismiss='modal' class='btn btn-secondary'>아니오</button>         
+			</div>
+			<div class='modal-footer'>
+				<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='yesBtn'>예</button>
+				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='noBtn'>아니오</button>
+				<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='okBtn'>확인</button>
 			</div>
 		</div>
 	</div>
 </div>
-
+<br><br><br><br>
 <%@ include file='../include/footer.jsp' %>

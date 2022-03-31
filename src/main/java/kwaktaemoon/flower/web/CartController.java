@@ -7,57 +7,52 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kwaktaemoon.flower.domain.Cart;
+import kwaktaemoon.flower.domain.Flower;
 import kwaktaemoon.flower.service.CartService;
+import kwaktaemoon.flower.service.FlowerService;
 
 @Controller("kwaktaemoon.flower.cart")
 @RequestMapping("/cart")
 public class CartController {
 	@Autowired private CartService cartService;
 	
-	@RequestMapping("/listCart")
-	public String listFlowerAddr(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		String userId = (String) session.getAttribute("userId");
-		if(userId == null) {
-			return "user/login";
-		}
+	@RequestMapping(value = "/listCart", method=RequestMethod.GET)
+	public String listCart(Model model, @RequestParam("userId") String userId, HttpSession session) {
+	    List<Cart> cartList = cartService.getCarts(userId);
+	    model.addAttribute("cartList", cartList);
 		return "cart/listCart";
-	}
-	
-	@RequestMapping("/list")
-	public String listAddr() {
-		return "cart/list";
 	}
 	
 	@ResponseBody
 	@PostMapping("/list")
-	public List<Cart> getCarts(HttpServletRequest request) {
+	public List<Cart> getCarts(Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		String userId = (String) session.getAttribute("userId");
-		return cartService.getCarts(userId);
+		List<Cart> result = cartService.getCarts(userId);
+		return result;
 	}
 	
 	@ResponseBody
-	@PostMapping("/add")
-	public int addCart(@RequestBody Cart cart, HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		String userId = (String) session.getAttribute("userId");
-		cart.setUserId(userId);
-		int flowerNum = Integer.parseInt(String.valueOf(session.getAttribute("flowerNum")));
-		cart.setFlowerNum(flowerNum);
-		return cartService.addCart(cart);
-	}
-	
-	@ResponseBody
-	@PostMapping("/del/{cartNum}")
+	@DeleteMapping("/del/{cartNum}")
 	public int delCart(@PathVariable int cartNum) {
 		return cartService.delCart(cartNum);
+	}
+	
+	@ResponseBody
+	@DeleteMapping("/empty")
+	public int emptyCart(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("userId");
+		return cartService.emptyCart(userId);
 	}
 }

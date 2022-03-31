@@ -20,10 +20,10 @@
 	
 	<insert id='insertOrder'>
 		insert into orders(order_num, user_id, rec_name, rec_contact_num, rec_postcode, rec_addr, 
-		rec_detail_addr, hope_deli_date, request, payment, flower_num, amount)
+		rec_detail_addr, hope_deli_date, request, payment, price, flower_num, amount)
 		values((TO_CHAR(SYSDATE,'YYYYMMDD') || LPAD(ORDERS_ORDERNUM_SEQ.nextval,2,0)), #{userId}, 
 			#{recName}, #{recContactNum}, #{recPostCode}, #{recAddr}, 
-			#{recDetailAddr}, #{hopeDeliDate}, #{request}, #{payment}, #{flowerNum}, #{amount})
+			#{recDetailAddr}, #{hopeDeliDate}, #{request}, #{payment}, #{price}, #{flowerNum}, #{amount})
 	</insert>
 	
 	<update id='updateDeliState'>
