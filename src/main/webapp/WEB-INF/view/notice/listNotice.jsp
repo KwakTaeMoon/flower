@@ -19,10 +19,10 @@ function listNotices(){
 					`<tr>
 						<td>
 						\${notice.noticeNum}</a></td>
-						<td><a href='/notice/detailNotice?title=\${notice.title}'>
+						<td><a href='/notice/detailNotice?noticeNum=\${notice.noticeNum}'>
 						\${notice.title}</td>
-						<td>\${notice.admin}</td>
-						<td>\${notice.regDate}</td>
+						<td>관리자</td>
+						<td>\${notice.regdate}</td>
 					</tr>`
 				);
 			})
@@ -33,10 +33,7 @@ function listNotices(){
 	}) 
 }
 $(listNotices)
-function init(){
-	getList();
-}
-$(init);
+
 </script>
 <style>
 <%@ include file ="../../../res/lib.css"%>
@@ -60,5 +57,5 @@ $(init);
 		   <a href='#'>&nbsp;다음&gt;</a>
 		</div>
 	</div>
-</div>
+</div><span style="line-height:300%"><br></span>
 <%@ include file='../include/footer.jsp' %>

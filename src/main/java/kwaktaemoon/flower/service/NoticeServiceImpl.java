@@ -16,21 +16,33 @@ public class NoticeServiceImpl implements NoticeService{
 	public List<Notice> getNotices(){
 		return noticeDao.selectNotices();
 	}
+	
 	@Override
-	public Notice getNotice(int noticeNum) {
-		return noticeDao.selectNotice(noticeNum);
+	public List<Notice> getDetailNotices(int noticeNum){
+		return noticeDao.selectDetailNotices(noticeNum);
+	}
+	
+	@Override
+	public List<Notice> getAdminNotices(){
+		return noticeDao.selectAdminNotices();
+	}
+	
+	@Override
+	public List<Notice> getAdminDetailNotices(int noticeNum){
+		return noticeDao.selectAdminDetailNotices(noticeNum);
+	}
+	
+	@Override
+	public void addAdminNotice(Notice notice) {
+		noticeDao.insertAdminNotice(notice);
 	}
 	@Override
-	public int addNotice(Notice notice) {
-		return noticeDao.insertNotice(notice);
+	public void fixAdminNotice(Notice notice) {
+		noticeDao.updateAdminNotice(notice);
 	}
 	@Override
-	public int fixNotice(Notice notice) {
-		return noticeDao.updateNotice(notice);
-	}
-	@Override
-	public int delNotice(int noticeNum) {
-		return noticeDao.deleteNotice(noticeNum);
+	public void delAdminNotice(int noticeNum) {
+		noticeDao.deleteAdminNotice(noticeNum);
 	}
 }
 

@@ -41,16 +41,10 @@ $(init)
 				<tbody id='noticeBorder' class='table-borderless'>
 					<tr><td></td></tr>
 					<tr>
-						<td><a href='../notice/01.html' style='color:black'>공지 조회</a></td>
+						<td><a href='../notice/listNotice' style='color:black'>공지 조회</a></td>
 					</tr>
 					<tr>
-						<td><a href='../notice/03.html' style='color:black'>공지 등록</a></td>
-					</tr>
-					<tr>
-						<td><a href='../notice/04.html' style='color:black'>공지 수정</a></td>
-					</tr>
-					<tr>
-						<td><a href='../notice/06.html' style='color:black'>공지 삭제</a></td>
+						<td><a href='../notice/addNotice' style='color:black'>공지 등록</a></td>
 					</tr>
 					<tr><td></td></tr>
 				</tbody>

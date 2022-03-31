@@ -2,15 +2,18 @@ package kwaktaemoon.flower.web;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kwaktaemoon.flower.domain.Notice;
@@ -21,69 +24,44 @@ import kwaktaemoon.flower.service.NoticeService;
 public class NoticeAdminController {
 	@Autowired private NoticeService noticeService;
 	
-	@RequestMapping("/list")
-	public String getListAddr() {
-		return "admin/notice/list";
-	}
-
-	@RequestMapping("/add")
-	public String getAddAddr() {
-		return "admin/notice/add";
-	}	
-
-	@RequestMapping("/fix")
-	public String getfixAddr() {
-		return "admin/notice/fix";
-	}	
-	
-	@RequestMapping("/find")
-	public String getfindAddr() {
-		return "admin/notice/find";
+	@RequestMapping("/listNotice")
+	public String listNotice() {
+		return "admin/notice/listNotice";
 	}
 	
-	@GetMapping("/find?noticeNo={noticeNum}")
-	public void findNoticeAddr() {
-		
-	}	
+	@GetMapping("/listNotice")
+	public List<Notice> getNotices() {
+		return noticeService.getAdminNotices();
+	}
 	
-	@GetMapping("/fix?noticeNo={noticeNum}")
-	public void fixNoticeAddr() {
-		
-	}	
+	@RequestMapping(value="/detailNotice", method=RequestMethod.GET)
+	public String detailNotice(Model model, @RequestParam("noticeNum") int noticeNum) {
+		List<Notice> noticeList = noticeService.getAdminDetailNotices(noticeNum);
+		model.addAttribute("noticeList", noticeList);
+		return "admin/notice/detailNotice";
+	}
 	
-	@ResponseBody
-	@PostMapping("/list")
-	public List<Notice> getList(){
-		return noticeService.getNotices();
+	@RequestMapping("/addNotice")
+	public String addNotice() {
+		return "admin/notice/addNotice";
 	}
 	
 	@ResponseBody
-	@PostMapping("/add")
-	public int addNotice(@RequestBody Notice notice) {
-		return noticeService.addNotice(notice);
-	}
-
-	@ResponseBody
-	@PostMapping("/find")
-	public Notice findNotice(@RequestBody Notice notice, HttpServletRequest request) {
-		return noticeService.getNotice(notice.getNoticeNum());
-	}	
-	
-	@ResponseBody
-	@PostMapping("/fix")
-	public int fixNotice(@RequestBody Notice notice) {
-		int result = 0;
-		if(!notice.getTitle().equals("") && !notice.getContent().equals("")) {
-			noticeService.fixNotice(notice);
-			result = 1;
-		}
-		return result;
+	@PostMapping("/addNotice")
+	public void addNotice(Notice notice) {
+		noticeService.addAdminNotice(notice);
 	}
 	
 	@ResponseBody
-	@PostMapping("/del/{noticeNum}")
+	@PutMapping("/fixNotice")
+	public void fixNotice(@RequestBody Notice notice) {
+		noticeService.fixAdminNotice(notice);
+	}
+	
+	@ResponseBody
+	@DeleteMapping("del/{noticeNum}")
 	public void delNotice(@PathVariable int noticeNum) {
-		noticeService.delNotice(noticeNum);
+		noticeService.delAdminNotice(noticeNum);
 	}
 }
 

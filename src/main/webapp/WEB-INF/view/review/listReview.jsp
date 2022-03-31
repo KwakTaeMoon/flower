@@ -36,7 +36,9 @@ $(listReviews)
 <%@ include file ="../../../res/lib.css"%>
 </style>
 <div class='container'>
-	<%@ include file='../include/header.jsp' %>
+	<%@ include file='../include/header.jsp' %>세
+번호	제목	작성자	작성일
+4	안녕하세요	관리자	2022-03-31
 <br><br><br><br>
 	<div class='row'>
          <h5 style='color:#0f56ba'><b>| 후기</b></h5>

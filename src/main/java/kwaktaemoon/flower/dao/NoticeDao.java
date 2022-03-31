@@ -6,9 +6,11 @@ import kwaktaemoon.flower.domain.Notice;
 
 public interface NoticeDao {
 	List<Notice> selectNotices();
-	Notice selectNotice(int noticeNum);
-	int insertNotice(Notice notice);
-	int updateNotice(Notice notice);
-	int deleteNotice(int noticeNum);
+	List<Notice> selectDetailNotices(int noticeNum);
+	List<Notice> selectAdminNotices();
+	List<Notice> selectAdminDetailNotices(int noticeNum);
+	void insertAdminNotice(Notice notice);
+	void updateAdminNotice(Notice notice);
+	void deleteAdminNotice(int noticeNum);
 }
 

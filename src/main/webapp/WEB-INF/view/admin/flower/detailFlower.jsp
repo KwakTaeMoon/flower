@@ -151,7 +151,7 @@ $(init)
 			<div class='col text-center mt-5'>
 			<form>
 			<c:forEach var="flower" items="${flowerList}">
-				<p><b>꽃 번호:</b><input type='number' id='flowerNum' name='flowerNum' value='${flower.flowerNum}' readonly/>&emsp;&emsp;</p>
+				<p><b>꽃 번호:&emsp;&emsp;</b><input type='number' id='flowerNum' name='flowerNum' value='${flower.flowerNum}' style='width: 5em; border: none;' readonly/></p>
 				<p><label><b>꽃 이름:&emsp;</b><input type='text' id='flowerName' name=' flowerName' value='${flower.flowerName}'/></label></p>
 				<p><label><b>가격:&emsp;</b><input type='number' id='price' name='price' value='${flower.price}'/></label></p>
 				<p><b>등록일:&emsp;</b>${flower.regDate}</p>

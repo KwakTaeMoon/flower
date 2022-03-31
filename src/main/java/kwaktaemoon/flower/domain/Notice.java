@@ -19,5 +19,5 @@ public class Notice {
 	private String content;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
-	private LocalDate regDate;
+	private LocalDate regdate;
 }

@@ -97,7 +97,6 @@ tr {
 		<div class='col'>
 			<h5 style='color: #0f56ba;'><b>| 구매 내역</b></h5>
 			<br>
-
 			<table>
 				<thead>
 					<tr><th></th><th>주문번호</th><th>결제방법</th><th>희망 배송일</th><th>상태</th></tr>
@@ -109,7 +108,6 @@ tr {
 					<td colspan='5' style='text-align:left;'><small>※환불 상담은 문의로 진행됩니다. 아래 링크를 이용해 주세요.</small></td>
 				</tr>
 			</table>
-
 		</div>
 	</div>
 	<div class='row d-flex justify-content-end mt-1'>

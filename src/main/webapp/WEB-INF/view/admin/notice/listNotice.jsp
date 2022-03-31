@@ -5,34 +5,35 @@
 <%@ include file ='../include/lib.jsp'%>
 
 <script>
-function listReviews(){
-	$('#reviews').empty();
+function listNotices(){
+	$('#notices').empty();
 	$.ajax({
 		type:'post',
-		url:"<%=request.getContextPath() %>/review/listReview"
-	}).done(reviews => {
-		if(reviews.length) {
-			const reviewArr = []
+		url:"<%=request.getContextPath() %>/notice/listNotice"
+	}).done(notices => {
+		if(notices.length) {
+			const noticeArr = []
 			
-			$.each(reviews, (i, review) => {
-				reviewArr.unshift(
+			$.each(notices, (i, notice) => {
+				noticeArr.unshift(
 					`<tr>
 						<td>
-						\${review.reviewNum}</a></td>
-						<td><a href='/admin/review/detailReview?reviewNum=\${review.reviewNum}'>
-						\${review.title}</td>
-						<td>\${review.userId}</td>
-						<td>\${review.regDate}</td>
+						\${notice.noticeNum}</a></td>
+						<td><a href='/admin/notice/detailNotice?noticeNum=\${notice.noticeNum}'>
+						\${notice.title}</td>
+						<td>관리자</td>
+						<td>\${notice.regdate}</td>
 					</tr>`
 				);
 			})
-			$('#reviews').append(reviewArr.join(''))
+			$('#notices').append(noticeArr.join(''))
 		} else {
-			$('#reviews').append('<tr><td colspan=5 class=text-center>후기가 없습니다.</td></tr>')
+			$('#notices').append('<tr><td colspan=5 class=text-center>공지가 없습니다.</td></tr>')
 		}
 	}) 
 }
-$(listReviews)
+$(listNotices)
+
 </script>
 <style>
 
@@ -53,7 +54,7 @@ $(listReviews)
 				<tbody id='noticeBorder' class='table-borderless'>
 					<tr><td></td></tr>
 					<tr>
-						<td><a href='../notice/listNotice' style='color:black'>공지 조회</a></td>
+						<td><a href='../notice/listNotice' style='color:black; font-weight:bold'>공지 조회</a></td>
 					</tr>
 					<tr>
 						<td><a href='../notice/addNotice' style='color:black'>공지 등록</a></td>
@@ -68,43 +69,34 @@ $(listReviews)
 				<tbody id='reviewBorder' class='table-borderless'>
 					<tr><td></td></tr>
 					<tr>
-						<td><a href='../review/listReview' style='color:black; font-weight:bold'>후기 조회</a></td>
+						<td><a href='../review/listReview' style='color:black'>후기 조회</a></td>
 					</tr>
 					<tr><td></td></tr>
 				</tbody>
 			</table>
 		</div>
 	<div class='col-1'></div>
- 	 	<div class='col-8 mt-4'>
-			<h5 style='color:#0f56ba'><b>| 후기 조회</b></h5>
-			<br>
+		<div class='col-8 mt-4'>
+        	<h5 style='color:#0f56ba'><b>| 공지 조회</b></h5>
+        	<br>
 			<table class='table'>
               <thead class='text-center'><tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th></tr></thead>
-              <tbody class='text-center' id='reviews'>
+              <tbody class='text-center' id='notices'>
               </tbody>            
+				<tr>
+					<td></td><td></td><td></td>
+					<td>
+						<button type='button' id='addBtn' class='btn btn-outline-secondary btn-sm' 
+							style='float:right' onclick="location.href='../notice/addNotice'">글쓰기 </button>
+					</td>
+				</tr>
 			</table>
 		<div class='col d-flex justify-content-center' id='pagination'>
-			<a href='#'>&lt;이전&nbsp;</a>
+			<a href='#'>&lt;이전&nbsp;</a>	
 		   <strong>[1]</strong>
 		   <a href='#'>&nbsp;다음&gt;</a>
 		</div>
-			</div>
 		</div>
- 	</div><span style="line-height:300%"><br></span>
-<!-- include: modal --> 	
-<div id='delModal' class='modal fade' tabindex='-1'>
-  <div class='modal-dialog'>
-     	<div class='modal-content'>
-	      <div class='modal-header'>
-				<p class="modal-title float-left" id="myModalLabel">후기 삭제</p>
-				<button type='button' class='close' data-dismiss='modal'><i class='fa fa-times'></i></button>
-		</div>
-         <div class='modal-body' align='center'>
-         	<p>글이 삭제되었습니다.</p>
-            <button data-dismiss='modal' class='btn btn-outline-secondary'>확인</button>
-         </div>
-   	</div>
-</div>
-	
-</div>
+	</div>
+</div><span style="line-height:300%"><br></span>	
 <%@ include file='../include/footer.jsp' %>
