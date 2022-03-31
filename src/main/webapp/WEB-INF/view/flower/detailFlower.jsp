@@ -104,27 +104,5 @@ $(init);
 			</c:forEach>	
 		</div>
 	</div><br><br>
-	<div class='row'>
-		<div class='col'>
-		<h5><b>후 기</b></h5>
-			<table class='table table-bordered'>
-				<thead class='thead-light'>
-					<tr>
-						<th>NO</th><th>제목</th><th>아이디</th><th>작성일</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th>1</th><td><a href='<%=request.getContextPath() %>/review/listReview'><span>예뻐요</span></a>
-										</td><td>ID1</td><td>22.03.01</td>
-					</tr>
-					<tr>
-						<th>2</th><td><span>좋아요</span>
-										</td><td>ID2</td><td>22.03.16</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
 </div>
 <%@ include file='../include/footer.jsp' %>
