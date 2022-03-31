@@ -20,5 +20,4 @@ public class Review {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@JsonFormat(pattern="yyyy-MM-dd", timezone="Asia/Seoul")
 	private LocalDate regDate;
-	private String answer;
 }

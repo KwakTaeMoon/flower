@@ -25,11 +25,13 @@ function init() {
 					$.ajax({
 						url: 'del/' + $('#cartNum:checked').val(),
 						method: 'delete'
-					}).done(location.reload())
+					}).done(function() {
+						location.reload()
+						})
 			})
 		} else {
 			$('#modalMsg').empty();
-			$('#modalMsg').text('선택한 상품이 없습니다.');
+			$('#modalMsg').text('상품을 선택해주세요.');
 			$('#confirmModal').modal();
 			$('#noBtn').hide();
 			$('#yesBtn').hide();
@@ -112,6 +114,11 @@ table.type1 tr {
 						<c:if test="${not empty cartList}">
 							<tr><td colspan='4'><button id='orderBtn' type='submit' class="btn btn-secondary">전체 구매</button></td></tr>
 						</c:if>
+						<c:if test="${empty cartList}">
+							<div class='text-center'>
+								<h6 style='text-align:center'><b>장바구니가 비었습니다.<br>상품을 추가해주세요.</b></h6>
+							</div>
+						</c:if>
 					</tbody>
 				</table>
 			</form>
@@ -137,7 +144,8 @@ table.type1 tr {
 				<p id='modalMsg'></p>
 			</div>
 			<div class='modal-footer'>
-				<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='yesBtn'>예</button>
+				<button type='button' class='btn btn-outline-secondary' id='yesBtn'
+					onclick="location.href='<%=request.getContextPath() %>/cart/listCart'">예</button>
 				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='noBtn'>아니오</button>
 				<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='okBtn'>확인</button>
 			</div>
