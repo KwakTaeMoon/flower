@@ -55,11 +55,13 @@ table.type2 tr {
 						<td>${order.orderNum}</td>
 					</c:forEach>
 					<c:forEach var="flower" items="${flowerList}">
-						<td>${flower.flowerName}</td>
+					<c:forEach var="order" items="${orderList}">
+						<td>${flower.flowerName} 외 ${order.amount -1}</td>
+					</c:forEach>
 					</c:forEach>
 					<c:forEach var="flower" items="${flowerList}">
 					<c:forEach var="order" items="${orderList}">
-						<td>${flower.price * order.amount}원</td>
+						<td>${order.price}원</td>
 					</c:forEach>
 					</c:forEach>
 					<c:forEach var="order" items="${orderList}">
@@ -120,7 +122,7 @@ table.type2 tr {
 		<div class='col'>
 			<c:forEach var="flower" items="${flowerList}">
 			<c:forEach var="order" items="${orderList}">
-				<p><strong>금액 :</strong> ${flower.price * order.amount + order.deliFee}원</p>
+				<p><strong>금액 :</strong> ${order.price + order.deliFee}원</p>
 			</c:forEach>
 			</c:forEach>
 		</div>

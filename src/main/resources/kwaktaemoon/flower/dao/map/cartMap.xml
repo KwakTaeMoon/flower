@@ -4,28 +4,28 @@
 <mapper namespace='kwaktaemoon.flower.dao.map.CartMap'>
 	<select id='selectCarts' resultMap='cartMap'>
 		select *
-		from carts ca, flowers fl
-		where ca.flower_num = fl.flower_num
+		from carts join flowers
+		on carts.flower_num = flowers.flower_num
+		where user_id = #{userId}
 		order by cart_num desc
 	</select>
-	
-	<select id='selectClothNum' resultMap='cartMap2'>
-		select flower_num, amount from carts
-		where cart_num = #{cartNum}
+
+	<select id='selectCart' resultMap='cartMap'>
+		select *
+		from carts join flowers
+		on carts.flower_num = flowers.flower_num
+		where user_id = #{userId}
+		order by cart_num desc
 	</select>
-	
+
 	<resultMap id='cartMap' type='cart'>
 		<id property='cartNum' column='cart_num' />
-		<result property='userId' column='user_id' />
-		<result property='flowerNum' column='fower_num' />
 		<result property='amount' column='amount' />
-
-		
-	</resultMap>
-	
-	<resultMap id='cartMap2' type='cart'>
 		<result property='flowerNum' column='flower_num' />
-		<result property='amount' column='amount' />
+		<result property='flowerName' column='flower_name' />
+		<result property='userId' column='user_id' />
+		<result property='price' column='price' />
+		<result property='flowerImgfileName' column='flower_imgfile_name' />
 	</resultMap>
 
 	<insert id='insertCart'>
