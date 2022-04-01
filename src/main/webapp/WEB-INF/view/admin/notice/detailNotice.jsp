@@ -78,13 +78,13 @@ $(init);
 				</tbody>
 				<thead>
 					<tr style='background-color:#b1c3e0;'>
-						<th>후기 관리</th>
+						<th>공지 관리</th>
 					</tr>
 				</thead>
 				<tbody id='reviewBorder' class='table-borderless'>
 					<tr><td></td></tr>
 					<tr>
-						<td><a href='../review/listReview' style='color:black'>후기 조회</a></td>
+						<td><a href='../review/listReview' style='color:black'>공지 조회</a></td>
 					</tr>
 					<tr><td></td></tr>
 				</tbody>
@@ -158,7 +158,7 @@ $(init);
 	<div class='modal-dialog'>
 		<div class='modal-content'>
 			<div class='modal-header'>
-				<h5 id='modalTitle'>후기 수정</h5>
+				<h5 id='modalTitle'>공지 수정</h5>
 				<button type='button' class='close' data-dismiss='modal'>
 					<span>&times;</span>
 				</button>
@@ -179,13 +179,13 @@ $(init);
 	<div class='modal-dialog'>
 		<div class='modal-content'>
 			<div class='modal-header'>
-				<h5 id='modalTitle'>후기 삭제</h5>
+				<h5 id='modalTitle'>공지 삭제</h5>
 				<button type='button' class='close' data-dismiss='modal'>
 					<span>&times;</span>
 				</button>
 			</div>
 			<div class='modal-body' style='text-align:center;'>
-				<p id='delModalMsg'>후기를 삭제하시겠습니까?</p>
+				<p id='delModalMsg'>공지를 삭제하시겠습니까?</p>
 			</div>
 			<div class='modal-footer'>
 				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='delNoBtn'>아니오</button>
