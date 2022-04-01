@@ -71,8 +71,12 @@ table {
 							      	</div>
 							      	<div class='carousel-item'>
 							      		<div id='flowerImg3'><a href='#'>꽃 이미지</a></div>
-							      		<div id='bestProductInfo3'><p>고목나무<br><small>10000원&nbsp;<span class='badge badge-primary'>BEST</span></small></div>
+							      		<div id='bestProductInfo3'>노란 장미다발<p><br><small>10000원&nbsp;<span class='badge badge-primary'>BEST</span></small></div>
 							      	</div>
+							      	<div class='carousel-item'>
+							      		<div id='flowerImg4'><a href='#'>꽃 이미지</a></div>
+							      		<div id='bestProductInfo3'><p>보라 장미 바구니<br><small>10000원&nbsp;<span class='badge badge-primary'>BEST</span></small></div>
+							      	</div>							      	
 							      </th>
 							   </tr>
 							</tbody>
@@ -107,8 +111,12 @@ table {
 							      	</div>
 							      	<div class='carousel-item'>
 							      		<div id='flowerImg6'><a href='#'>꽃 이미지</a></div>
-							      		<div id='bestProductInfo3'><p>금전수<br><small>10000원&nbsp;<span class='badge badge-primary'>NEW</span></small></div>
+							      		<div id='bestProductInfo3'><p>파란 장미다발<br><small>10000원&nbsp;<span class='badge badge-primary'>NEW</span></small></div>
 							      	</div>
+							      	<div class='carousel-item'>
+							      		<div id='flowerImg7'><a href='#'>꽃 이미지</a></div>
+							      		<div id='bestProductInfo3'><p>빨간 장미 바구니<br><small>10000원&nbsp;<span class='badge badge-primary'>NEW</span></small></div>
+							      	</div>							      	
 							      </th>
 							   </tr>
 							</tbody>
