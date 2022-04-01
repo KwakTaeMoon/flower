@@ -336,7 +336,7 @@ $(init)
          </div>
          <div class='modal-footer' id='modalBtn'>
          	<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='joinConfirmNoBtn'>확인</button>
-            <button type='button' class='btn btn-outline-secondary' id='joinConfirmOkBtn' onclick='location.href="<%=request.getContextPath() %>/user/joinSuccess"'>확인</button>
+            <button type='button' class='btn btn-outline-secondary' id='joinConfirmOkBtn' onclick='location.href="<%=request.getContextPath() %>/user/successJoin"'>확인</button>
          </div>
       </div>
    </div>

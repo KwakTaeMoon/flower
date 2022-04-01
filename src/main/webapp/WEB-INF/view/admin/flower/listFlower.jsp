@@ -131,14 +131,7 @@ $(init)
 		<div class='col mt-5'>
 			<h5 style='color:#0f56ba'><b>| 꽃 조회</b></h5>
 		<div class='row'>
-			<div class='col-11 mb-3'>
-				<button class='btn btn-outline-secondary float-right ' id='delBtn'>삭제</button>
-			</div>
-		</div>
-		
-		<div class='row'>
-			
-			<div class='col-11'>
+			<div class='col-11'><hr>
 				<table class='table table-bordered text-center' id='ProductTable'>
 					<thead style='background-color:#b1c3e0'>
 						<tr>
@@ -149,8 +142,13 @@ $(init)
 					</tbody>
 				</table>
 			</div>
+		</div>
+		<div class='row'>
+			<div class='col-11 mb-3'>
+				<button class='btn btn-outline-secondary float-right ' id='delBtn'>삭제</button>
 			</div>
 		</div>
+	</div>
 </div><br><br>
 
 <div id='confirmModal' class='modal fade' tabindex='-1'>

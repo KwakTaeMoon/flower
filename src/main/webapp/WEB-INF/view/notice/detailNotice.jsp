@@ -13,10 +13,10 @@
 	<br><br><br><br>
 	<div class='row'>
 			<div><h5 style='display:block;color:#0f56ba;'><b>| 공지 상세</b></h5></div>
-	     <div class='flex-column ml-5'>
+	     <div class='flex-column'>
 		     <form>
 		     <table class='table' style="margin: auto; text-align: center;">
-		        <thead class='text-center'><tr><th style='width:4em'>번호</th><th>제목</th><th>작성자</th><th>작성일</th></tr></thead>
+		        <thead class='text-center'><tr><th style='width:4em'>번호</th><th>제목</th><th style='width:6em'>작성자</th><th>작성일</th></tr></thead>
 		        <c:forEach var="notice" items="${noticeList}">
 		        <tbody class='text-center'>
 		        	<tr>

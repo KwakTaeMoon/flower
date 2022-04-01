@@ -44,7 +44,7 @@ $(listNotices)
 	<div class='row'>
          <h5 style='color:#0f56ba'><b>| 공지</b></h5>
            <table class='table'>
-              <thead class='text-center'><tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th></tr></thead>
+              <thead class='text-center'><tr><th style='width:4em'>번호</th><th>제목</th><th style='width:5em'>작성자</th><th>작성일</th></tr></thead>
               <tbody class='text-center' id='notices'>
               </tbody>            
 			  <tr>

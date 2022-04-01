@@ -119,9 +119,9 @@ public class UserController {
 		return "user/terms";
 	}
 	
-	@RequestMapping("/joinSuccess")
-	public String joinSuccess() {
-		return "user/joinSuccess";
+	@RequestMapping("/successJoin")
+	public String successJoin() {
+		return "user/successJoin";
 	}
 	
 	
@@ -193,8 +193,8 @@ public class UserController {
 		session.invalidate();
 	}
 	
-	@RequestMapping("/withdrawSuccess")
-	public String withdrawSuccess() {
-		return "user/withdrawSuccess";
+	@RequestMapping("/successWithdraw")
+	public String successWithdraw() {
+		return "user/successWithdraw";
 	}
 }

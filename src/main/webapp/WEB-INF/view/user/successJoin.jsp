@@ -5,17 +5,19 @@
 <%@ include file ='../include/lib.jsp'%>
 
 <script>
-
 </script>
 <style>
 <%@ include file ="../../../res/lib.css"%>
+div {
+	text-align: center
+}
 </style>
 <div class='container'>
 	<%@ include file='../include/header.jsp' %>
-	
+	<br><br><br>
 	<div class='row d-flex justify-content-center mt-5'>
 		<div class='col'>
-			<h5><b>가입완료</b></h5><hr><br><br>
+			<h5 style='color:#0f56ba'><b>가입완료</b></h5><hr><br><br>
 			<div class='row d-flex justify-content-center' style="height:30px">
 				<p>가입 완료 되었습니다.<br>이용 해 주셔서 감사합니다 :)</p> </div>
 			<div class='row d-flex justify-content-center'>

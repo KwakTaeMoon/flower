@@ -36,9 +36,9 @@ $(listNotices)
 
 </script>
 <style>
-
+<%@ include file ="../../../../res/lib2.css"%>
 </style>
-<div class='container'>
+<div class='container-fluid'>
 <%@ include file='../include/headerAdmin.jsp' %>
 	<div class='row'>
 		<div class='col-2' id="adminBorder">

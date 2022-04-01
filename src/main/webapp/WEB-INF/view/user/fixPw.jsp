@@ -74,7 +74,7 @@ $(init);
 <div class='container'>
 <%@ include file='../include/header.jsp' %>
 <br><br><br><br>
-<h5><strong>&nbsp;&nbsp;&nbsp;| 비밀번호 수정</strong></h5><hr><br>
+<h5 style='color: #0f56ba;'><strong>&nbsp;&nbsp;&nbsp;| 비밀번호 수정</strong></h5><hr><br>
 	<div class='row mt-5' >	
 		<div class='col-5'>
 			<label for='password2' class='d-flex justify-content-center'><span class='req'></span>새 비밀번호</label>
@@ -99,6 +99,7 @@ $(init);
 	    	</div>
 		</div>
 	</div>
+	<br><br>
 	<div class="midBottom" align="center">
 		<div class='row mt-5' >
 			<div class='col' align="right">

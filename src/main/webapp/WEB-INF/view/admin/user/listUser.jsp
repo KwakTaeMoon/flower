@@ -226,9 +226,9 @@ $(init);
 
 </script>
 <style>
-
+<%@ include file ="../../../../res/lib2.css"%>
 </style>
-<div class='container'>
+<div class='container-fluid'>
 <%@ include file='../include/headerAdmin.jsp' %>
 	<div class='row'>
 			<div class='col-2' id="adminBorder">
@@ -254,7 +254,7 @@ $(init);
 			<div class='col-8 mt-5 ml-2'>
 			<form>
 				<h5 style='color:#0f56ba'><b>| 회원 관리</b></h5>
-				<table class='table table-bordered'>
+				<table class='table table-bordered'><hr>
 					<thead class='text-center' style='background-color:#b1c3e0;'>
 						<tr><th>아이디</th><th>비밀번호</th><th>이름</th>
 						<th>생년월일</th><th>이메일</th><th>연락처</th><th>주소</th>
