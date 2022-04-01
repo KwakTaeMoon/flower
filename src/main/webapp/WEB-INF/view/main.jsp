@@ -13,13 +13,6 @@ table {
 	text-align: center;
 }
 
-[id*='flowerImg']{
-   width: 200px;
-   height: 200px;
-   border: 1px solid lightgrey;
-   text-align: center;
-   margin: 0 auto;
-}
 
 [id*='Carousel']{
    width: 200px;
@@ -61,22 +54,36 @@ table {
 							<tbody>
 							   	<tr>
 							      <th>
-							      	<div class='carousel-item active'>
-							      		<div id='flowerImg1'><a href='<%=request.getContextPath() %>/order/addOrder'>꽃 이미지</a></div>
-							      		<div id='bestProductInfo1'><p>빨간 장미다발<br><small>10000원&nbsp;<span class='badge badge-primary'>BEST</span></small></p></div>
-							      	</div>
-							      	<div class='carousel-item'>
-							      		<div id='flowerImg2'><a href='#'>꽃 이미지</a></div>
-							      		<div id='bestProductInfo3'>하얀 장미 바구니<br><small>10000원&nbsp;<span class='badge badge-primary'>BEST</span></small></div>
-							      	</div>
-							      	<div class='carousel-item'>
-							      		<div id='flowerImg3'><a href='#'>꽃 이미지</a></div>
-							      		<div id='bestProductInfo3'>노란 장미다발<p><br><small>10000원&nbsp;<span class='badge badge-primary'>BEST</span></small></div>
-							      	</div>
-							      	<div class='carousel-item'>
-							      		<div id='flowerImg4'><a href='#'>꽃 이미지</a></div>
-							      		<div id='bestProductInfo3'><p>보라 장미 바구니<br><small>10000원&nbsp;<span class='badge badge-primary'>BEST</span></small></div>
-							      	</div>							      	
+							      	<c:forEach var='flower' items='${flowerList}' varStatus="status">
+								      <c:if test='${flower.flowerCategory == "BEST" && status.first}'>
+									      <div class='carousel-item active'>
+									      		<a href='/flower/detailFlower?flowerNum=${flower.flowerNum}'>
+									      			<img style="width:200; height:200px;"src='<c:url value="/attach/${flower.flowerImgfileName}"/>'/>
+									      		</a>
+									      		<p>
+									      			${flower.flowerName}<br>
+									      			<small>
+									      				${flower.price}원&nbsp;
+									      				<span class='badge badge-primary'>${flower.flowerCategory}</span>
+									      			</small>
+									      		</p>
+									   		</div>
+								   		</c:if>
+								      	<c:if test='${flower.flowerCategory == "BEST" && !status.first}'>
+									      	<div class='carousel-item'>
+									      		<a href='/flower/detailFlower?flowerNum=${flower.flowerNum}'>
+									      			<img style="width:200; height:200px;"src='<c:url value="/attach/${flower.flowerImgfileName}"/>'/>
+									      		</a>
+									      		<p>
+									      			${flower.flowerName}<br>
+									      			<small>
+									      				${flower.price}원&nbsp;
+									      				<span class='badge badge-primary'>${flower.flowerCategory}</span>
+									      			</small>
+									      		</p>
+									      	</div>
+								      	</c:if>
+							      	</c:forEach>
 							      </th>
 							   </tr>
 							</tbody>
@@ -101,22 +108,36 @@ table {
 							<tbody>
 							   	<tr>
 							      <th>
-							      	<div class='carousel-item active'>
-							      		<div id='flowerImg4'><a href='#'>꽃 이미지</a></div>
-							      		<div id='bestProductInfo1'><p>노랑 장미다발<br><small>10000원&nbsp;<span class='badge badge-primary'>NEW</span></small></div>
-							      	</div>
-							      	<div class='carousel-item'>
-							      		<div id='flowerImg5'><a href='#'>꽃 이미지</a></div>
-							      		<div id='bestProductInfo3'><p>분홍 장미 바구니<br><small>10000원&nbsp;<span class='badge badge-primary'>NEW</span></small></div>
-							      	</div>
-							      	<div class='carousel-item'>
-							      		<div id='flowerImg6'><a href='#'>꽃 이미지</a></div>
-							      		<div id='bestProductInfo3'><p>파란 장미다발<br><small>10000원&nbsp;<span class='badge badge-primary'>NEW</span></small></div>
-							      	</div>
-							      	<div class='carousel-item'>
-							      		<div id='flowerImg7'><a href='#'>꽃 이미지</a></div>
-							      		<div id='bestProductInfo3'><p>빨간 장미 바구니<br><small>10000원&nbsp;<span class='badge badge-primary'>NEW</span></small></div>
-							      	</div>							      	
+							      	<c:forEach var='flower' items='${flowerList}' varStatus="status">
+								      <c:if test='${flower.flowerCategory == "NEW" && status.last}'>
+									      <div class='carousel-item active'>
+									      		<a href='/flower/detailFlower?flowerNum=${flower.flowerNum}'>
+									      			<img style="width:200; height:200px;"src='<c:url value="/attach/${flower.flowerImgfileName}"/>'/>
+									      		</a>
+									      		<p>
+									      			${flower.flowerName}<br>
+									      			<small>
+									      				${flower.price}원&nbsp;
+									      				<span class='badge badge-primary'>${flower.flowerCategory}</span>
+									      			</small>
+									      		</p>
+									   		</div>
+								   		</c:if>
+								      	<c:if test='${flower.flowerCategory == "NEW" && !status.last}'>
+									      	<div class='carousel-item'>
+									      		<a href='/flower/detailFlower?flowerNum=${flower.flowerNum}'>
+									      			<img style="width:200; height:200px;"src='<c:url value="/attach/${flower.flowerImgfileName}"/>'/>
+									      		</a>
+									      		<p>
+									      			${flower.flowerName}<br>
+									      			<small>
+									      				${flower.price}원&nbsp;
+									      				<span class='badge badge-primary'>${flower.flowerCategory}</span>
+									      			</small>
+									      		</p>
+									      	</div>
+								      	</c:if>
+							      	</c:forEach>
 							      </th>
 							   </tr>
 							</tbody>
