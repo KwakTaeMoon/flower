@@ -8,9 +8,9 @@
 
 </script>
 <style>
-<%@ include file ="../../../res/lib.css"%>
+<%@ include file ="../../../res/lib2.css"%>
 </style>
-<div class='container'>
+<div class='container-fluid'>
 	<c:if test="${empty sessionScope.userId}">
 	<br><br><br><br>
 	<div class='col'>

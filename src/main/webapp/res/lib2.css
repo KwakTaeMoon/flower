@@ -3,10 +3,11 @@
 	font-family: 'Nanum Myeongjo', serif;
 }
 
-ul {
+nav {
   display: flex;
   list-style: none;
   border: 1px solid lightgrey;
+  height: 3rem;
 }
 
 ul li {
@@ -26,9 +27,6 @@ ul li a:hover {
 	background-color:#b1c3e0
 }
 
-#logoTop {
-   width: 8rem;
-   height: 3rem;
-   border: 1px solid lightgrey;
-   text-align: center;
+.navbar-brand {
+	font-family: 'Caveat', cursive;
 }
