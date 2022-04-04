@@ -94,7 +94,6 @@ table.type1 tr {
 				<table id='cartTable' class="type1">
 					<tbody id='carts' class='border-bottom border-top lightgray'>
 						<c:forEach var="cart" items="${cartList}">
-						
 							<tr>
 								<td id='cartNum'>
 									<input type='checkbox' value='${cart.cartNum}' name='cartNum' id='cartNum'/>

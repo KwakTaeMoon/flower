@@ -47,6 +47,9 @@
 										${fn:length(userList)}명
 									</c:if>
 								</c:forEach>
+								<c:if test='${fn:length(userList) == 0}'>
+									0명
+								</c:if>
 							</td>
 							<td>
 								<c:forEach var='flower' items="${flowerList}" varStatus="status">
@@ -54,6 +57,9 @@
 										${fn:length(flowerList)}개
 									</c:if>
 								</c:forEach>
+								<c:if test='${fn:length(userList) == 0}'>
+									0개
+								</c:if>
 							</td>
 							<td>
 								<c:forEach var='order' items="${orderList}" varStatus="status">
@@ -61,6 +67,9 @@
 										${fn:length(orderList)}회
 									</c:if>
 								</c:forEach>
+								<c:if test='${fn:length(orderList) == 0}'>
+									0회
+								</c:if>
 							</td>
 						</tr>
 					</tbody>
@@ -84,6 +93,9 @@
 										${fn:length(reviewList)}개
 									</c:if>
 								</c:forEach>
+								<c:if test='${fn:length(reviewList) == 0}'>
+									0개
+								</c:if>
 							</td>
 							<td>
 								<c:forEach var='notice' items="${noticeList}" varStatus="status">
@@ -91,6 +103,9 @@
 										${fn:length(noticeList)}개
 									</c:if>
 								</c:forEach>
+								<c:if test='${fn:length(noticeList) == 0}'>
+									0개
+								</c:if>
 							</td>
 						</tr>
 					</tbody>

@@ -36,11 +36,8 @@ table.type2 tr {
 	height: 50px;
 }
 </style>
-<div class='container-fluid'>
-<%@ include file='../include/header.jsp' %>
-	<br><br>
+<div class='container-fluid'><br>
 	<div class='row d-flex justify-content-center mt-5'>
-
 		<div class='col'>
 			<h5 style='color: #0f56ba;'><b>| 주문 상세</b></h5>
 			<br>
@@ -117,9 +114,9 @@ table.type2 tr {
 	<div class='row'>
 		<div class='col'>
 			<c:forEach var="flower" items="${flowerList}">
-				<c:forEach var="order" items="${orderList}">
+			<c:forEach var="order" items="${orderList}">
 					<p><strong>금액 :</strong> ${order.price + order.deliFee}원</p>
-				</c:forEach>
+			</c:forEach>
 			</c:forEach>
 		</div>
 	</div>

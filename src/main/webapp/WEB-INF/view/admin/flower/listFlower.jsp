@@ -58,7 +58,7 @@ function init() {
 	$('#yesBtn').click(() => {
 		$('#confirmModal').modal('hide')
 			$.ajax({
-				url: 'adminDel/' + $('#flowerNum:checked').val(),
+				url: 'del/' + $('#flowerNum:checked').val(),
 				method: 'delete'
 			}).done(listFlowers)
 	})

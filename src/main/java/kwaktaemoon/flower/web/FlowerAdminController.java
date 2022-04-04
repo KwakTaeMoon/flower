@@ -64,7 +64,7 @@ public class FlowerAdminController {
 	}
 	
 	@ResponseBody	
-	@DeleteMapping("adminDel/{flowerNum}")
+	@DeleteMapping("del/{flowerNum}")
 	public void delFlower(@PathVariable int flowerNum) {
 		flowerService.delFlower(flowerNum);
 	}
