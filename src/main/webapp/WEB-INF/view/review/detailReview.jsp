@@ -142,9 +142,9 @@ $(init);
 				<p id='delModalMsg'>후기를 삭제하시겠습니까?</p>
 			</div>
 			<div class='modal-footer'>
-				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='delNoBtn'>아니오</button>
 				<button type='button' class='btn btn-outline-secondary' id='delOkBtn'
 					onclick="location.href='./listReview'">예</button>
+				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='delNoBtn'>아니오</button>
 			</div>
 		</div>
 	</div>

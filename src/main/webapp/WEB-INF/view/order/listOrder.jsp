@@ -98,7 +98,7 @@ tr {
 
 			<table>
 				<thead>
-					<tr><th></th><th>주문번호</th><th style='width: 6rem'>결제방법</th><th style='width: 7rem'>희망 배송일</th><th style='width: 4em'>상태</th></tr>
+					<tr><th></th><th>주문번호</th><th>결제방법</th><th>희망 배송일</th><th>상태</th></tr>
 				</thead>
                  <tbody id='orders'>
                  

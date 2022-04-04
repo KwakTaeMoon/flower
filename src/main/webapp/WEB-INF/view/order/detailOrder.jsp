@@ -51,14 +51,14 @@ table.type2 tr {
 				<tbody class='border-bottom lightgray'>
 					<tr><th>주문번호</th><th>상품</th></tr>
 					<tr>
-					<c:forEach var="order" items="${orderList}">
-						<td>${order.orderNum}</td>
-					</c:forEach>
-					<c:forEach var="flower" items="${flowerList}">
-					<c:forEach var="order" items="${orderList}">
-						<td>${flower.flowerName} 외<br> ${order.amount -1}개</td>
-					</c:forEach>
-					</c:forEach>
+						<c:forEach var="order" items="${orderList}">
+							<td>${order.orderNum}</td>
+						</c:forEach>
+						<c:forEach var="flower" items="${flowerList}">
+							<c:forEach var="order" items="${orderList}">
+								<td>${flower.flowerName} 외<br> ${order.amount -1}개</td>
+							</c:forEach>
+						</c:forEach>
 					</tr>
 					
 					<tr>
@@ -66,14 +66,14 @@ table.type2 tr {
 					
 					<tr><th>금액</th><th>상태</th></tr>
 					<tr>
-					<c:forEach var="flower" items="${flowerList}">
-					<c:forEach var="order" items="${orderList}">
-						<td>${order.price}원</td>
-					</c:forEach>
-					</c:forEach>
-					<c:forEach var="order" items="${orderList}">
-						<td>${order.deliState}</td>
-					</c:forEach>
+						<c:forEach var="flower" items="${flowerList}">
+							<c:forEach var="order" items="${orderList}">
+								<td>${order.price}원</td>
+							</c:forEach>
+						</c:forEach>
+						<c:forEach var="order" items="${orderList}">
+							<td>${order.deliState}</td>
+						</c:forEach>
 					</tr>
 					
 				</tbody>
@@ -117,9 +117,9 @@ table.type2 tr {
 	<div class='row'>
 		<div class='col'>
 			<c:forEach var="flower" items="${flowerList}">
-			<c:forEach var="order" items="${orderList}">
-				<p><strong>금액 :</strong> ${order.price + order.deliFee}원</p>
-			</c:forEach>
+				<c:forEach var="order" items="${orderList}">
+					<p><strong>금액 :</strong> ${order.price + order.deliFee}원</p>
+				</c:forEach>
 			</c:forEach>
 		</div>
 	</div>

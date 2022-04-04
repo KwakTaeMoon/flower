@@ -87,9 +87,9 @@ $(init);
 	<div class='row'> 
 		<div class='col text-center mt-5'>
 			<c:forEach var="flower" items="${flowerList}">
-			<p><input type='hidden' id='flowerNum' name='flowerNum' value='${flower.flowerNum}' readonly/>&emsp;&emsp;</p>
-				<h5><b>${flower.flowerName}</b></h5>
-				<h6>${flower.price}</h6>
+				<p><input type='hidden' id='flowerNum' name='flowerNum' value='${flower.flowerNum}' readonly/>&emsp;&emsp;</p>
+					<h5><b>${flower.flowerName}</b></h5>
+					<h6>${flower.price}</h6>
 			</c:forEach>
 			<div class='form-group row mt-3'>
 			<div class='col-1'></div>

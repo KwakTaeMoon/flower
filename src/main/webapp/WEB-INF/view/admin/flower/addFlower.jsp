@@ -98,7 +98,7 @@ table.type1 td{
 	<%@ include file='../include/headerAdmin.jsp' %>
 </div>
 	<div class='row'>
-		<div class='col-2 ml-4' id="adminBorder">
+		<div class='col-2 ml-3' id="adminBorder">
 			<table class='table table-bordered mt-3 text-center'>
 				<thead>
 					<tr>

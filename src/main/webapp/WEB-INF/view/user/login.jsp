@@ -92,6 +92,7 @@ $(init);
 	</f:form>
 	</div><br>
 	<div class='row'>
+		<div class='col-1'></div>
 	   	<div class='col' style='text-align:center;'>
 	   		<a style='color:black' href = '<%=request.getContextPath() %>/user/findId'>아이디 찾기</a>
 	   		<span>|</span>
@@ -109,7 +110,7 @@ $(init);
 	<div class='modal-dialog'>
 		<div class='modal-content'>
 			<div class='modal-header'>
-				<h5 class='modal-title'></h5>
+				<h5 class='modal-title'>로그인</h5>
 				<button type='button' class='close' data-dismiss='modal'>
 					<span>&times;</span>
 				</button>

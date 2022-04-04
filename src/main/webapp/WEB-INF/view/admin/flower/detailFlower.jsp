@@ -118,7 +118,7 @@ $(init)
 		</div>
 <div class='col'>	
 	<div class='row'>
-		<div class='col-2 ml-3' id="adminBorder">
+		<div class='col-2' id="adminBorder">
 			<table class='table table-bordered mt-3 text-center'>
 				<thead>
 					<tr>

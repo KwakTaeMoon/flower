@@ -61,18 +61,6 @@ $(listNotices)
 					</tr>
 					<tr><td></td></tr>
 				</tbody>
-				<thead>
-					<tr style='background-color:#b1c3e0;'>
-						<th>공지 관리</th>
-					</tr>
-				</thead>
-				<tbody id='reviewBorder' class='table-borderless'>
-					<tr><td></td></tr>
-					<tr>
-						<td><a href='../review/listReview' style='color:black'>공지 조회</a></td>
-					</tr>
-					<tr><td></td></tr>
-				</tbody>
 			</table>
 		</div>
 	<div class='col-1'></div>
@@ -80,16 +68,10 @@ $(listNotices)
         	<h5 style='color:#0f56ba'><b>| 공지 조회</b></h5>
         	<br>
 			<table class='table'>
-              <thead class='text-center'><tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th></tr></thead>
-              <tbody class='text-center' id='notices'>
-              </tbody>            
-				<tr>
-					<td></td><td></td><td></td>
-					<td>
-						<button type='button' id='addBtn' class='btn btn-outline-secondary btn-sm' 
-							style='float:right' onclick="location.href='../notice/addNotice'">글쓰기 </button>
-					</td>
-				</tr>
+	          <thead class='text-center'><tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th></tr></thead>
+	          <tbody class='text-center' id='notices'>
+	          </tbody>            
+				<tr></tr>
 			</table>
 		<div class='col d-flex justify-content-center' id='pagination'>
 			<a href='#'>&lt;이전&nbsp;</a>	
