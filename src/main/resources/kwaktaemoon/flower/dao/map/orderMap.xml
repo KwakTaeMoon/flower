@@ -14,7 +14,8 @@
 	</select>
 	
 	<select id='selectAdminOrders' resultType='order'>
-		
+		select * from orders
+		order by order_num
 	</select>
 	
 	<select id='selectAdminReadyOrders' resultType='order'>
@@ -22,8 +23,7 @@
 	</select>
 	
 	<select id='selectAdminCancelOrders' resultType='order'>
-		select count(order_num) from orders
-		where deli_state = '취소/환불';
+		
 	</select>
 	
 	<insert id='insertOrder'>
