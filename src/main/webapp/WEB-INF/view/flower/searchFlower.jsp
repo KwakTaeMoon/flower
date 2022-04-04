@@ -37,7 +37,7 @@ function showResult() {
 			
 			$('#flowerList').append(flowerList.join(''));
 		} else {
-			$('#flowerList').append('<tr><td colspan=3 class=text-center>검색결과가 없습니다.</td></tr>');
+			$('#flowerList').append('<tr><td>검색결과가 없습니다.</td></tr>');
 		}
 	});
 }
@@ -55,7 +55,7 @@ $(init);
 <%@ include file='../include/header.jsp' %>
 	<br><br><br><br>
 	<h5 style='color:#0f56ba'><b>| 검색 결과</b></h5><hr><br>
-		<div class='row ml-3' id='flowerList'>
+		<div class='row ml-3' style='text-align: center;' id='flowerList'>
 		</div>
 </div><br><br><br>
 <%@ include file='../include/footer.jsp' %>

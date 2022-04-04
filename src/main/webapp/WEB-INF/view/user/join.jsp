@@ -224,16 +224,16 @@ $(init)
 	<%@ include file='../include/header.jsp' %>
 	<br><br><br>
 	<div class='row'>
-		<h5 style='color:#0f56ba'><b>| 회원가입</b></h5><hr>
 		<div class='col'>
+		<h5 style='color:#0f56ba'><b>| 회원가입</b></h5><hr>
 		<br><br>
 			<table class='table table-borderless' id='classTop'>				
 				<tbody>					
 					<tr>
-						<th style='width:100px;'><label for='userId' class='form-label'>아이디</label></th>
+						<th><label for='userId' class='form-label'>아이디</label></th>
 						<td>
-							<input class='userId' id='userId' title='아이디' type='text' style='text-align:center; width:130px;' name='userId'/>
-							<button type='button' class='btn btn-sm btn-secondary' id='confirmBtn' data-toggle='modal' data-target='#confirmModal'
+							<input class='mb-1' id='userId' title='아이디' type='text' style='text-align:center; width:130px;' name='userId'/>
+							<button type='button' class='btn btn-sm btn-secondary ml-1' id='confirmBtn' data-toggle='modal' data-target='#confirmModal'
 								style='height:25px; text-align:center; font-size:10px; color:white;'>중복 확인</button>
 						</td>					
 					<tr>
@@ -242,30 +242,30 @@ $(init)
 							<input id='userPw' title='비밀번호' type='password' style='text-align:center;' />
 						</td>
 					<tr>
-						<th>이름</th>
+						<th><label for='userName' class='form-label'>이름</label></th>
 						<td>
 							<input type='text' style='text-align:center;' id='userName'/>
 						</td>
 					</tr>
 					<tr>
-						<th>생년월일</th>
+						<th style='width:7rem'><label for='birthday' class='form-label'>생년월일</label></th>
 						<td>
-							<input title='생년월일' id='birthday' type='date'/>
+							<input style='width:10rem' title='생년월일' id='birthday' type='date'/>
 						</td></tr>	
 					<tr>
-						<th><span>이메일</span></th>
+						<th><label for='email' class='form-label'>이메일</label></th>
 						<td>
 							<input title='이메일' type='email' id='email' style='text-align:center;' placeholder='flower@gmail.com' />
 						</td>
 					</tr>
 					<tr>
-						<th><span>연락처</span></th>
+						<th class='mt-2'><label for='contactNum' class='form-label'>연락처</label></th>
 						<td>
 							<input title='연락처' type='text' id='contactNum' style='text-align:center;' placeholder='01012345678'/>
 						</td>
 					</tr>
 					<tr>
-						<th><span>주소</span></th>
+						<th><label for='detailAddr' class='form-label'>주소</label></th>
 						<td>
 						<div class='row'>
 							<div class='col'>

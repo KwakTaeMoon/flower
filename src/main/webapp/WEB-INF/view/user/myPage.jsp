@@ -120,9 +120,6 @@ function init() {
 $(init);
 </script>
 <style>
-li {
-	margin-top: 1rem;
-}
 </style>
 <style>
 <%@ include file ="../../../res/lib.css"%>
@@ -157,7 +154,7 @@ li {
 		</div>
 	</div>
 	
-	<div class='row d-flex justify-content-center mt-5'>
+	<div class='row d-flex justify-content-center'>
 		<div class='col'>
 			<h5 style='color:#0f56ba'><b>| 회원정보 수정</b></h5>
 			<table class='table table-borderless' id='classTop'>				
@@ -183,7 +180,7 @@ li {
 						<th><span>이메일</span></th>
 						<td>
 							<input type='email' id='email' name='email' style='text-align:center;' value='${user.email}'/>
-							<button type='button' id='fixEmailBtn' class='btn btn-sm btn-secondary' 
+							<button type='button' id='fixEmailBtn' class='btn btn-sm btn-secondary mt-2' 
 							style='height:2rem; text-align:center; font-size:1rem; color:white;'>이메일 수정</button>
 						</td>
 					</tr>
@@ -191,7 +188,7 @@ li {
 						<th><span>전화번호</span></th>
 						<td>
 							<input type='text' id='contactNum' style='text-align:center;' value='${user.contactNum}'/>
-							<button type='button' id='fixContactNumBtn' class='btn btn-sm btn-secondary' 
+							<button type='button' id='fixContactNumBtn' class='btn btn-sm btn-secondary mt-2' 
 							style='height:2rem; text-align:center; font-size:1rem; color:white;'>전화번호 수정</button>
 						</td>
 					</tr>
@@ -201,7 +198,7 @@ li {
 						<div class='row'>
 							<div class='col'>
 								<input type='number' id='postcode' name='postcode' value='${user.postcode}' readonly > &nbsp;
-								<button type='button' id='searchAddr' name='searchAddr' class='btn btn-sm btn-outline-secondary'>주소 찾기</button>
+								<button type='button' id='searchAddr' name='searchAddr' class='btn btn-sm btn-outline-secondary mt-2 mb-2'>주소 찾기</button>
 							</div>
 						</div>
 						<div class='row'>
@@ -227,13 +224,13 @@ li {
 		</div>
 	</div>
 	<hr>
-	<div class='row d-flex justify-content-center mt-2 float-right'>
+	<div class='row d-flex justify-content-center float-right'>
 		<div class='col'>				
 			<button type='button' id='delUserBtn' class='btn btn-secondary sm-btn' >회원탈퇴</button>					
 		</div>
 	</div>
 	</c:if>
-	<br><br><br>
+	<br><br>
 </div>
 
 <div id='emailModal' class='modal fade' tabindex='-1'>

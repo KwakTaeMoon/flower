@@ -22,14 +22,12 @@ function listOrders() {
 						</td>
 						<td><a href='/order/detailOrder?orderNum=\${order.orderNum}&flowerNum=\${order.flowerNum}'>
 						\${order.orderNum}</a><input type='hidden' id='flowerNum' name='flowerNum' value='\${order.flowerNum}' readonly/></td>
-						<td>\${order.payment}</td>
-						<td>\${order.hopeDeliDate}</td>
-						<td>\${order.deliState}</td>
+						<td><small>\${order.payment}</small></td>
+						<td><small>\${order.hopeDeliDate}<small></td>
+						<td><small>\${order.deliState}</small></td>
 					</tr>`
 				);
 			})
-	
-			
 			
 			$('#orders').append(orderArr.join(''))
 		} else {
@@ -100,7 +98,7 @@ tr {
 
 			<table>
 				<thead>
-					<tr><th></th><th>주문번호</th><th>결제방법</th><th>희망 배송일</th><th>상태</th></tr>
+					<tr><th></th><th>주문번호</th><th style='width: 6rem'>결제방법</th><th style='width: 7rem'>희망 배송일</th><th style='width: 4em'>상태</th></tr>
 				</thead>
                  <tbody id='orders'>
                  

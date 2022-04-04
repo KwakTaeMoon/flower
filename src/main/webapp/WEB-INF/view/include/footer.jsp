@@ -14,7 +14,7 @@
 			입금 계좌 : 우리 1002-123-123456<br>
 		</small>
 		<div id='contactInfo'>
-			<h5 style='color: #0f56ba;'><strong>CUSTOMER CENTER</strong></h5>
+			<h5><strong>CUSTOMER CENTER</strong></h5>
 			1588-1588<br>
 			MON-FRI : 10:00 ~ 18:00	
 		</div>			

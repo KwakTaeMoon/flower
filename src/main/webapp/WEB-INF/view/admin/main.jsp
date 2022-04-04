@@ -10,7 +10,7 @@
 <style>
 <%@ include file ="../../../res/lib.css"%>
 </style>
-<div class='container'>
+<div class='container-fluid'>
 	<c:if test="${empty sessionScope.userId}">
 	<br><br><br><br>
 	<div class='col'>
