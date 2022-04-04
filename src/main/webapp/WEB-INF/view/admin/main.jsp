@@ -57,7 +57,7 @@
 										${fn:length(flowerList)}개
 									</c:if>
 								</c:forEach>
-								<c:if test='${fn:length(userList) == 0}'>
+								<c:if test='${fn:length(flowerList) == 0}'>
 									0개
 								</c:if>
 							</td>
