@@ -9,6 +9,8 @@ public interface OrderDao {
 	List<Order> selectOrders(String userId);
 	List<Order> detailOrders(int orderNum);
 	List<Order> selectAdminOrders();
+	List<Order> selectAdminReadyOrders();
+	List<Order> selectAdminCancelOrders();
 	void insertOrder(Order order);
 	void updateDeliState(int orderNum);
 	void updateAdmDeliState(int orderNum);

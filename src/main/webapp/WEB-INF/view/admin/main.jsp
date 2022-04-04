@@ -34,18 +34,19 @@
 			<table class='table table-bordered mt-3 text-center'>
 				<thead class='thead' style='background-color:#b1c3e0'>
 					<tr>
-						<th>결제 완료</th>
 						<th>상품 준비중</th>
-						<th>배송중</th>
-						<th>배송완료</th>
+						<th>취소/환불</th>
 					</tr>
 				</thead>
+				
 				<tbody id='OrderStatus' class='table-bordered'>
 					<tr>
-						<td>10</td>
-						<td>5</td>
-						<td>3</td>
-						<td>8</td>
+						<td>
+							<c:forEach var='order' items="${readyOrders}">
+								${order.orderNum}
+							</c:forEach>
+						</td>
+						<td>2</td>
 					</tr>
 				</tbody>
 			</table>

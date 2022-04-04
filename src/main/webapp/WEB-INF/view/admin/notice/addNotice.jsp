@@ -80,13 +80,13 @@ $(init)
 				</tbody>
 				<thead>
 					<tr style='background-color:#b1c3e0;'>
-						<th>공지 관리</th>
+						<th>후기 관리</th>
 					</tr>
 				</thead>
 				<tbody id='reviewBorder' class='table-borderless'>
 					<tr><td></td></tr>
 					<tr>
-						<td><a href='../review/listReview' style='color:black'>공지 조회</a></td>
+						<td><a href='../review/listReview' style='color:black'>후기 조회</a></td>
 					</tr>
 					<tr><td></td></tr>
 				</tbody>
