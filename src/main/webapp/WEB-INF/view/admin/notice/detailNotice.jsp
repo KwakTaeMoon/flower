@@ -21,7 +21,7 @@ function init() {
 				})
 			}).done(() => {
 				$('#fixModalMsg').empty();
-				$('#fixModalMsg').text('수정되었습니다.');
+				$('#fixModalMsg').text('공지가 수정되었습니다.');
 				$('#fixOkBtn').show();
 				$('#fixConfirmBtn').hide();
 				$('#fixModal').modal();
@@ -142,7 +142,7 @@ $(init);
 					<span>&times;</span>
 				</button>
 			</div>
-			<div class='modal-body'>
+			<div class='modal-body' align='center'>
 				<p id='modalMsg'></p>
 			</div>
 			<div class='modal-footer'>
@@ -163,7 +163,7 @@ $(init);
 					<span>&times;</span>
 				</button>
 			</div>
-			<div class='modal-body' style='text-align:center;'>
+			<div class='modal-body' align='center'>
 				<p id='fixModalMsg'></p>
 			</div>
 			<div class='modal-footer'>
@@ -184,7 +184,7 @@ $(init);
 					<span>&times;</span>
 				</button>
 			</div>
-			<div class='modal-body' style='text-align:center;'>
+			<div class='modal-body' align='center'>
 				<p id='delModalMsg'>공지를 삭제하시겠습니까?</p>
 			</div>
 			<div class='modal-footer'>

@@ -336,13 +336,13 @@ textarea {
       </div>
    </div>
    <div class='form-row align-items-center mt-5'>
+      <div class='form-check form-check-inline'>
+         <input type='checkbox' class='form-check-input' id='terms'/>
+         <label class='form-check-label'>약관에 동의합니다</label>&nbsp;
+      </div>
       <div class='col-3'>
          <a href='${pageContext.request.contextPath}/user/terms'><button type='button' class='btn btn-secondary btn-block btn-sm'>약관보기</button></a>
       </div>
-      <div class='form-check form-check-inline'>
-         <label class='form-check-label'>약관에 동의합니다</label>
-         <input type='checkbox' class='form-check-input' id='terms'/>
-      </div>   
    </div><br><br><br>
    <div class='row d-flex justify-content-center'>
       <button class="btn btn-outline-secondary mb-3 d-flex justify-content-center" 
@@ -360,7 +360,7 @@ textarea {
                <span>&times;</span>
             </button>
          </div>
-         <div class='modal-body'>
+         <div class='modal-body' align='center'>
             <p id='modalMsg'></p>
          </div>
          <div class='modal-footer'>

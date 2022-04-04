@@ -263,7 +263,7 @@ $(init);
 					<span>&times;</span>
 				</button>
 			</div>
-			<div class='modal-body'>
+			<div class='modal-body'  align='center'>
 				<p id='contactNumModalMsg'></p>
 			</div>
 			<div class='modal-footer' id='contactNumModalBtn'>
@@ -284,7 +284,7 @@ $(init);
 					<span>&times;</span>
 				</button>
 			</div>
-			<div class='modal-body'>
+			<div class='modal-body'  align='center'>
 				<p id='addrModalMsg'></p>
 			</div>
 			<div class='modal-footer' id='addrModalBtn'>

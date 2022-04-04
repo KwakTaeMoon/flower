@@ -189,7 +189,7 @@ table.type1 td{
 					<span>&times;</span>
 				</button>
 			</div>
-			<div class='modal-body'>
+			<div class='modal-body' align='center'>
 				<p id='modalMsg'></p>
 			</div>
 			<div class='modal-footer'>

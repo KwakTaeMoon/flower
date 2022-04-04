@@ -167,8 +167,8 @@ $(init)
 				</p>
 				<p><b>분류:</b> ${flower.flowerCategory}
 					&nbsp;&emsp;&emsp;&emsp;<label for='flowerCategory' class='col-form-label'><strong>분류:&emsp;</strong></label>
-					<input type='radio' value='NEW' id='flowerCategory' name='flowerCategory'>&emsp;NEW&emsp;&emsp;
 					<input type='radio' value='BEST' id='flowerCategory' name='flowerCategory'>&emsp;BEST&emsp;&emsp;
+					<input type='radio' value='NEW' id='flowerCategory' name='flowerCategory'>&emsp;NEW&emsp;&emsp;
 				</p>
 			</c:forEach>
 			</form>
@@ -191,6 +191,7 @@ $(init)
 		</div>
 	</div>
 </div>
+<br><br><br><br>
 
 <div id='cofirmModal' class='modal fade' tabindex='-1'>
 	<div class='modal-dialog'>
@@ -202,7 +203,7 @@ $(init)
 				</button>
 			</div>
 			<div class='modal-body'>
-				<p id='modalMsg'></p>
+				<p id='modalMsg' style='text-align: center'></p>
 			</div>
 			<div class='modal-footer'>
 				<button type='button' class='btn btn-outline-secondary' id='fixOkBtn'

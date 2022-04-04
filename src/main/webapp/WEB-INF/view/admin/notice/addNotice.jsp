@@ -20,7 +20,7 @@ function init() {
 					content: $('#content').val()
 				}
 			}).done(notices => {
-				$('#modalMsg').text('글이 등록되었습니다.');
+				$('#modalMsg').text('공지가 등록되었습니다.');
 				$('#cofirmModal').modal();
 				$('#noBtn').hide();
 				$('#okBtn').hide();
@@ -113,12 +113,12 @@ $(init)
 	<div class='modal-dialog'>
 		<div class='modal-content'>
 			<div class='modal-header'>
-				<h5 id='modalTitle'>공지 작성</h5>
+				<h5 id='modalTitle'>공지 등록</h5>
 				<button type='button' class='close' data-dismiss='modal'>
 					<span>&times;</span>
 				</button>
 			</div>
-			<div class='modal-body'>
+			<div class='modal-body' align='center'>
 				<p id='modalMsg'></p>
 			</div>
 			<div class='modal-footer'>

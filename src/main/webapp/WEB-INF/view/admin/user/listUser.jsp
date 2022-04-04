@@ -238,7 +238,7 @@ $(init);
 							<th><i class="fa fa-users" style='color:#0f56ba; font-size:100px'></i></th>
 						</tr>
 						<tr style='background-color:#b1c3e0;'>
-							<th>회원관리</th>
+							<th>회원 관리</th>
 						</tr>
 					</thead>
 					<tbody id='borderStatus' class='table-borderless'>
@@ -375,7 +375,7 @@ $(init);
 					<span>&times;</span>
 				</button>
 			</div>
-			<div class='modal-body'>
+			<div class='modal-body' align='center'>
 				<p id='modalMsg'></p>
 			</div>
 			<div class='modal-footer' id='modalBtn'>

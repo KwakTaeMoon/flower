@@ -161,7 +161,7 @@ $(init)
 				</button>
 			</div>
 			<div class='modal-body'>
-				<p id='modalMsg'></p>
+				<p id='modalMsg' style='text-align: center'></p>
 			</div>
 			<div class='modal-footer'>
 				<button type='button' class='btn btn-outline-secondary' data-dismiss='modal' id='yesBtn'>예</button>

@@ -117,7 +117,7 @@ $(init);
 					<span>&times;</span>
 				</button>
 			</div>
-			<div class='modal-body' style='text-align:center;'>
+			<div class='modal-body' align='center'>
 				<p id='fixModalMsg'></p>
 			</div>
 			<div class='modal-footer'>
@@ -138,7 +138,7 @@ $(init);
 					<span>&times;</span>
 				</button>
 			</div>
-			<div class='modal-body' style='text-align:center;'>
+			<div class='modal-body' align='center'>
 				<p id='delModalMsg'>후기를 삭제하시겠습니까?</p>
 			</div>
 			<div class='modal-footer'>
@@ -159,7 +159,7 @@ $(init);
 					<span>&times;</span>
 				</button>
 			</div>
-			<div class='modal-body' style='text-align:center;'>
+			<div class='modal-body' align='center'>
 				<p id='noWriterModalMsg'>
 					권한이 없습니다.<br>
 				</p>

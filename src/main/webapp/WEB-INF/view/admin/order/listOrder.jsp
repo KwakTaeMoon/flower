@@ -131,13 +131,13 @@ table.type1 td{
 						<th><i class="fa fa-cash-register" style='color:#0f56ba; font-size:100px'></i></th>
 					</tr>
 					<tr style='background-color:#b1c3e0;'>
-						<th>주문관리</th>
+						<th>주문 관리</th>
 					</tr>
 				</thead>
 				<tbody id='borderStatus' class='table-borderless'>
 					<tr><td></td></tr>
 					<tr>
-						<td><a href='../order/listOrder' style='color:black; font-weight:bold'><b>주문현황</b></a></td>
+						<td><a href='../order/listOrder' style='color:black; font-weight:bold'><b>주문 현황</b></a></td>
 					</tr>
 					<tr><td></td></tr>
 				</tbody>
@@ -177,7 +177,7 @@ table.type1 td{
 					<span>&times;</span>
 				</button>
 			</div>
-			<div class='modal-body'>
+			<div class='modal-body' align='center'>
 				<p id='modalMsg'></p>
 			</div>
 			<div class='modal-footer'>
@@ -198,7 +198,7 @@ table.type1 td{
 					<span>&times;</span>
 				</button>
 			</div>
-			<div class='modal-body'>
+			<div class='modal-body' align='center'>
 				<p id='comModalMsg'></p>
 			</div>
 			<div class='modal-footer'>
