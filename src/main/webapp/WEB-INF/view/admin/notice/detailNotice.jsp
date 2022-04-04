@@ -51,7 +51,7 @@ function init() {
 $(init);
 </script>
 <style>
-
+<%@ include file ="../../../../res/lib2.css"%>
 </style>
 <div class='container-fluid'>
 <%@ include file='../include/headerAdmin.jsp' %>
@@ -93,42 +93,42 @@ $(init);
 		<div class='col-1'></div>
 		<div class='col-7 mt-4'>
       <h5 style='color:#0f56ba'><b>| 공지 상세</b></h5>
-      <div class='flex-column ml-5'>
-		     <form>
-		     <table class='table' style="margin: auto; text-align: center;">
-		        <thead class='text-center'><tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th></tr></thead>
-		        <c:forEach var="notice" items="${noticeList}">
-		        <tbody class='text-center'>
-		        	<tr>
-		        		<td><input type='number' id='noticeNum' size='2' style='width:2em; border:none;' value='${notice.noticeNum}' readonly></td>
-		           		<td><input type='text' id='title' style='width:10em; text-align:center; border:none;' value='${notice.title}'/></td>
-		           		<td>관리자</td>
-		           		<td>${notice.regdate}</td>
-		           	</tr>                   
-				</tbody>
-				</c:forEach>
-			</table>
-			<table class='table'>
-				<c:forEach var="notice" items="${noticeList}">
-					<tr>
-						<td><textarea id='content' style='width:100%' rows='15'>${notice.content}</textarea></td>
-					</tr>
-				</c:forEach>
-				<tr>
-					<td>
-						<div style='float:right;'>
-							<button type='button' id='listBtn' class='btn btn-outline-secondary btn-sm' 
-								onclick="location.href='./listNotice'">목록</button>
-							<button type='button' id='fixBtn' class='btn btn-outline-secondary btn-sm' 
-								>수정 </button>
-							<button type='button' id='delBtn' class='btn btn-outline-secondary btn-sm' 
-								>삭제 </button>
-						</div>
-					</td>
-				</tr>
-			</table>
-			</form>
-		</div>
+	      <div class='flex-column ml-5'>
+			    <form>
+				     <table class='table' style="margin: auto; text-align: center;">
+				        <thead class='text-center'><tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th></tr></thead>
+				        <c:forEach var="notice" items="${noticeList}">
+				        <tbody class='text-center'>
+				        	<tr>
+				        		<td><input type='number' id='noticeNum' size='2' style='width:2em; border:none;' value='${notice.noticeNum}' readonly></td>
+				           		<td><input type='text' id='title' style='width:10em; text-align:center; border:none;' value='${notice.title}'/></td>
+				           		<td>관리자</td>
+				           		<td>${notice.regdate}</td>
+				           	</tr>                   
+						</tbody>
+						</c:forEach>
+					</table>
+					<table class='table'>
+						<c:forEach var="notice" items="${noticeList}">
+							<tr>
+								<td><textarea id='content' style='width:100%' rows='15'>${notice.content}</textarea></td>
+							</tr>
+						</c:forEach>
+						<tr>
+							<td>
+								<div style='float:right;'>
+									<button type='button' id='listBtn' class='btn btn-outline-secondary btn-sm' 
+										onclick="location.href='./listNotice'">목록</button>
+									<button type='button' id='fixBtn' class='btn btn-outline-secondary btn-sm' 
+										>수정 </button>
+									<button type='button' id='delBtn' class='btn btn-outline-secondary btn-sm' 
+										>삭제 </button>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
 		</div>
 	</div>
 </div><span style="line-height:300%"><br></span>

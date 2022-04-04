@@ -53,7 +53,7 @@ function init() {
 $(init)
 </script>
 <style>
-
+<%@ include file ="../../../../res/lib2.css"%>
 </style>
 <div class='container-fluid'>
 <%@ include file='../include/headerAdmin.jsp' %>

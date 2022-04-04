@@ -22,9 +22,9 @@ function init() {
 $(init)
 </script>
 <style>
-
+<%@ include file ="../../../../res/lib2.css"%>
 </style>
-<div class='container'>
+<div class='container-fluid'>
 <%@ include file='../include/headerAdmin.jsp' %>
 	
 	<div class='row'>
@@ -62,11 +62,11 @@ $(init)
 				</tbody>
 			</table>
 		</div>
-	<div class='col-1'></div>
- 	 		<div class='row'>
-			<div><h5 style='display:block;color:#0f56ba;'><b>| 후기 상세</b></h5></div>
-	     <div class='flex-column ml-5'>
-		     <form>
+		<div class='col-1'></div>
+ 	 		<div class='col-7 mt-4'>
+				<h5 style='color:#0f56ba;'><b>| 후기 상세</b></h5>
+				<div class='flex-column ml-5'>
+				<form>
 		     <table class='table' style="margin: auto; text-align: center;">
 		        <thead class='text-center'><tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th></tr></thead>
 		        <c:forEach var="review" items="${reviewList}">

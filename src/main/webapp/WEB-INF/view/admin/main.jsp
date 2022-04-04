@@ -1,5 +1,6 @@
 <%@ page language='java' contentType='text/html; charset=UTF-8' pageEncoding='UTF-8'%>
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core'%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <title>TAEMOON Flower</title>
 
 <%@ include file ='../include/lib.jsp'%>
@@ -30,45 +31,68 @@
 	
 	<div class='row mt-5 justify-content-center' >
 		<div class='col-11' id="adminOrder">
-			<h5 style='color:#0f56ba'><b>| 주문 현황</b></h5>
+			<h5 style='color:#0f56ba'><b>| 전체 현황</b></h5><br>
 			<table class='table table-bordered mt-3 text-center'>
 				<thead class='thead' style='background-color:#b1c3e0'>
 					<tr>
-						<th>상품 준비중</th>
-						<th>취소/환불</th>
+						<th>회원</th>
+						<th>꽃</th>
+						<th>주문</th>
 					</tr>
 				</thead>
-				
-				<tbody id='OrderStatus' class='table-bordered'>
+				<tbody class='table-bordered'>
 					<tr>
 						<td>
-							<c:forEach var='order' items="${readyOrders}">
-								${order.orderNum}
+							<c:forEach var='user' items="${userList}" varStatus="status">
+								<c:if test='${status.first}'>
+									${fn:length(userList)}명
+								</c:if>
 							</c:forEach>
 						</td>
-						<td>2</td>
+						<td>
+							<c:forEach var='flower' items="${flowerList}" varStatus="status">
+								<c:if test='${status.first}'>
+									${fn:length(flowerList)}개
+								</c:if>
+							</c:forEach>
+						</td>
+						<td>
+							<c:forEach var='order' items="${orderList}" varStatus="status">
+								<c:if test='${status.first}'>
+									${fn:length(orderList)}회
+								</c:if>
+							</c:forEach>
+						</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
-		
 	</div>
 	<div class='row justify-content-center' style='height:400px'>
-		<div class='col-11 mt-5' id="adminBorder">
-			<h5 style='color:#0f56ba'><b>| 게시판 현황</b></h5>
+		<div class='col-11 mt-4' id="adminBorder">
 			<table class='table table-bordered mt-3 text-center'>
 				<thead style='background-color:#b1c3e0'>
 					<tr>
-						<th>상품 후기</th>
-						<th>공지사항</th>
-						<th>1:1문의</th>
+						<th>후기</th>
+						<th>공지</th>
 					</tr>
 				</thead>
 				<tbody id='borderStatus' class='table-bordered'>
 					<tr>
-						<td>50</td>
-						<td>23</td>
-						<td>8</td>
+						<td>
+							<c:forEach var='review' items="${reviewList}" varStatus="status">
+								<c:if test='${status.first}'>
+									${fn:length(reviewList)}개
+								</c:if>
+							</c:forEach>
+						</td>
+						<td>
+							<c:forEach var='notice' items="${noticeList}" varStatus="status">
+								<c:if test='${status.first}'>
+									${fn:length(noticeList)}개
+								</c:if>
+							</c:forEach>
+						</td>
 					</tr>
 				</tbody>
 			</table>
@@ -76,4 +100,4 @@
 	</div>
 	</c:if>
 </div>
-<%@ include file='../include/footer.jsp' %>
+<%@ include file='include/footer.jsp' %>
