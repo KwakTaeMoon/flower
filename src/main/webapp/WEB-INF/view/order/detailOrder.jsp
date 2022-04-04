@@ -11,7 +11,7 @@
 <%@ include file ="../../../res/lib.css"%>
 table.type1 {
     width: 100%;
-    text-align: left;
+    text-align: center;
 }
 
 table.type1 th {
@@ -37,6 +37,7 @@ table.type2 tr {
 }
 </style>
 <div class='container-fluid'>
+<%@ include file='../include/header.jsp' %>
 	<br><br>
 	<div class='row d-flex justify-content-center mt-5'>
 
@@ -46,19 +47,25 @@ table.type2 tr {
 
 			<table  class="type2">
 				<thead>
-					<tr><th>주문번호</th><th>상품</th><th>금액</th><th>상태</th></tr>
 				</thead>
 				<tbody class='border-bottom lightgray'>
-				
+					<tr><th>주문번호</th><th>상품</th></tr>
 					<tr>
 					<c:forEach var="order" items="${orderList}">
 						<td>${order.orderNum}</td>
 					</c:forEach>
 					<c:forEach var="flower" items="${flowerList}">
 					<c:forEach var="order" items="${orderList}">
-						<td>${flower.flowerName} 외 ${order.amount -1}</td>
+						<td>${flower.flowerName} 외<br> ${order.amount -1}개</td>
 					</c:forEach>
 					</c:forEach>
+					</tr>
+					
+					<tr>
+					</tr>
+					
+					<tr><th>금액</th><th>상태</th></tr>
+					<tr>
 					<c:forEach var="flower" items="${flowerList}">
 					<c:forEach var="order" items="${orderList}">
 						<td>${order.price}원</td>
@@ -79,35 +86,24 @@ table.type2 tr {
 			<table class="type1">
 				<c:forEach var="order" items="${orderList}">
 				<tr>
-					<th>수령인: </th><td>${order.recName}</td>
-					<td><b>수령인연락처: </b>${order.recContactNum}</td>
+					<th>수령인 : </th><td>${order.recName}</td>
+				</tr>
+				<tr>	
+					<td><b>수령인연락처 : </b></td><td>${order.recContactNum}</td>
 				</tr>
 				<tr>
-					<th>희망 배송일: </th><td>${order.hopeDeliDate}</td>
-					<td><b>결제방법: </b>${order.payment}</td>
+					<th>희망 배송일 : </th><td>${order.hopeDeliDate}</td>
+				</tr>
+				<tr>
+					<th>결제방법 : </th><td>${order.payment}</td>
 				</tr>
 				<tr>
 					<th>배송지 : </th>
-					<td>
-						<div class='row'>
-							<div class='col'>
-								${order.recPostCode}
-							</div>
-						</div>
-						<div class='row'>
-							<div class='col'>
-								${order.recAddr}
-							</div>
-						</div>
-						<div class='row'>
-							<div class='col'>
-								${order.recDetailAddr}
-							</div>
-						</div>
-					</td>
-					<tr>
-						<th>요청사항: </th><td>${order.request}</td>
-					</tr>
+					<td>${order.recPostCode}<br>${order.recAddr}<br>${order.recDetailAddr}</td>
+				<tr>
+				<tr>
+					<th>요청사항: </th><td>${order.request}</td>
+				</tr>
 				</c:forEach>
 			</table>
 		</div>

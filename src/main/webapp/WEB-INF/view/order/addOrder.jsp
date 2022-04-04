@@ -234,12 +234,12 @@ textarea {
 			<f:form modelAttribute='order' id='addOrderForm' method='post'>
 				<tr>
 					<th>수령인</th>
-					<td><input type='text' id='recName' name='deliveryInformation' placeholder='이름'>
+					<td><input type='text' id='recName' name='deliveryInformation' placeholder='이름' class='ml-2' style='width:7rem;'>
 					</td>
 				</tr>
 				<tr>
 					<th>연락처</th>
-					<td><input type='text' id='recContactNum' name='deliveryInformation' placeholder='01012345678' >
+					<td><input type='text' id='recContactNum' name='deliveryInformation' placeholder='01012345678' class='ml-2' style='width:12rem;' >
 					</td>
 				</tr>
 				<tr>
@@ -248,7 +248,7 @@ textarea {
 						<div class='row'>
 							<div class='col'>
 								<input type='text' id='recPostCode' name='recPostCode' placeholder='(우편번호)' readonly> &nbsp;
-								<button type='button' class='btn btn-sm btn-outline-secondary' id='searchAddr'>찾기</button>
+								<button type='button' class='btn btn-sm btn-outline-secondary mt-1 mb-1' id='searchAddr'>찾기</button>
 							</div>
 						</div>
 						<div class='row'>
@@ -265,7 +265,7 @@ textarea {
 				</tr>
 				<tr>
 					<th>희망 배송일</th>
-					<td><input id='hopeDeliDate' type="date"></td>
+					<td><input id='hopeDeliDate' type="date" class='ml-2'></td>
 				</tr>
 				<tr>
 					<th>요청사항</th>
@@ -343,12 +343,12 @@ textarea {
 			<a href='${pageContext.request.contextPath}/user/terms'><button type='button' class='btn btn-secondary btn-block btn-sm'>약관보기</button></a>
 		</div>
 		<div class='form-check form-check-inline'>
-			<input type='checkbox' class='form-check-input' id='terms'/>
 			<label class='form-check-label'>약관에 동의합니다</label>
+			<input type='checkbox' class='form-check-input' id='terms'/>
 		</div>	
 	</div><br><br><br>
-	<div class='row d-flex justify-content-center mt-1'>
-		<button class="btn btn-outline-secondary m-5 d-flex justify-content-center" 
+	<div class='row d-flex justify-content-center'>
+		<button class="btn btn-outline-secondary mb-3 d-flex justify-content-center" 
 			id='purchaseBtn'>결제하기</button>
 	</div>
 </div>
