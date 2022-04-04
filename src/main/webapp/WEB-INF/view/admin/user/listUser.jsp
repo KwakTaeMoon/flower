@@ -253,8 +253,8 @@ $(init);
 			
 			<div class='col-8 mt-5 ml-2'>
 			<form>
-				<h5 style='color:#0f56ba'><b>| 회원 관리</b></h5>
-				<table class='table table-bordered'><hr>
+				<h5 style='color:#0f56ba'><b>| 회원 관리</b></h5><hr>
+				<table class='table table-bordered'>
 					<thead class='text-center' style='background-color:#b1c3e0;'>
 						<tr><th>아이디</th><th>비밀번호</th><th>이름</th>
 						<th>생년월일</th><th>이메일</th><th>연락처</th><th>주소</th>
@@ -304,11 +304,11 @@ $(init);
 		</table>
 		</form>
 		</div>
-		<div class='row mt-5'>
+		<div class='row mt-5 mr-2'>
 		<div class='col-2'></div>
 		 	<div class='col ml-2'>
 			<h5 style='color:#0f56ba'><b>| 회원 목록</b></h5>
-			<table class='table table-bordered' id='userTable'>
+			<table class='table table-bordered pr-3' id='userTable'>
 				<thead class='text-center' style='background-color:#b1c3e0;'>
 					<tr>
 						<th style='width:4rem;'></th>
