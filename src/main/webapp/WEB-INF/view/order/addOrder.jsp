@@ -96,7 +96,7 @@ $('#purchaseBtn').click(() => {
                         }
                      }else {
                         $('#modalMsg').empty();
-                        $('#modalMsg').text('희망 배송지를 입력하세요.');
+                        $('#modalMsg').text('희망 배송일을 입력하세요.');
                         $('#cofirmModal').modal();
                         $('#okBtn').show();
                         $('#noBtn').hide();

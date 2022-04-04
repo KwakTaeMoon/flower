@@ -29,16 +29,6 @@ public class OrderServiceImpl implements OrderService {
 	}
 	
 	@Override
-	public List<Order> getAdminReadyOrders() {
-		return orderDao.selectAdminReadyOrders();
-	}
-	
-	@Override
-	public List<Order> getAdminCancelOrders() {
-		return orderDao.selectAdminCancelOrders();
-	}
-	
-	@Override
 	public void addOrder(Order order) {
 		orderDao.insertOrder(order);
 	}

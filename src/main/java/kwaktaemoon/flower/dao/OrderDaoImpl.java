@@ -26,17 +26,7 @@ public class OrderDaoImpl implements OrderDao {
 	public List<Order> selectAdminOrders() {
 		return orderMap.selectAdminOrders();
 	}
-	
-	@Override
-	public List<Order> selectAdminReadyOrders() {
-		return orderMap.selectAdminReadyOrders();
-	}
-	
-	@Override
-	public List<Order> selectAdminCancelOrders() {
-		return orderMap.selectAdminCancelOrders();
-	}
-	
+
 	@Override
 	public void insertOrder(Order order) {
 		orderMap.insertOrder(order);
