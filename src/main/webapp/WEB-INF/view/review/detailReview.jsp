@@ -62,16 +62,14 @@ $(init);
 	<%@ include file='../include/header.jsp' %>
 	<br><br><br><br>
 	<div class='row'>
-			<div><h5 style='display:block;color:#0f56ba;'><b>| 후기 상세</b></h5></div>
-	     <div class='flex-column'>
-		     <form>
-		     <table class='table' style="margin: auto; text-align: center;">
-		        <thead class='text-center'><tr><th>번호</th><th>제목</th><th style='width:6em'>작성자</th><th style='width:6em'>작성일</th></tr></thead>
+			<h5 style='color:#0f56ba;'><b>| 후기 상세</b></h5>
+		     <table class='table'>
+		        <thead class='text-center'><tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th></tr></thead>
 		        <c:forEach var="review" items="${reviewList}">
 		        <tbody class='text-center'>
 		        	<tr>
-		        		<td><input type='number' id='reviewNum' size='2' style='width:2em; border:none;' value='${review.reviewNum}' readonly></td>
-		           		<td><input type='text' id='title' style='width:10em; text-align:center; border:none;' value='${review.title}' /></td>
+		        		<td>${review.reviewNum}<input type='hidden' id='reviewNum' value='${review.reviewNum}' readonly></td>
+		           		<td>${review.title}<input type='hidden' id='title' value='${review.title}' /></td>
 		           		<td>${review.userId}</td>
 		           		<td>${review.regDate}</td>
 		           	</tr>                   
@@ -107,10 +105,8 @@ $(init);
 					</td>
 				</tr>
 			</table>
-			</form>
 		</div>
 	</div>
-</div>
 
 <div id='fixModal' class='modal fade' tabindex='-1'>
 	<div class='modal-dialog'>
@@ -146,9 +142,9 @@ $(init);
 				<p id='delModalMsg'>후기를 삭제하시겠습니까?</p>
 			</div>
 			<div class='modal-footer'>
-				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='delNoBtn'>아니오</button>
 				<button type='button' class='btn btn-outline-secondary' id='delOkBtn'
 					onclick="location.href='./listReview'">예</button>
+				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='delNoBtn'>아니오</button>
 			</div>
 		</div>
 	</div>

@@ -123,10 +123,9 @@ table.type1 td{
 </style>
 <div class='container-fluid'>
 	<%@ include file='../include/headerAdmin.jsp' %>
-	<br><br>
 	<div class='row'>
-		<div class='col-2' id="adminBorder">
-			<table class='table table-bordered mt-3 text-center'>
+		<div class='col-2 mt-3' id="adminBorder">
+			<table class='table table-bordered text-center'>
 				<thead>
 					<tr>
 						<th><i class="fa fa-cash-register" style='color:#0f56ba; font-size:100px'></i></th>

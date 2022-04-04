@@ -8,7 +8,7 @@
 		 <div class='row mt-4'>
 			 <div class='col'>
 				<nav class='navbar navbar-expand-sm navbar-light'>          	
-					<div id='logoTop'><a href='/admin'>로고 이미지</a></div>
+					<a class='navbar-brand' href='<%=request.getContextPath() %>/admin'>TAEMOONFLOWER</a>
 					<button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#menu'>
 						<i class='fa fa-bars'></i>
 					</button>

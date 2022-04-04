@@ -222,11 +222,10 @@ $(init)
 </style>
 <div class='container'>
 	<%@ include file='../include/header.jsp' %>
-	<br><br><br>
+	<br><br><br><br>
 	<div class='row'>
 		<div class='col'>
 		<h5 style='color:#0f56ba'><b>| 회원가입</b></h5><hr>
-		<br><br>
 			<table class='table table-borderless' id='classTop'>				
 				<tbody>					
 					<tr>

@@ -83,9 +83,7 @@ $(listNotices)
               <thead class='text-center'><tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th></tr></thead>
               <tbody class='text-center' id='notices'>
               </tbody>            
-				<tr>
-					<td></td><td></td><td></td>
-				</tr>
+				<tr></tr>
 			</table>
 		<div class='col d-flex justify-content-center' id='pagination'>
 			<a href='#'>&lt;이전&nbsp;</a>	

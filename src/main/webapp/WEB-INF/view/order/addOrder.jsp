@@ -277,7 +277,6 @@ textarea {
 			</table>
 		</div>
 	</div>
-	
 	<div class='row d-flex justify-content-center mt-5'>
 		<div class='col'>
 			<h5 style='color: #0f56ba;'><b>| 결제 정보</b></h5>
@@ -286,7 +285,7 @@ textarea {
 					<c:forEach var="flower" items="${flowerList}">	
 						<tr>
 							<th>상품 합계</th>
-							<td>${flower.price * flower.amount}원</td>
+							<td>${flower.amount}개</td>
 						</tr>
 						<tr>
 							<th>배송비</th>
@@ -299,21 +298,19 @@ textarea {
 					</c:forEach>
 				</c:if>
 				<c:if test='${fn:containsIgnoreCase(URL, "cartNum")}'>
-				
-					
-						<tr>
-							<th>상품 합계</th>
-							<td><c:out value="${total}"/><input type='hidden' id='amount' name='amount' value='${total}'/></td>
+					<tr>
+						<th>상품 합계</th>
+						<td><c:out value="${total}"/><input type='hidden' id='amount' name='amount' value='${total}'/>개</td>
 
-						</tr>
-						<tr>
-							<th>배송비</th>
-							<td>5000원</td>
-						</tr>
-						<tr>
-							<th>결제 금액</th>
-							<td> <c:out value="${sum + 5000}"/><input type='hidden' id='price' name='price' value='${sum}' readonly/>원</td>
-						</tr>
+					</tr>
+					<tr>
+						<th>배송비</th>
+						<td>5000원</td>
+					</tr>
+					<tr>
+						<th>결제 금액</th>
+						<td> <c:out value="${sum + 5000}"/><input type='hidden' id='price' name='price' value='${sum}' readonly/>원</td>
+					</tr>
 
 				</c:if>
 			</table>

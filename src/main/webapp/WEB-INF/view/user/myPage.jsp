@@ -125,7 +125,7 @@ $(init);
 <%@ include file ="../../../res/lib.css"%>
 </style>
 <div class='container'>
-<%@ include file='../include/header.jsp' %>
+<%@ include file='../include/header.jsp' %><br><br>
 	<!-- 로그인 하지 않았을 때 -->
 	<c:if test="${empty sessionScope.userId}">
 	<br><br><br><br>

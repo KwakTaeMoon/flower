@@ -28,7 +28,7 @@ $(init);
 		<div class='row'>
 			<div class='col'>
 				<nav class='navbar navbar-expand-sm navbar-light fixed-top' style='background-color:#fcfdff'>
-					<div id='logoTop'><a href='<%=request.getContextPath() %>/'>로고 이미지</a></div>
+					<a class='navbar-brand' href='<%=request.getContextPath() %>/'>TAEMOONFLOWER</a>
 					<button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#menu'>
 						<i class='fa fa-bars'></i>
 					</button>
@@ -69,7 +69,7 @@ $(init);
 		<div class='row'>
 			<div class='col'>
 				<nav class='navbar navbar-expand-sm navbar-light fixed-top' style='background-color:#fcfdff'>
-					<div id='logoTop'><a href='<%=request.getContextPath() %>/'>로고 이미지</a></div>
+					<a class='navbar-brand' href='<%=request.getContextPath() %>/'>TAEMOONFLOWER</a>
 					<button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#menu'>
 						<i class='fa fa-bars'></i>
 					</button>
