@@ -41,7 +41,7 @@ function init() {
 	
 	$("#fixBtn").click(() => {
 		if(pwOk == 1){
-			$('#modalMsg').text('비밀번호가 변경되었습니다.');
+			$('#modalMsg').text('비밀번호가 수정되었습니다.');
 			$('#fixOkBtn').show();
 			$('#cancelBtn').hide();
 			$('#confirmModal').modal();

@@ -39,7 +39,7 @@ function init() {
 				}),
 				contentType: 'application/json'
 			}).done(() => {
-				$('#emailModalMsg').text('이메일이 변경되었습니다.');
+				$('#emailModalMsg').text('이메일이 수정되었습니다.');
 				$('#emailModal').modal();
 				$('#emailNoBtn').hide();
 				$('#emailOkBtn').show();
@@ -62,7 +62,7 @@ function init() {
 				}),
 				contentType: 'application/json'
 			}).done(() => {
-				$('#contactNumModalMsg').text('전화번호가 변경되었습니다.');
+				$('#contactNumModalMsg').text('전화번호가 수정되었습니다.');
 				$('#contactNumModal').modal();
 				$('#contactNumNoBtn').hide();
 				$('#contactNumOkBtn').show();
@@ -87,7 +87,7 @@ function init() {
 				}),
 				contentType: 'application/json'
 			}).done(() => {
-				$('#addrModalMsg').text('주소가 변경되었습니다.');
+				$('#addrModalMsg').text('주소가 수정되었습니다.');
 				$('#addrModal').modal();
 				$('#addrNoBtn').hide();
 				$('#addrOkBtn').show();
@@ -242,12 +242,12 @@ $(init);
 					<span>&times;</span>
 				</button>
 			</div>
-			<div class='modal-body'>
+			<div class='modal-body' align='center'>
 				<p id='emailModalMsg'></p>
 			</div>
 			<div class='modal-footer' id='emailModalBtn'>
 				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='emailNoBtn'>확인</button>
-				<button type='button' class='btn btn-primary' id='emailOkBtn' 
+				<button type='button' class='btn btn-outline-secondary' id='emailOkBtn' 
 					onclick='location.href="<%=request.getContextPath() %>/user/myPage"'>확인</button>
 			</div>
 		</div>
@@ -263,12 +263,12 @@ $(init);
 					<span>&times;</span>
 				</button>
 			</div>
-			<div class='modal-body'  align='center'>
+			<div class='modal-body' align='center'>
 				<p id='contactNumModalMsg'></p>
 			</div>
 			<div class='modal-footer' id='contactNumModalBtn'>
 				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='contactNumNoBtn'>확인</button>
-				<button type='button' class='btn btn-primary' id='contactNumOkBtn'
+				<button type='button' class='btn btn-outline-secondary' id='contactNumOkBtn'
 					onclick='location.href="<%=request.getContextPath() %>/user/myPage"'>확인</button>
 			</div>
 		</div>
@@ -284,12 +284,12 @@ $(init);
 					<span>&times;</span>
 				</button>
 			</div>
-			<div class='modal-body'  align='center'>
+			<div class='modal-body' align='center'>
 				<p id='addrModalMsg'></p>
 			</div>
 			<div class='modal-footer' id='addrModalBtn'>
 				<button type='button' class='btn btn-secondary' data-dismiss='modal' id='addrNoBtn'>아니오</button>
-				<button type='button' class='btn btn-primary' id='addrOkBtn'
+				<button type='button' class='btn btn-outline-secondary' id='addrOkBtn'
 					onclick='location.href="<%=request.getContextPath() %>/user/myPage"'>확인</button>
 			</div>
 		</div>
