@@ -18,7 +18,7 @@ function init() {
 				})
 			}).done(() => {
 				$('#fixModalMsg').empty();
-				$('#fixModalMsg').text('수정되었습니다.');
+				$('#fixModalMsg').text('후기가 수정되었습니다.');
 				$('#fixOkBtn').show();
 				$('#fixConfirmBtn').hide();
 				$('#fixModal').modal();
