@@ -28,10 +28,10 @@
 	</select>	
 	
 	<insert id='insertFlower'>
-		insert into flowers(flower_num, flower_name, price, kind, flower_category, flower_imgfile_name,
+		insert into flowers(flower_num, flower_name, price, kind, flower_category, amount, flower_imgfile_name,
 				  detail_imgfile_name)
 		values(FLOWERS_FLOWERNUM_SEQ.nextval, #{flowerName}, #{price}, #{kind}, #{flowerCategory},  
-			#{flowerImgfileName}, #{detailImgfileName})	
+			1, #{flowerImgfileName}, #{detailImgfileName})	
 	</insert>
 	
 	<update id='updateFlower'>

@@ -71,7 +71,7 @@ public class FlowerAdminController {
 	
 	@ResponseBody
 	@PostMapping("/addFlower")
-	public ModelAndView addFlower(Flower flower, ModelAndView mv) {
+	public ModelAndView addFlower(Flower flower, ModelAndView mv) throws IOException {
 		try {
 		String flowerFileName = flower.getFlowerImgfile().getOriginalFilename();
 		String detailFileName = flower.getDetailImgfile().getOriginalFilename();
