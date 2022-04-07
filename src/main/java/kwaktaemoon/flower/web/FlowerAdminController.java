@@ -80,6 +80,7 @@ public class FlowerAdminController {
 		
 		flowerService.addFlower(flower);
 		} catch(NullPointerException e) {}
+		mv.setViewName("admin/flower/listFlower");
 		return mv;
 	}
 	

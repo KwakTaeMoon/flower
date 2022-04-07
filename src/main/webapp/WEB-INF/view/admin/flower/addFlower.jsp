@@ -12,6 +12,7 @@ $('#registerBtn').click(() => {
 	let flowerCategory = $('#flowerCategory:checked').val();
 	let kind = $('#kind').val();
 	let detail = $('#detail').val();
+	
 	if(kind) {
 		if(kind=='꽃다발'|| kind=='꽃바구니') {
 			if(flowerCategory) {	
@@ -28,8 +29,6 @@ $('#registerBtn').click(() => {
 										kind: kind,
 										detail: detail
 									}
-								}).done(function() {
-									location.href='../flower/listFlower'
 								})
 								} else {
 									event.preventDefault();
@@ -74,7 +73,6 @@ $('#registerBtn').click(() => {
 		}
 	})
 }  
-$(init)
 </script>
 <style>
 <%@ include file ="../../../../res/lib2.css"%>
@@ -162,7 +160,7 @@ table.type1 td{
 						<tr>
 							<th><label>꽃 이미지: </label></th>
 							<td>
-								<input type="file" name="flowerImgfile" multiple="true" />
+								<input id='flowerImgfile' type="file" name="flowerImgfile"/>
 							</td>					
 						<tr>
 							<th><label>꽃 이름 : </label></th>
