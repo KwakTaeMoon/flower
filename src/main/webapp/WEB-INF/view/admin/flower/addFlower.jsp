@@ -19,6 +19,9 @@ $('#registerBtn').click(() => {
 								$.ajax({
 									type: 'post',
 									url: '${pageContext.request.contextPath}/admin/flower/addFlower',
+									enctype: 'multipart/form-data',
+									processData: false,
+									contentType: false,
 									data: {
 										flowerName: flowerName,
 										price: price,
@@ -151,7 +154,7 @@ table.type1 td{
 						<tr>
 							<th><label>꽃 이미지: </label></th>
 							<td>
-								<input type="file" name="flowerImgfile" >
+								<input type="file" name="flowerImgfile" multiple="true" />
 							</td>					
 						<tr>
 							<th><label>꽃 이름 : </label></th>
@@ -167,7 +170,7 @@ table.type1 td{
 						<tr>
 							<th>제품상세 : </th>
 							<td>
-								<input type='file' name="detailImgfile"/>
+								<input type='file' name="detailImgfile" multiple="true" />
 							</td>
 						</tr>
 						<tr>
