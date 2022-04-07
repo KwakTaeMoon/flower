@@ -16,8 +16,7 @@ public class Flower {
 	private String flowerCategory;
 	private String flowerImgfileName;
 	private MultipartFile flowerImgfile;
-	private String detailImgfileName;
-	private MultipartFile detailImgfile;
+	private String detail;
 	private LocalDate regDate;
 	private String keyworkd;
 }

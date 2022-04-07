@@ -90,6 +90,7 @@ $(init);
 				<p><input type='hidden' id='flowerNum' name='flowerNum' value='${flower.flowerNum}' readonly/>&emsp;&emsp;</p>
 					<h5><b>${flower.flowerName}</b></h5>
 					<h6>${flower.price}</h6>
+					<h6>${flower.detail}</h6>
 			</c:forEach>
 			<div class='form-group row mt-3'>
 			<div class='col-1'></div>
@@ -101,26 +102,16 @@ $(init);
 			<div class='form-group col mt-5'>
 				<div class='col'>
 					<div class='row d-flex justify-content-center'>
-											<c:forEach var="flower" items="${flowerList}">
 						<button type='button'class='btn btn-outline-secondary' id='cartBtn'
 							onclick='location.href="<%=request.getContextPath() %>/cart/listCart?userId=${userId}"'>장바구니</button>
 						<div style='width:60px'></div>
-
 							<button class='btn btn-outline-secondary' id='orderBtn' 
 								onclick='location.href="/order/addOrder?flowerNum=${flower.flowerNum}"'>구매</button>
-						</c:forEach>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<br><br><hr>
-	<div class='row'>
-		<div class='col text-center'>
-			<c:forEach var="flower" items="${flowerList}">
-				<img style='max-width: 100%; height:1000' src='<c:url value="/attach/${flower.detailImgfileName}"/>'/><br>
-			</c:forEach>	
-		</div>
-	</div><br><br>
+	<br><br><br><br>
 </div>
 <%@ include file='../include/footer.jsp' %>

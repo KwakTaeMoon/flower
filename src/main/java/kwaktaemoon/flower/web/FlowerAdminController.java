@@ -74,13 +74,10 @@ public class FlowerAdminController {
 	public ModelAndView addFlower(Flower flower, ModelAndView mv) throws IOException {
 		try {
 		String flowerFileName = flower.getFlowerImgfile().getOriginalFilename();
-		String detailFileName = flower.getDetailImgfile().getOriginalFilename();
 		
 		saveFlowerFile(attachPath + "/" + flowerFileName, flower.getFlowerImgfile());
 		flower.setFlowerImgfileName(flowerFileName);
 		
-		saveDetailFile(attachPath + "/" + detailFileName, flower.getDetailImgfile());
-		flower.setDetailImgfileName(detailFileName);
 		flowerService.addFlower(flower);
 		} catch(NullPointerException e) {}
 		return mv;
@@ -95,12 +92,6 @@ public class FlowerAdminController {
 	private void saveFlowerFile(String flowerFileName, MultipartFile flowerFile) {
 		try {
 			flowerFile.transferTo(new File(flowerFileName));
-		} catch(IOException e) {}
-	}
-	
-	private void saveDetailFile(String flowerFileName, MultipartFile detailFile) { 
-		try {
-			detailFile.transferTo(new File(flowerFileName));
 		} catch(IOException e) {}
 	}
 }

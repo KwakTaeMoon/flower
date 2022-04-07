@@ -29,9 +29,9 @@
 	
 	<insert id='insertFlower'>
 		insert into flowers(flower_num, flower_name, price, kind, flower_category, amount, flower_imgfile_name,
-				  detail_imgfile_name)
+				  detail)
 		values(FLOWERS_FLOWERNUM_SEQ.nextval, #{flowerName}, #{price}, #{kind}, #{flowerCategory},  
-			1, #{flowerImgfileName}, #{detailImgfileName})	
+			1, #{flowerImgfileName}, #{detail})	
 	</insert>
 	
 	<update id='updateFlower'>
@@ -39,7 +39,8 @@
 		set flower_name = #{flowerName},
 			price = #{price},
 			kind = #{kind},
-			flower_category = #{flowerCategory}
+			flower_category = #{flowerCategory},
+			detail = #{detail}
 		where flower_num = #{flowerNum}
 	</update>
 	
@@ -58,10 +59,11 @@
 		<id property='flowerNum' column='flower_num'/>
 		<result property='flowerName' column='flower_name'/>
 		<result property='price' column='price'/>
+		<result property='amount' column='amount'/>
 		<result property='kind' column='kind'/>
 		<result property='flowerCategori' column='flower_catagori'/>
 		<result property='flowerImgfileName' column='flower_imgfile_name'/>
-		<result property='detailImgfileName' column='detail_imgfile_name'/>
+		<result property='detail' column='detail'/>
 		<result property='regDate' column='reg_date'/>
 		<result property='keyword' column='keyword'/>
 	</resultMap>

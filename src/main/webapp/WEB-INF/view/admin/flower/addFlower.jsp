@@ -11,11 +11,13 @@ $('#registerBtn').click(() => {
 	let price = $('#price').val();
 	let flowerCategory = $('#flowerCategory:checked').val();
 	let kind = $('#kind').val();
+	let detail = $('#detail').val();
 	if(kind) {
 		if(kind=='꽃다발'|| kind=='꽃바구니') {
 			if(flowerCategory) {	
 				if(flowerName) {	
-					if(price) {	
+					if(price) {
+						if(detail) {
 								$.ajax({
 									type: 'post',
 									url: '${pageContext.request.contextPath}/admin/flower/addFlower',
@@ -26,11 +28,20 @@ $('#registerBtn').click(() => {
 										flowerName: flowerName,
 										price: price,
 										flowerCategory: flowerCategory,
-										kind: kind
+										kind: kind,
+										detail: detail
 									}
 								}).done(function() {
 									location.href='../flower/listFlower'
 								})
+								} else {
+									event.preventDefault();
+									$('#modalMsg').empty();
+									$('#modalMsg').text('꽃상세를 입력해주세요.');
+									$('#cofirmModal').modal();
+									$('#okBtn').show();
+									$('#noBtn').hide();
+								}
 							} else {
 								event.preventDefault();
 								$('#modalMsg').empty();
@@ -168,9 +179,9 @@ table.type1 td{
 							</td>
 						</tr>
 						<tr>
-							<th>제품상세 : </th>
+							<th>상세 : </th>
 							<td>
-								<input type='file' name="detailImgfile" multiple="true" />
+								<input type='text' id='detail' name="detail"  />
 							</td>
 						</tr>
 						<tr>

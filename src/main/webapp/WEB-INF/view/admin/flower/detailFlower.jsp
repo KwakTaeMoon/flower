@@ -12,11 +12,13 @@ function init() {
 		let price = $('#price').val();
 		let flowerCategory = $('#flowerCategory:checked').val();
 		let kind = $('#kind').val();
+		let detail = $('#detail').val();
 		if(kind) {
 			if(kind=='꽃다발'|| kind=='꽃바구니') {
 				if(flowerCategory) {	
 					if(flowerName) {	
 						if(price) {	
+							if(detail) {
 									$.ajax({
 										url: 'fix',
 										method:'post',
@@ -26,7 +28,8 @@ function init() {
 											flowerName: flowerName,
 											price: price,
 											flowerCategory: flowerCategory,
-											kind: kind
+											kind: kind,
+											detail: detail
 										})
 									}).done(() => {
 										$('#modalMsg').empty();
@@ -35,6 +38,14 @@ function init() {
 										$('#okBtn').hide();
 										$('#fixOkBtn').show();
 									})
+									} else {
+										event.preventDefault();
+										$('#modalMsg').empty();
+										$('#modalMsg').text('상세를 입력해주세요.');
+										$('#cofirmModal').modal();
+										$('#okBtn').show();
+										$('#fixOkBtn').hide();
+									}
 								} else {
 									event.preventDefault();
 									$('#modalMsg').empty();
@@ -170,20 +181,16 @@ $(init)
 					<input type='radio' value='BEST' id='flowerCategory' name='flowerCategory'>&emsp;BEST&emsp;&emsp;
 					<input type='radio' value='NEW' id='flowerCategory' name='flowerCategory'>&emsp;NEW&emsp;&emsp;
 				</p>
+				<p>
+					<label><b>상세:&nbsp;</b><input type='text' id='detail' name='detail' value='${flower.detail}'/></label>
+				</p>
 			</c:forEach>
 			</form>
 			</div>
 		</div>
 	</div><br><hr>
-<div class='col'>
-	<div class='row'>
-		<div class='col-2'></div>
-			<div class='col-10 text-center'>				
-				<c:forEach var="flower" items="${flowerList}">
-					<img style='max-width: 1000; height:1000' src='<c:url value="/attach/${flower.detailImgfileName}"/>'/><br>
-				</c:forEach>
-			</div>
-		</div><br><br><hr>
+	<div class='col'>
+	<br><br><hr>
 		<div class='col'>
 			<c:forEach var="flower" items="${flowerList}">
 				<button id='fixFlowerBtn' class='btn btn-outline-secondary  float-right  mr-2' >수정</button>
