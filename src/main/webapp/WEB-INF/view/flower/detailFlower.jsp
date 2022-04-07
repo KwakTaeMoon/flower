@@ -105,8 +105,10 @@ $(init);
 						<button type='button'class='btn btn-outline-secondary' id='cartBtn'
 							onclick='location.href="<%=request.getContextPath() %>/cart/listCart?userId=${userId}"'>장바구니</button>
 						<div style='width:60px'></div>
+						<c:forEach var="flower" items="${flowerList}">
 							<button class='btn btn-outline-secondary' id='orderBtn' 
 								onclick='location.href="/order/addOrder?flowerNum=${flower.flowerNum}"'>구매</button>
+						</c:forEach>
 					</div>
 				</div>
 			</div>
