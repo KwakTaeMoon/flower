@@ -21,9 +21,6 @@ $('#registerBtn').click(() => {
 								$.ajax({
 									type: 'post',
 									url: '${pageContext.request.contextPath}/admin/flower/addFlower',
-									enctype: 'multipart/form-data',
-									processData: false,
-									contentType: false,
 									data: {
 										flowerName: flowerName,
 										price: price,
